@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Ignore raw/generated sensor data by default.
+data/*
+
+# Keep the small processed feature dataset used by the proof-of-concept model.
+!data/processed/
+data/processed/*
+!data/processed/wesad_3subjects_features.csv
