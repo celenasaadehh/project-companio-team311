@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AssistLens Patient App</title>
+
+  <style>
+    :root {
+      --bg: #eaf3ef;
+      --phone: #f8fbf8;
+      --card: #ffffff;
+      --text: #17312b;
+      --muted: #6f817b;
+      --primary: #2f7d67;
+      --primary-dark: #226552;
+      --primary-soft: #dff1eb;
+      --cream: #fff7e8;
+      --blue-soft: #e9f1ff;
+      --danger: #d83b3b;
+      --danger-soft: #ffecec;
+      --border: #d9e5df;
+      --shadow: 0 20px 55px rgba(27, 65, 53, 0.16);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #d8efe6 0, transparent 34%),
+        radial-gradient(circle at bottom right, #fce7f3 0, transparent 28%),
+        var(--bg);
+      display: grid;
+      place-items: center;
+      color: var(--text);
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus,
+    button:focus {
+      outline: 4px solid #f7d36b;
+      outline-offset: 3px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    body.large-text {
+      font-size: 118%;
+    }
+
+    body.reduce-motion * {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    .phone-frame {
+      width: 420px;
+      height: 900px;
+      max-width: 100vw;
+      max-height: 100vh;
+      background: #101a17;
+      border-radius: 52px;
+      padding: 14px;
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.28);
+      position: relative;
+    }
+
+    .phone-screen {
+      height: 100%;
+      background: var(--phone);
+      border-radius: 40px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 124px;
+      height: 28px;
+      background: #101a17;
+      border-radius: 0 0 18px 18px;
+      z-index: 20;
+    }
+
+    .status-bar {
+      height: 44px;
+      padding: 13px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 800;
+      position: relative;
+      z-index: 10;
+    }
+
+    .app-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 20px 98px;
+      scrollbar-width: none;
+    }
+
+    .app-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bottom-nav {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+      box-shadow: 0 14px 35px rgba(27, 65, 53, 0.12);
+      z-index: 30;
+    }
+
+    .nav-btn {
+      background: transparent;
+      color: var(--muted);
+      padding: 9px 4px;
+      border-radius: 22px;
+      font-size: 12px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+    }
+
+    .nav-btn span {
+      font-size: 19px;
+    }
+
+    .nav-btn.active {
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+      animation: fadeUp 0.2s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .login-screen {
+      min-height: 100%;
+      padding: 18px 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .login-hero {
+      background: linear-gradient(145deg, #ffffff, #eaf7f1);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-hero::after {
+      content: "";
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: #fbe7b5;
+      position: absolute;
+      right: -60px;
+      top: -45px;
+      opacity: 0.8;
+    }
+
+    .app-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 21px;
+      background: var(--primary);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 24px 0 10px;
+      font-size: 38px;
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+    }
+
+    .login-hero p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .login-card {
+      margin-top: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1.8px solid var(--border);
+      border-radius: 18px;
+      padding: 15px 16px;
+      background: #fbfdfb;
+      color: var(--text);
+      font-size: 17px;
+    }
+
+    .pin-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 9px;
+    }
+
+    .small-btn {
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      border-radius: 18px;
+      padding: 0 15px;
+      font-weight: 900;
+    }
+
+    .main-btn {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 19px;
+      background: var(--primary);
+      color: white;
+      font-weight: 900;
+      font-size: 17px;
+      box-shadow: 0 10px 22px rgba(47, 125, 103, 0.22);
+    }
+
+    .outline-btn {
+      width: 100%;
+      padding: 15px;
+      border-radius: 18px;
+      background: white;
+      color: var(--primary-dark);
+      border: 1px solid var(--border);
+      font-weight: 900;
+    }
+
+    .danger-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 19px;
+      background: var(--danger);
+      color: white;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .login-message {
+      min-height: 25px;
+      color: var(--danger);
+      font-weight: 900;
+      margin: 4px 0 12px;
+    }
+
+    .demo-box {
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 20px;
+      background: var(--cream);
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .demo-box strong {
+      color: var(--text);
+    }
+
+    .demo-box button {
+      margin-top: 10px;
+    }
+
+    .app-header {
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hello h2 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: -1px;
+    }
+
+    .hello p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      line-height: 1.35;
+      font-size: 14px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 43px;
+      height: 43px;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      box-shadow: 0 8px 20px rgba(27, 65, 53, 0.08);
+    }
+
+    .section-title {
+      margin: 20px 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(27, 65, 53, 0.08);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+
+    .soft-card {
+      background: linear-gradient(145deg, #ffffff, #eff9f5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .soft-card h1 {
+      margin: 0 0 8px;
+      font-size: 31px;
+      letter-spacing: -1px;
+    }
+
+    .soft-card p {
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 0;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+      margin-top: 15px;
+    }
+
+    .status-pill {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 13px;
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .quick-card {
+      min-height: 128px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      text-align: left;
+      box-shadow: 0 10px 26px rgba(27, 65, 53, 0.07);
+    }
+
+    .quick-card .emoji {
+      width: 45px;
+      height: 45px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .quick-card span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .alert-card {
+      background: var(--danger-soft);
+      border: 1px solid #ffd0d0;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      color: #8d1d1d;
+      font-weight: 900;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .person-card,
+    .reminder-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 15px;
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      box-shadow: 0 8px 22px rgba(27, 65, 53, 0.06);
+    }
+
+    .avatar {
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      border-radius: 19px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 21px;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .person-info,
+    .reminder-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .person-info h3,
+    .reminder-info h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+
+    .person-info p,
+    .reminder-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .tiny-actions {
+      display: flex;
+      gap: 7px;
+    }
+
+    .tiny-btn {
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      padding: 10px 11px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .delete-btn {
+      background: var(--danger-soft);
+      color: #9b1c1c;
+    }
+
+    .row-between {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .row-between h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .add-btn {
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .message-box {
+      margin-top: 14px;
+      background: var(--blue-soft);
+      border: 1px solid #d7e4ff;
+      border-radius: var(--radius-lg);
+      padding: 15px;
+      color: #28446e;
+      font-weight: 800;
+      line-height: 1.4;
+      font-size: 14px;
+    }
+
+    .switch-row {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .switch-row h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+
+    .switch-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .switch {
+      width: 58px;
+      height: 34px;
+      border-radius: 999px;
+      background: #d4ded9;
+      padding: 4px;
+      flex: 0 0 58px;
+      transition: 0.2s;
+    }
+
+    .switch.active {
+      background: var(--primary);
+    }
+
+    .switch-knob {
+      width: 26px;
+      height: 26px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .switch.active .switch-knob {
+      transform: translateX(24px);
+    }
+
+    .photo-preview {
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      background: var(--primary-soft);
+      border: 1px dashed var(--primary);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 900;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .photo-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
+      border-radius: 34px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      display: grid;
+      place-items: center;
+      font-size: 44px;
+      font-weight: 900;
+      overflow: hidden;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 80;
+      background: rgba(19, 36, 31, 0.48);
+      display: grid;
+      place-items: end center;
+      padding: 18px;
+    }
+
+    .modal {
+      width: 100%;
+      background: white;
+      border-radius: 32px;
+      padding: 22px;
+      box-shadow: 0 -15px 40px rgba(0,0,0,0.18);
+      animation: slideUp 0.2s ease;
+      max-height: 86vh;
+      overflow-y: auto;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .modal p {
+      margin-top: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .modal-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .checkin-card {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      text-align: left;
+      box-shadow: 0 8px 22px rgba(27, 65, 53, 0.06);
+    }
+
+    .checkin-card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: var(--text);
+    }
+
+    .checkin-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        display: block;
+        background: var(--phone);
+      }
+
+      .phone-frame {
+        width: 100vw;
+        height: 100vh;
+        max-height: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        background: var(--phone);
+      }
+
+      .phone-screen {
+        border-radius: 0;
+      }
+
+      .phone-notch {
+        display: none;
+      }
+
+      .bottom-nav {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="phone-frame">
+    <div class="phone-screen">
+      <div class="phone-notch"></div>
+
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>5G 🔋</span>
+      </div>
+
+      <main class="app-content">
+
+        <!-- LOGIN SCREEN -->
+        <section id="loginScreen" class="screen active">
+          <div class="login-screen">
+            <div>
+              <div class="login-hero">
+                <div class="app-logo">A</div>
+                <h1>AssistLens</h1>
+                <p>
+                  Your simple patient companion for smart glasses, reminders,
+                  trusted people, and emergency help.
+                </p>
+              </div>
+
+              <div class="login-card">
+                <div class="field">
+                  <label for="patientCode">Patient code</label>
+                  <input id="patientCode" type="text" placeholder="PAT-102" autocomplete="username" />
+                </div>
+
+                <div class="field">
+                  <label for="pin">PIN</label>
+                  <div class="pin-row">
+                    <input id="pin" type="password" placeholder="4 numbers" maxlength="4" inputmode="numeric" />
+                    <button class="small-btn" type="button" onclick="togglePin()">Show</button>
+                  </div>
+                </div>
+
+                <p id="loginMessage" class="login-message"></p>
+
+                <button class="main-btn" type="button" onclick="login()">
+                  Log in
+                </button>
+
+                <div class="demo-box">
+                  Demo login:<br />
+                  Code: <strong>PAT-102</strong> &nbsp; PIN: <strong>1234</strong>
+                  <button class="outline-btn" type="button" onclick="fillDemoLogin()">
+                    Fill demo account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOME SCREEN -->
+        <section id="homeScreen" class="screen">
+          <header class="app-header">
+            <div class="hello">
+              <h2>Hello, Maya</h2>
+              <p>Your glasses and watch are connected.</p>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" type="button" onclick="listenToCurrentScreen()">🔊</button>
+              <button class="icon-btn" type="button" onclick="stopVoice()">🔇</button>
+            </div>
+          </header>
+
+          <section class="soft-card">
+            <h1>Today is okay.</h1>
+            <p>
+              Your next reminder is evening medication at 8:30 PM.
+              Carla is your caregiver today.
+            </p>
+
+            <div class="status-grid">
+              <div class="status-pill">👓 Glasses connected</div>
+              <div class="status-pill">⌚ Watch connected</div>
+              <div class="status-pill">💚 Stress normal</div>
+              <div class="status-pill">🔋 Battery 82%</div>
+            </div>
+          </section>
+
+          <h2 class="section-title">Quick help</h2>
+
+          <div class="quick-grid">
+            <button class="quick-card" type="button" onclick="openCheckInModal()">
+              <div class="emoji">✨</div>
+              <strong>How can I help?</strong>
+              <span>Choose how you feel and get one simple next step.</span>
+            </button>
+
+            <button class="quick-card" type="button" onclick="openPersonModal()">
+              <div class="emoji">👥</div>
+              <strong>Add person</strong>
+              <span>Add a trusted family member, caregiver, therapist, or doctor.</span>
+            </button>
+
+            <button class="quick-card" type="button" onclick="goToScreen('myDayScreen')">
+              <div class="emoji">🗓️</div>
+              <strong>My reminders</strong>
+              <span>View medicine, appointments, and daily routine.</span>
+            </button>
+
+            <button class="quick-card" type="button" onclick="openEmergencyModal()">
+              <div class="emoji">🚨</div>
+              <strong>Emergency</strong>
+              <span>Send an urgent alert to the caregiver.</span>
+            </button>
+          </div>
+
+          <div id="homeMessage" class="message-box">
+            No alerts right now.
+          </div>
+        </section>
+
+        <!-- MY DAY SCREEN -->
+        <section id="myDayScreen" class="screen">
+          <header class="app-header">
+            <div class="hello">
+              <h2>My Day</h2>
+              <p>Simple reminders for the patient.</p>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" type="button" onclick="listenToCurrentScreen()">🔊</button>
+              <button class="icon-btn" type="button" onclick="stopVoice()">🔇</button>
+            </div>
+          </header>
+
+          <div class="row-between">
+            <h2>Reminders</h2>
+            <button class="add-btn" type="button" onclick="openReminderModal()">+ Add</button>
+          </div>
+
+          <div id="reminderList" class="list"></div>
+        </section>
+
+        <!-- PEOPLE SCREEN -->
+        <section id="peopleScreen" class="screen">
+          <header class="app-header">
+            <div class="hello">
+              <h2>People</h2>
+              <p>Trusted people the glasses can help recognize.</p>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" type="button" onclick="listenToCurrentScreen()">🔊</button>
+              <button class="icon-btn" type="button" onclick="stopVoice()">🔇</button>
+            </div>
+          </header>
+
+          <div class="soft-card" style="margin-bottom: 16px;">
+            <h1>Trusted people</h1>
+            <p>
+              Add family, caregivers, therapists, or doctors. Their photos can later be used by the glasses recognition system.
+            </p>
+          </div>
+
+          <div class="row-between">
+            <h2>Saved people</h2>
+            <button class="add-btn" type="button" onclick="openPersonModal()">+ Add</button>
+          </div>
+
+          <div id="peopleList" class="list"></div>
+        </section>
+
+        <!-- SUPPORT SCREEN -->
+        <section id="supportScreen" class="screen">
+          <header class="app-header">
+            <div class="hello">
+              <h2>Support</h2>
+              <p>Fast help when the patient needs it.</p>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" type="button" onclick="listenToCurrentScreen()">🔊</button>
+              <button class="icon-btn" type="button" onclick="stopVoice()">🔇</button>
+            </div>
+          </header>
+
+          <div class="alert-card">
+            <span style="font-size: 28px;">🚨</span>
+            <span>SOS will alert the caregiver in the real app.</span>
+          </div>
+
+          <h2 class="section-title">Care options</h2>
+
+          <div class="list">
+            <button class="card" type="button" onclick="callCaregiver()">
+              <h3>Call caregiver</h3>
+              <p>Starts a call with Carla, the assigned caregiver.</p>
+            </button>
+
+            <button class="card" type="button" onclick="messageTherapist()">
+              <h3>Message therapist</h3>
+              <p>Sends a non-urgent update to Dr. Lea.</p>
+            </button>
+
+            <button class="danger-btn" type="button" onclick="openEmergencyModal()">
+              SOS Emergency
+            </button>
+          </div>
+
+          <div id="supportMessage" class="message-box">
+            Support is ready.
+          </div>
+        </section>
+
+        <!-- SETTINGS SCREEN -->
+        <section id="settingsScreen" class="screen">
+          <header class="app-header">
+            <div class="hello">
+              <h2>Settings</h2>
+              <p>Patient accessibility controls.</p>
+            </div>
+
+            <div class="header-actions">
+              <button class="icon-btn" type="button" onclick="listenToCurrentScreen()">🔊</button>
+              <button class="icon-btn" type="button" onclick="stopVoice()">🔇</button>
+            </div>
+          </header>
+
+          <div class="switch-row">
+            <div>
+              <h3>Voice guidance</h3>
+              <p>When on, the Listen button reads the screen.</p>
+            </div>
+
+            <button id="voiceSwitch" class="switch" type="button" onclick="toggleVoice()">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+
+          <div class="switch-row">
+            <div>
+              <h3>Large text</h3>
+              <p>Makes text bigger and easier to read.</p>
+            </div>
+
+            <button id="textSwitch" class="switch" type="button" onclick="toggleLargeText()">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+
+          <div class="switch-row">
+            <div>
+              <h3>Reduce motion</h3>
+              <p>Removes animations for sensitive users.</p>
+            </div>
+
+            <button id="motionSwitch" class="switch" type="button" onclick="toggleReduceMotion()">
+              <div class="switch-knob"></div>
+            </button>
+          </div>
+
+          <div class="card" style="margin-top: 14px;">
+            <h3>🔐 Caretaker controls</h3>
+            <p>Deleting trusted people or reminders requires the caretaker access code.</p>
+            <button class="outline-btn" type="button" onclick="changeCaretakerCode()" style="margin-top: 14px;">
+              Change caretaker access code
+            </button>
+          </div>
+
+          <button class="outline-btn" type="button" onclick="logout()" style="margin-top: 14px;">
+            Log out
+          </button>
+        </section>
+
+      </main>
+
+      <!-- BOTTOM NAV -->
+      <nav id="bottomNav" class="bottom-nav hidden">
+        <button class="nav-btn active" type="button" data-target="homeScreen" onclick="navClick(this)">
+          <span>🏠</span>Home
+        </button>
+
+        <button class="nav-btn" type="button" data-target="myDayScreen" onclick="navClick(this)">
+          <span>🗓️</span>Day
+        </button>
+
+        <button class="nav-btn" type="button" data-target="peopleScreen" onclick="navClick(this)">
+          <span>👥</span>People
+        </button>
+
+        <button class="nav-btn" type="button" data-target="supportScreen" onclick="navClick(this)">
+          <span>❤️</span>Help
+        </button>
+
+        <button class="nav-btn" type="button" data-target="settingsScreen" onclick="navClick(this)">
+          <span>⚙️</span>Settings
+        </button>
+      </nav>
+
+      <!-- SMART CHECK-IN MODAL -->
+      <div id="checkInModal" class="modal-backdrop hidden">
+        <div class="modal">
+          <h2>How can I help?</h2>
+          <p>Choose what feels closest. The app will give one simple next step.</p>
+
+          <div class="modal-actions">
+            <button class="checkin-card" type="button" onclick="chooseCheckIn('lost')">
+              <h3>🧭 I feel lost</h3>
+              <p>Help me know what to do or who to call.</p>
+            </button>
+
+            <button class="checkin-card" type="button" onclick="chooseCheckIn('anxious')">
+              <h3>💙 I feel anxious</h3>
+              <p>Give me a calm step and support option.</p>
+            </button>
+
+            <button class="checkin-card" type="button" onclick="chooseCheckIn('forgot')">
+              <h3>🧠 I forgot what to do</h3>
+              <p>Show my next reminder or routine step.</p>
+            </button>
+
+            <button class="checkin-card" type="button" onclick="chooseCheckIn('person')">
+              <h3>👥 I need someone</h3>
+              <p>Help me contact a trusted person.</p>
+            </button>
+
+            <button class="outline-btn" type="button" onclick="closeCheckInModal()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD PERSON MODAL -->
+      <div id="personModal" class="modal-backdrop hidden">
+        <div class="modal">
+          <h2>Add trusted person</h2>
+          <p>This person can be saved for the smart glasses recognition database.</p>
+
+          <div class="field">
+            <label for="personName">Name</label>
+            <input id="personName" type="text" placeholder="Example: Carla" />
+          </div>
+
+          <div class="field">
+            <label for="personRelation">Relationship</label>
+            <select id="personRelation">
+              <option>Caregiver</option>
+              <option>Family</option>
+              <option>Friend</option>
+              <option>Therapist</option>
+              <option>Doctor</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="personPhoto">Photo</label>
+            <input id="personPhoto" type="file" accept="image/*" />
+            <div id="personPhotoPreview" class="photo-preview">
+              No photo selected
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="personNote">Helpful note</label>
+            <textarea id="personNote" rows="3" placeholder="Example: Carla helps you with appointments."></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button class="main-btn" type="button" onclick="savePerson()">Save person</button>
+            <button class="outline-btn" type="button" onclick="closePersonModal()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERSON DETAILS MODAL -->
+      <div id="personDetailsModal" class="modal-backdrop hidden">
+        <div class="modal">
+          <div id="personDetailsPhoto" class="profile-photo"></div>
+
+          <h2 id="personDetailsName">Person name</h2>
+          <p id="personDetailsRelation">Relationship</p>
+
+          <div class="message-box" id="personDetailsNote">
+            Helpful note appears here.
+          </div>
+
+          <div class="modal-actions">
+            <button class="danger-btn" id="detailsDeleteBtn" type="button">
+              Delete person
+            </button>
+
+            <button class="outline-btn" type="button" onclick="closePersonDetailsModal()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADD REMINDER MODAL -->
+      <div id="reminderModal" class="modal-backdrop hidden">
+        <div class="modal">
+          <h2>Add reminder</h2>
+          <p>Add a simple reminder for the patient's daily routine.</p>
+
+          <div class="field">
+            <label for="reminderTitle">Reminder</label>
+            <input id="reminderTitle" type="text" placeholder="Example: Take medicine" />
+          </div>
+
+          <div class="field">
+            <label for="reminderTime">Time</label>
+            <input id="reminderTime" type="time" />
+          </div>
+
+          <div class="field">
+            <label for="reminderNote">Note</label>
+            <textarea id="reminderNote" rows="3" placeholder="Example: Take with water."></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button class="main-btn" type="button" onclick="saveReminder()">Save reminder</button>
+            <button class="outline-btn" type="button" onclick="closeReminderModal()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARETAKER ACCESS MODAL -->
+      <div id="caretakerAccessModal" class="modal-backdrop hidden">
+        <div class="modal">
+          <h2>🔐 Caretaker access</h2>
+          <p id="caretakerAccessText">Enter the caretaker access code to continue.</p>
+
+          <div class="field">
+            <label for="caretakerAccessInput">Access code</label>
+            <input
+              id="caretakerAccessInput"
+              type="password"
+              inputmode="numeric"
+              maxlength="8"
+              placeholder="Enter caretaker code"
+              autocomplete="off"
+            />
+          </div>
+
+          <p id="caretakerAccessMessage" class="login-message"></p>
+
+          <div class="demo-box">
+            Demo caretaker code: <strong>2468</strong>
+            <button class="outline-btn" type="button" onclick="fillDemoCaretakerCode()">
+              Fill demo code
+            </button>
+          </div>
+
+          <div class="modal-actions">
+            <button class="danger-btn" type="button" onclick="confirmCaretakerAccess()">
+              Confirm
+            </button>
+            <button class="outline-btn" type="button" onclick="closeCaretakerAccessModal()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMERGENCY MODAL -->
+      <div id="emergencyModal" class="modal-backdrop hidden">
+        <div class="modal">
+          <h2>SOS Emergency</h2>
+          <p>
+            This would alert the caregiver, send patient status, and show the patient simple instructions.
+          </p>
+
+          <div class="modal-actions">
+            <button class="danger-btn" type="button" onclick="sendEmergency()">Send SOS alert</button>
+            <button class="outline-btn" type="button" onclick="closeEmergencyModal()">I am safe</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const validPatient = {
+      code: "PAT-102",
+      pin: "1234",
+      name: "Maya"
+    };
+
+    let voiceEnabled = false;
+    let selectedPersonPhoto = "";
+
+    const defaultCaretakerCode = "2468";
+    let caretakerCode = localStorage.getItem("assist_caretaker_code") || defaultCaretakerCode;
+    let pendingCaretakerAction = null;
+
+    let people = JSON.parse(localStorage.getItem("assist_people")) || [
+      {
+        id: Date.now() + 1,
+        name: "Carla",
+        relation: "Caregiver",
+        note: "Carla helps you with appointments and medication.",
+        photo: ""
+      },
+      {
+        id: Date.now() + 2,
+        name: "Dr. Lea",
+        relation: "Therapist",
+        note: "Dr. Lea follows your therapy plan.",
+        photo: ""
+      }
+    ];
+
+    let reminders = JSON.parse(localStorage.getItem("assist_reminders")) || [
+      {
+        id: Date.now() + 3,
+        title: "Take evening medication",
+        time: "20:30",
+        note: "Take with water after dinner.",
+        done: false
+      },
+      {
+        id: Date.now() + 4,
+        title: "Call Carla",
+        time: "18:00",
+        note: "Daily check-in call.",
+        done: false
+      }
+    ];
+
+    const screens = document.querySelectorAll(".screen");
+    const bottomNav = document.getElementById("bottomNav");
+
+    function login() {
+      const code = document.getElementById("patientCode").value.trim().toUpperCase();
+      const pin = document.getElementById("pin").value.trim();
+      const message = document.getElementById("loginMessage");
+
+      if (code !== validPatient.code || pin !== validPatient.pin) {
+        message.textContent = "Wrong patient code or PIN. Try PAT-102 and 1234.";
+        return;
+      }
+
+      message.textContent = "";
+      localStorage.setItem("assist_logged_in", "true");
+      openApp();
+    }
+
+    function openApp() {
+      document.getElementById("loginScreen").classList.remove("active");
+      document.getElementById("homeScreen").classList.add("active");
+      bottomNav.classList.remove("hidden");
+      renderPeople();
+      renderReminders();
+    }
+
+    function logout() {
+      localStorage.removeItem("assist_logged_in");
+      stopVoice();
+
+      screens.forEach(screen => screen.classList.remove("active"));
+      document.getElementById("loginScreen").classList.add("active");
+      bottomNav.classList.add("hidden");
+      document.getElementById("patientCode").value = "";
+      document.getElementById("pin").value = "";
+    }
+
+    window.addEventListener("load", () => {
+      if (localStorage.getItem("assist_logged_in") === "true") {
+        openApp();
+      }
+
+      renderPeople();
+      renderReminders();
+    });
+
+    function fillDemoLogin() {
+      document.getElementById("patientCode").value = "PAT-102";
+      document.getElementById("pin").value = "1234";
+      document.getElementById("loginMessage").textContent = "Demo account filled. Press Log in.";
+      document.getElementById("loginMessage").style.color = "#2f7d67";
+    }
+
+    function togglePin() {
+      const pinInput = document.getElementById("pin");
+      pinInput.type = pinInput.type === "password" ? "text" : "password";
+    }
+
+    function navClick(button) {
+      const target = button.dataset.target;
+
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      goToScreen(target);
+    }
+
+    function goToScreen(screenId) {
+      screens.forEach(screen => screen.classList.remove("active"));
+      document.getElementById(screenId).classList.add("active");
+
+      if (screenId !== "loginScreen") {
+        bottomNav.classList.remove("hidden");
+      }
+
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.target === screenId);
+      });
+    }
+
+    /* SMART CHECK-IN */
+
+    function openCheckInModal() {
+      document.getElementById("checkInModal").classList.remove("hidden");
+    }
+
+    function closeCheckInModal() {
+      document.getElementById("checkInModal").classList.add("hidden");
+    }
+
+    function chooseCheckIn(type) {
+      let message = "";
+
+      if (type === "lost") {
+        message =
+          "Simple step: Stay where you are. Carla can be contacted. The glasses can help guide you back to a safe place.";
+      }
+
+      if (type === "anxious") {
+        message =
+          "Simple step: Sit down if you can. Put both feet on the floor. Take one slow breath. If it continues, contact Carla.";
+      }
+
+      if (type === "forgot") {
+        message =
+          "Simple step: Open My Day. Your next reminder is evening medication at 8:30 PM.";
+      }
+
+      if (type === "person") {
+        message =
+          "Simple step: Go to Support. You can call your caregiver Carla or message Dr. Lea.";
+      }
+
+      updateHomeMessage(message);
+      closeCheckInModal();
+
+      if (type === "forgot") {
+        goToScreen("myDayScreen");
+      }
+
+      if (type === "person") {
+        goToScreen("supportScreen");
+      }
+
+      if (voiceEnabled) {
+        speak(message);
+      }
+    }
+
+    /* PEOPLE */
+
+    function renderPeople() {
+      const list = document.getElementById("peopleList");
+      if (!list) return;
+
+      list.innerHTML = "";
+
+      if (people.length === 0) {
+        list.innerHTML = `
+          <div class="card">
+            <h3>No trusted people yet</h3>
+            <p>Add a caregiver, family member, therapist, or doctor.</p>
+          </div>
+        `;
+        return;
+      }
+
+      people.forEach(person => {
+        const initial = person.name.charAt(0).toUpperCase();
+
+        const avatarContent = person.photo
+          ? `<img src="${person.photo}" alt="${escapeHtml(person.name)} photo">`
+          : initial;
+
+        const card = document.createElement("div");
+        card.className = "person-card";
+
+        card.innerHTML = `
+          <div class="avatar">${avatarContent}</div>
+
+          <div class="person-info">
+            <h3>${escapeHtml(person.name)}</h3>
+            <p>${escapeHtml(person.relation)} · ${escapeHtml(person.note)}</p>
+          </div>
+
+          <div class="tiny-actions">
+            <button class="tiny-btn" onclick="viewPerson('${person.id}')">View</button>
+            <button class="tiny-btn delete-btn" onclick="deletePerson('${person.id}')">Delete</button>
+          </div>
+        `;
+
+        list.appendChild(card);
+      });
+    }
+
+    function openPersonModal() {
+      document.getElementById("personModal").classList.remove("hidden");
+    }
+
+    function closePersonModal() {
+      document.getElementById("personModal").classList.add("hidden");
+
+      document.getElementById("personName").value = "";
+      document.getElementById("personRelation").value = "Caregiver";
+      document.getElementById("personNote").value = "";
+      document.getElementById("personPhoto").value = "";
+
+      selectedPersonPhoto = "";
+      document.getElementById("personPhotoPreview").innerHTML = "No photo selected";
+    }
+
+    function savePerson() {
+      const name = document.getElementById("personName").value.trim();
+      const relation = document.getElementById("personRelation").value;
+      const note = document.getElementById("personNote").value.trim();
+
+      if (!name) {
+        alert("Please enter the person's name.");
+        return;
+      }
+
+      people.push({
+        id: Date.now(),
+        name,
+        relation,
+        note: note || "No note added.",
+        photo: selectedPersonPhoto
+      });
+
+      localStorage.setItem("assist_people", JSON.stringify(people));
+
+      closePersonModal();
+      renderPeople();
+      updateHomeMessage(name + " was added to trusted people.");
+    }
+
+    function deletePerson(id, closeDetailsAfter = false) {
+      openCaretakerAccessModal("delete this trusted person", function () {
+        people = people.filter(person => String(person.id) !== String(id));
+        localStorage.setItem("assist_people", JSON.stringify(people));
+        renderPeople();
+        updateHomeMessage("Person removed from trusted people by caretaker authorization.");
+
+        if (closeDetailsAfter) {
+          closePersonDetailsModal();
+        }
+      });
+    }
+
+    function viewPerson(id) {
+      const person = people.find(p => String(p.id) === String(id));
+      if (!person) return;
+
+      const initial = person.name.charAt(0).toUpperCase();
+
+      document.getElementById("personDetailsPhoto").innerHTML = person.photo
+        ? `<img src="${person.photo}" alt="${escapeHtml(person.name)} photo">`
+        : initial;
+
+      document.getElementById("personDetailsName").textContent = person.name;
+      document.getElementById("personDetailsRelation").textContent = person.relation;
+      document.getElementById("personDetailsNote").textContent = person.note;
+
+      document.getElementById("detailsDeleteBtn").onclick = function () {
+        deletePerson(id, true);
+      };
+
+      document.getElementById("personDetailsModal").classList.remove("hidden");
+    }
+
+    function closePersonDetailsModal() {
+      document.getElementById("personDetailsModal").classList.add("hidden");
+    }
+
+    document.getElementById("personPhoto").addEventListener("change", function (event) {
+      const file = event.target.files[0];
+
+      if (!file) {
+        selectedPersonPhoto = "";
+        document.getElementById("personPhotoPreview").innerHTML = "No photo selected";
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        selectedPersonPhoto = reader.result;
+
+        document.getElementById("personPhotoPreview").innerHTML = `
+          <img src="${selectedPersonPhoto}" alt="Selected person photo">
+        `;
+      };
+
+      reader.readAsDataURL(file);
+    });
+
+    /* REMINDERS */
+
+    function renderReminders() {
+      const list = document.getElementById("reminderList");
+      if (!list) return;
+
+      list.innerHTML = "";
+
+      if (reminders.length === 0) {
+        list.innerHTML = `
+          <div class="card">
+            <h3>No reminders yet</h3>
+            <p>Add medication, appointment, or routine reminders.</p>
+          </div>
+        `;
+        return;
+      }
+
+      reminders.forEach(reminder => {
+        const card = document.createElement("div");
+        card.className = "reminder-card";
+        card.innerHTML = `
+          <div class="avatar">⏰</div>
+          <div class="reminder-info">
+            <h3>${escapeHtml(reminder.title)}</h3>
+            <p>${formatTime(reminder.time)} · ${escapeHtml(reminder.note)}</p>
+          </div>
+          <div class="tiny-actions">
+            <button class="tiny-btn" onclick="toggleReminderDone('${reminder.id}')">
+              ${reminder.done ? "Undo" : "Done"}
+            </button>
+            <button class="tiny-btn delete-btn" onclick="deleteReminder('${reminder.id}')">Delete</button>
+          </div>
+        `;
+
+        if (reminder.done) {
+          card.style.opacity = "0.55";
+        }
+
+        list.appendChild(card);
+      });
+    }
+
+    function openReminderModal() {
+      document.getElementById("reminderModal").classList.remove("hidden");
+    }
+
+    function closeReminderModal() {
+      document.getElementById("reminderModal").classList.add("hidden");
+      document.getElementById("reminderTitle").value = "";
+      document.getElementById("reminderTime").value = "";
+      document.getElementById("reminderNote").value = "";
+    }
+
+    function saveReminder() {
+      const title = document.getElementById("reminderTitle").value.trim();
+      const time = document.getElementById("reminderTime").value;
+      const note = document.getElementById("reminderNote").value.trim();
+
+      if (!title || !time) {
+        alert("Please enter a reminder and time.");
+        return;
+      }
+
+      reminders.push({
+        id: Date.now(),
+        title,
+        time,
+        note: note || "No note added.",
+        done: false
+      });
+
+      localStorage.setItem("assist_reminders", JSON.stringify(reminders));
+      closeReminderModal();
+      renderReminders();
+    }
+
+    function toggleReminderDone(id) {
+      reminders = reminders.map(reminder => {
+        if (String(reminder.id) === String(id)) {
+          return { ...reminder, done: !reminder.done };
+        }
+
+        return reminder;
+      });
+
+      localStorage.setItem("assist_reminders", JSON.stringify(reminders));
+      renderReminders();
+    }
+
+    function deleteReminder(id) {
+      openCaretakerAccessModal("delete this reminder", function () {
+        reminders = reminders.filter(reminder => String(reminder.id) !== String(id));
+        localStorage.setItem("assist_reminders", JSON.stringify(reminders));
+        renderReminders();
+        updateHomeMessage("Reminder deleted by caretaker authorization.");
+      });
+    }
+
+    /* SUPPORT */
+
+    function callCaregiver() {
+      document.getElementById("supportMessage").textContent =
+        "Calling Carla... In the real app, this would open the phone call screen.";
+      updateHomeMessage("Calling Carla...");
+      goToScreen("supportScreen");
+    }
+
+    function messageTherapist() {
+      document.getElementById("supportMessage").textContent =
+        "Message sent to Dr. Lea: Patient requested support.";
+    }
+
+    function openEmergencyModal() {
+      document.getElementById("emergencyModal").classList.remove("hidden");
+    }
+
+    function closeEmergencyModal() {
+      document.getElementById("emergencyModal").classList.add("hidden");
+      updateHomeMessage("SOS cancelled. Patient marked safe.");
+    }
+
+    function sendEmergency() {
+      document.getElementById("emergencyModal").classList.add("hidden");
+      updateHomeMessage("SOS sent to Carla. Patient location and watch status shared.");
+      goToScreen("homeScreen");
+    }
+
+    /* SETTINGS + VOICE */
+
+    function openCaretakerAccessModal(actionText, onSuccess) {
+      pendingCaretakerAction = onSuccess;
+
+      document.getElementById("caretakerAccessText").textContent =
+        "Caretaker approval is required to " + actionText + ".";
+      document.getElementById("caretakerAccessInput").value = "";
+      document.getElementById("caretakerAccessMessage").textContent = "";
+      document.getElementById("caretakerAccessModal").classList.remove("hidden");
+
+      setTimeout(function () {
+        document.getElementById("caretakerAccessInput").focus();
+      }, 50);
+    }
+
+    function fillDemoCaretakerCode() {
+      const input = document.getElementById("caretakerAccessInput");
+      input.value = defaultCaretakerCode;
+      document.getElementById("caretakerAccessMessage").textContent =
+        "Demo code filled. Press Confirm.";
+      document.getElementById("caretakerAccessMessage").style.color = "#2f7d67";
+      input.focus();
+    }
+
+    function closeCaretakerAccessModal() {
+      document.getElementById("caretakerAccessModal").classList.add("hidden");
+      document.getElementById("caretakerAccessInput").value = "";
+      document.getElementById("caretakerAccessMessage").textContent = "";
+      pendingCaretakerAction = null;
+    }
+
+    function confirmCaretakerAccess() {
+      const enteredCode = document.getElementById("caretakerAccessInput").value.trim();
+      const message = document.getElementById("caretakerAccessMessage");
+
+      if (!enteredCode) {
+        message.textContent = "Enter the caretaker access code.";
+        return;
+      }
+
+      if (enteredCode !== caretakerCode) {
+        message.textContent = "Incorrect caretaker access code. Nothing was deleted.";
+        return;
+      }
+
+      const approvedAction = pendingCaretakerAction;
+      document.getElementById("caretakerAccessModal").classList.add("hidden");
+      document.getElementById("caretakerAccessInput").value = "";
+      document.getElementById("caretakerAccessMessage").textContent = "";
+      pendingCaretakerAction = null;
+
+      if (typeof approvedAction === "function") {
+        approvedAction();
+      }
+    }
+
+    function changeCaretakerCode() {
+      const currentCode = window.prompt("Enter the current caretaker access code:");
+      if (currentCode === null) return;
+
+      if (currentCode.trim() !== caretakerCode) {
+        alert("Incorrect caretaker access code.");
+        return;
+      }
+
+      const newCode = window.prompt("Enter a new 4 to 8 digit caretaker access code:");
+      if (newCode === null) return;
+
+      const cleanedCode = newCode.trim();
+      if (!/^\d{4,8}$/.test(cleanedCode)) {
+        alert("The caretaker access code must contain 4 to 8 numbers.");
+        return;
+      }
+
+      const confirmCode = window.prompt("Re-enter the new caretaker access code:");
+      if (confirmCode === null) return;
+
+      if (confirmCode.trim() !== cleanedCode) {
+        alert("The codes did not match. The caretaker code was not changed.");
+        return;
+      }
+
+      caretakerCode = cleanedCode;
+      localStorage.setItem("assist_caretaker_code", caretakerCode);
+      alert("Caretaker access code updated.");
+    }
+
+    function toggleVoice() {
+      voiceEnabled = !voiceEnabled;
+      document.getElementById("voiceSwitch").classList.toggle("active", voiceEnabled);
+
+      if (!voiceEnabled) {
+        stopVoice();
+      }
+    }
+
+    function listenToCurrentScreen() {
+      if (!voiceEnabled) {
+        updateHomeMessage("Voice guidance is off. Turn it on in Settings.");
+        return;
+      }
+
+      const activeScreen = document.querySelector(".screen.active").id;
+      let text = "";
+
+      if (activeScreen === "homeScreen") {
+        text = "Home screen. Your glasses and watch are connected. You can use Smart Check-In, add trusted people, view reminders, or send an emergency alert.";
+      } else if (activeScreen === "myDayScreen") {
+        text = "My Day screen. This page shows medication, appointments, and daily reminders.";
+      } else if (activeScreen === "peopleScreen") {
+        text = "People screen. This page shows trusted people. You can add a caregiver, family member, therapist, or doctor with a photo.";
+      } else if (activeScreen === "supportScreen") {
+        text = "Support screen. You can call the caregiver, message the therapist, or send an SOS emergency alert.";
+      } else if (activeScreen === "settingsScreen") {
+        text = "Settings screen. You can turn voice guidance on or off, use larger text, reduce motion, manage the caretaker access code, or log out.";
+      }
+
+      speak(text);
+    }
+
+    function speak(text) {
+      if (!("speechSynthesis" in window)) return;
+
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.88;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopVoice() {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+      document.getElementById("textSwitch").classList.toggle(
+        "active",
+        document.body.classList.contains("large-text")
+      );
+    }
+
+    function toggleReduceMotion() {
+      document.body.classList.toggle("reduce-motion");
+      document.getElementById("motionSwitch").classList.toggle(
+        "active",
+        document.body.classList.contains("reduce-motion")
+      );
+    }
+
+    /* HELPERS */
+
+    function updateHomeMessage(text) {
+      const box = document.getElementById("homeMessage");
+      if (box) {
+        box.textContent = text;
+      }
+    }
+
+    function formatTime(time) {
+      if (!time) return "";
+
+      const [hour, minute] = time.split(":");
+      let h = parseInt(hour, 10);
+      const ampm = h >= 12 ? "PM" : "AM";
+      h = h % 12 || 12;
+
+      return h + ":" + minute + " " + ampm;
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    document.getElementById("caretakerAccessInput").addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        confirmCaretakerAccess();
+      }
+    });
+
+  </script>
+</body>
+</html>
