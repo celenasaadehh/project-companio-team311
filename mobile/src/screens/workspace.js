@@ -670,7 +670,9 @@ export function RiskSignals({ route, navigation }) {
     getDecisions(patientId)
       .then((r) => {
         if (cancelled) return;
-        setDecs((r?.decisions || []).filter((d) => d.risk_score != null));
+        // Engine decisions carry the numeric score; AWS-fallback decisions
+        // may carry only the level. Both are risk history.
+        setDecs((r?.decisions || []).filter((d) => d.risk_score != null || d.risk_level));
       })
       .catch(() => {});
     return () => { cancelled = true; };
@@ -679,7 +681,9 @@ export function RiskSignals({ route, navigation }) {
   const histTs = (x) => new Date(x.timestamp || x.created_at || 0).getTime();
   const history = [
     ...decs.map((d) => ({
-      at: histTs(d), score: Number(d.risk_score),
+      at: histTs(d),
+      score: d.risk_score != null ? Number(d.risk_score) : null,
+      level: d.risk_level || null,
       source: d.decision_source || "decision",
       detail: d.selected_action || null, kind: "decision",
     })),
@@ -749,22 +753,28 @@ export function RiskSignals({ route, navigation }) {
           <SectionTitle sub="Every score the engine computed, newest first — decisions and monitoring samples.">
             Risk history
           </SectionTitle>
-          {history.length > 1 ? (
+          {history.filter((h) => h.score != null).length > 1 ? (
             <Card>
               <Text style={type.meta}>SCORE OVER TIME</Text>
               <View style={{ marginTop: 8 }}>
-                <Sparkline data={history.slice().reverse().map((h) => h.score)} color={C.warning} />
+                <Sparkline
+                  data={history.filter((h) => h.score != null).slice().reverse().map((h) => h.score)}
+                  color={C.warning} />
               </View>
             </Card>
           ) : null}
           {history.map((h, i) => {
-            const lvl = h.score >= 0.75 ? "high" : h.score >= 0.5 ? "elevated" : "low";
-            const fg = lvl === "high" ? C.danger : lvl === "elevated" ? C.warning : C.success;
-            const bg = lvl === "high" ? C.dangerSoft : lvl === "elevated" ? C.warningSoft : C.successSoft;
+            const lvl = h.score != null
+              ? (h.score >= 0.75 ? "high" : h.score >= 0.5 ? "elevated" : "low")
+              : (h.level || "unknown").toLowerCase();
+            const fg = lvl === "high" || lvl === "critical" ? C.danger
+              : lvl === "elevated" ? C.warning : C.success;
+            const bg = lvl === "high" || lvl === "critical" ? C.dangerSoft
+              : lvl === "elevated" ? C.warningSoft : C.successSoft;
             return (
               <Card key={`${h.at}_${i}`}>
                 <Row icon={h.kind === "decision" ? "flash" : "pulse"} iconFg={fg} iconBg={bg}
-                  title={`Score ${h.score.toFixed(2)}`}
+                  title={h.score != null ? `Score ${h.score.toFixed(2)}` : `Level ${lvl}`}
                   subtitle={`${new Date(h.at).toLocaleString()} · ${h.source}${h.detail ? ` · ${h.detail}` : ""}`}
                   right={<Pill text={lvl} fg={fg} bg={bg} />} />
               </Card>

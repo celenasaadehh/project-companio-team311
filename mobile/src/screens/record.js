@@ -65,7 +65,7 @@ export function PatientRecord({ route, navigation }) {
     // Counts what the Risk & signals screen actually lists: monitoring
     // samples plus every decision that carries an engine-computed score.
     days: n((r) => r.type === "daily_snapshot")
-      + (decisions || []).filter((d) => d.risk_score != null).length,
+      + (decisions || []).filter((d) => d.risk_score != null || d.risk_level).length,
     decisions: (decisions || []).length,
   };
 
