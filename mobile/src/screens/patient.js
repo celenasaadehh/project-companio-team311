@@ -39,8 +39,11 @@ function DemoLiveRisk() {
           hrvFreshness: v.hrvFreshness, hrAgeMinutes: v.hrAgeMinutes,
           declaredContext: prefs?.declaredContext,
         }, devices.baselineProfile);
+        console.log("[liverisk]", JSON.stringify({ hr: v?.hr, ageMin: v?.hrAgeMinutes,
+          fresh: v?.hrFreshness, level: out?.level, score: out?.score,
+          src: out?.risk_source, why: out?.fallback_reason || null }));
         if (alive) setR({ ...out, hr: v?.hr });
-      } catch {}
+      } catch (e) { console.log("[liverisk] error", String(e?.message || e)); }
     }
     tick();
     const t = setInterval(tick, 15000);

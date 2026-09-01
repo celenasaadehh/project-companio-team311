@@ -22,6 +22,9 @@ const WINDOW = [];
 const WINDOW_MAX = 12;            // ~3 minutes at a 15 s poll
 const WINDOW_MAX_AGE_MS = 5 * 60 * 1000;
 
+// Last successful model answer, reused briefly when a single call drops.
+let LAST_MODEL = null;
+
 function pushWindowSample(vitals) {
   const now = Date.now();
   if (vitals?.hr != null) {
@@ -94,8 +97,9 @@ export async function assessRisk(vitals, baselineHr, confounds = {}, baselinePro
   }
 
   try {
-    const out = await apiCall("/api/risk/watch", feats, 4000);
+    const out = await apiCall("/api/risk/watch", feats, 8000);
     if (out?.risk_level && out?.risk_score != null) {
+      LAST_MODEL = { out, at: Date.now() };
       const damped = heuristic?.score != null && heuristic.score < out.risk_score
         ? heuristic.score
         : out.risk_score;
@@ -112,6 +116,30 @@ export async function assessRisk(vitals, baselineHr, confounds = {}, baselinePro
       };
     }
   } catch (e) {
+    // One dropped call must not repaint the screen: a transient network
+    // failure made the display flick from the model's steady score to the
+    // raw heuristic for a single tick. Reuse the last successful model
+    // answer while it is recent; physiology does not change in 60 seconds
+    // because a request did.
+    if (LAST_MODEL && Date.now() - LAST_MODEL.at < 60 * 1000) {
+      const out = LAST_MODEL.out;
+      const damped = heuristic?.score != null && heuristic.score < out.risk_score
+        ? heuristic.score
+        : out.risk_score;
+      const level = damped === out.risk_score ? out.risk_level : heuristic.level;
+      return {
+        ...heuristic,
+        score: damped,
+        level,
+        model_score: out.risk_score,
+        model_level: out.risk_level,
+        risk_source: RISK_SOURCE.TRAINED,
+        model: out.model,
+        confounded: damped !== out.risk_score,
+        model_stale: true,
+        fallback_reason: `reusing model score from ${Math.round((Date.now() - LAST_MODEL.at) / 1000)}s ago: ${String(e?.message || e)}`,
+      };
+    }
     return {
       ...heuristic,
       risk_source: RISK_SOURCE.HEURISTIC,
