@@ -1,10 +1,10 @@
 // Therapist dashboard, caseload and calendar.
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { colors as C, spacing, radius, type, riskColor } from "../theme/theme";
 import { Screen, AppHeader, Card, SectionTitle, Row, MetricCard, RiskBadge, Chip, Pill, EmptyState, Btn, Divider, Disclaimer } from "../components/ui";
-import { getSessions, getMediaViewUrl, getIdentity } from "../services/engine";
+import { getSessions, getMediaViewUrl, getIdentity, getDecisions } from "../services/engine";
 import { useApp } from "../state/AppContext";
 import { pendingCredential } from "../services/pending_credential";
 
@@ -36,7 +36,44 @@ export function Avatar({ name, color = C.navy, size = 44, s3Key = null, patientI
 }
 
 export function TherapistDashboard({ navigation }) {
-  const { patients, events, authUser } = useApp();
+  const { patients, events, authUser, updatePatient } = useApp();
+
+  // Live risk for the caseload, computed from the decisions the engine
+  // actually made (each carries the risk score it decided under). The
+  // caseload list itself arrives without risk, so without this the
+  // dashboard would show "low" forever no matter what happened today.
+  const patientsRef = useRef(patients);
+  useEffect(() => { patientsRef.current = patients; }, [patients]);
+  useEffect(() => {
+    let alive = true;
+    async function pollRisk() {
+      for (const p of patientsRef.current) {
+        try {
+          const r = await getDecisions(p.id);
+          const ds = (r?.decisions || []).filter((d) => d.risk_score != null);
+          if (!ds.length) continue;
+          const ts = (d) => new Date(d.timestamp || d.created_at || 0).getTime();
+          const recent = ds.filter((d) => Date.now() - ts(d) < 24 * 3600 * 1000);
+          if (!recent.length) continue;
+          const peak = recent.reduce((m, d) =>
+            Number(d.risk_score) > Number(m.risk_score) ? d : m, recent[0]);
+          const score = Number(peak.risk_score) || 0;
+          const level = score >= 0.75 ? "high" : score >= 0.5 ? "elevated" : "low";
+          const when = new Date(ts(peak)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+          if (!alive) return;
+          updatePatient(p.id, (prev) => ({
+            ...prev,
+            risk: { ...(prev.risk || {}), score, level, lastUpdated: when },
+            lastEvent: `Peak risk score ${score.toFixed(2)} (${level}) at ${when}`
+              + (peak.selected_action ? ` · offered: ${peak.selected_action}` : ""),
+          }));
+        } catch {}
+      }
+    }
+    pollRisk();
+    const t = setInterval(pollRisk, 60 * 1000);
+    return () => { alive = false; clearInterval(t); };
+  }, []);
   const therapistDisplayName = authUser?.name || authUser?.username || "there";
   const firstName = therapistDisplayName.split(" ")[0];
 

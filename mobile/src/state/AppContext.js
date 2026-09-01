@@ -68,7 +68,7 @@ export function AppProvider({ children }) {
     voiceMode: "AUTO",
     // Off by default: an app that starts listening without being asked is not
     // one a trauma patient should have to discover after the fact.
-    wakeWord: false,
+    wakeWord: true,
     // Under HEADPHONES_ONLY, whether the phone speaker may be used. Off by
     // default: the whole point of that mode is not broadcasting a private
     // message aloud.
