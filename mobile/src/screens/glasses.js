@@ -23,8 +23,12 @@ import { CATEGORY } from "../services/notify_actions";
 import { useApp } from "../state/AppContext";
 import { startEpisode } from "../services/episode";
 
+// During an episode the world moves fast -- a distressed person's eyes sweep
+// across many things, and one frame can miss the one that matters. Elevated
+// means burst mode: a light frame every 7 seconds, each through Rekognition.
+// Calm stays slow; there is nothing to hunt for in a calm moment.
 const SCAN_MS_CALM = 45000;
-const SCAN_MS_ELEVATED = 12000;
+const SCAN_MS_ELEVATED = 7000;
 
 function orientationLine(trigger, labels) {
   const top = (labels || [])

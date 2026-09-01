@@ -255,6 +255,12 @@ export function RecordSeen({ route, navigation }) {
 
       {rows.map((r, i) => {
         const trig = r.normalized_visual_trigger;
+        // "Nothing matched" alone tells the therapist nothing they can act
+        // on. Lead with WHAT the camera saw, so an unregistered trigger can
+        // be judged and added.
+        const seen = (r.visual_labels || [])
+          .map((l) => (typeof l === "string" ? l : (l.name || l.Name || "")))
+          .filter(Boolean).slice(0, 3).join(", ");
         return (
           <View key={r.session_id || i}>
             <SectionTitle>{when(r.created_at)}</SectionTitle>
@@ -263,7 +269,8 @@ export function RecordSeen({ route, navigation }) {
                 icon={trig ? "alert-circle" : "checkmark-circle"}
                 iconFg={trig ? C.warning : C.success}
                 iconBg={trig ? C.warningSoft : C.successSoft}
-                title={trig ? `Recognised: ${trig}` : "Nothing matched their triggers"}
+                title={trig ? `Recognised: ${trig}`
+                  : seen ? `Saw: ${seen}` : "Nothing matched their triggers"}
                 subtitle={r.trigger_match_score != null
                   ? `Match confidence ${Number(r.trigger_match_score).toFixed(2)} · ${r.camera_source || r.source || "phone camera"}`
                   : (r.camera_source || r.source || "phone camera")}
