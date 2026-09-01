@@ -11,9 +11,9 @@ import { NeedMore } from "../components/need_more";
 import { useWakeWord } from "../services/wakeword";
 import { useApp } from "../state/AppContext";
 import { decideMoment } from "../services/decide";
-import { getSessions, getDecisions, deleteMedia } from "../services/engine";
+import { getSessions, getDecisions, deleteMedia, saveDecision } from "../services/engine";
 import { speak, stopSpeaking, maySpeak, SPEECH_PRIORITY } from "../services/speech";
-import { startEpisode } from "../services/episode";
+import { startEpisode, recordOfferedAction, recordInterventionOutcome } from "../services/episode";
 import {
   useAudioRecorder, useAudioRecorderState, RecordingPresets,
   requestRecordingPermissionsAsync, setAudioModeAsync,
@@ -79,6 +79,8 @@ function TalkMode({ navigation, autoListen }) {
   const [error, setError] = useState(null);
   const [escalated, setEscalated] = useState(false);
   const [offeredAction, setOfferedAction] = useState(null);
+  const [typed, setTyped] = useState("");
+  const [helpBusy, setHelpBusy] = useState(false);
   const [asking, setAsking] = useState(false);
 
   // An explicit request. No transcript, no speech -- the patient asked, and
@@ -247,6 +249,95 @@ function TalkMode({ navigation, autoListen }) {
     }
   }
 
+  // Typing goes through the exact same decision path as speaking: same engine,
+  // same logging, same resource delivery. Mid-episode, some people cannot talk.
+  async function sendTyped() {
+    const t = typed.trim();
+    if (!t || state !== "idle") return;
+    setTyped("");
+    setTranscript(t);
+    setError(null);
+    setState("thinking");
+    startEpisode(currentPatientId, "typed_checkin");
+    try {
+      const out = await decideMoment({
+        patient_id: currentPatientId,
+        risk_level: vitals?.riskLevel || "baseline",
+        risk_score: vitals?.riskScore ?? 0,
+        transcript: t,
+        observed_triggers: [],
+      });
+      const said = out?.spoken_message || out?.message;
+      setReply(said || null);
+      setOfferedAction(out?.selected_action || null);
+      setEscalated(!!out?.escalation_required);
+      saveSession({
+        patient_id: currentPatientId,
+        type: "voice_transcription",
+        typed: true,
+        transcript: prefs?.saveTranscripts !== false ? t : null,
+        transcript_retained: prefs?.saveTranscripts !== false,
+        patient_said: prefs?.saveTranscripts !== false ? t : null,
+        companio_said: said || null,
+        decision_source: out?.decision_source || null,
+      }).catch(() => {});
+      if (said) speak(said, prefs, SPEECH_PRIORITY.SUPPORT, { vitals });
+    } catch (e) {
+      setError(e?.message || "Something went wrong. Your therapist can still be reached from Care.");
+    } finally {
+      setState("idle");
+    }
+  }
+
+  function saidHelped() {
+    recordInterventionOutcome(true);
+    saveDecision({
+      patient_id: currentPatientId,
+      selected_action: offeredAction || null,
+      outcome: "helped",
+      patient_reported_helped: true,
+    }).catch(() => {});
+    const thanks = "I'm glad that helped. I'm staying right here with you.";
+    setOfferedAction(null);
+    setReply(thanks);
+    speak(thanks, prefs, SPEECH_PRIORITY.SUPPORT, { vitals });
+  }
+
+  async function saidNotHelped() {
+    if (helpBusy) return;
+    setHelpBusy(true);
+    try {
+      // Record the failure BEFORE asking again, so the engine cannot offer
+      // the same intervention back.
+      if (offeredAction) recordOfferedAction(offeredAction);
+      recordInterventionOutcome(false);
+      const out = await decideMoment({
+        patient_id: currentPatientId,
+        risk_level: vitals?.riskLevel || "elevated",
+        risk_score: vitals?.riskScore ?? 0,
+        transcript: "that did not help",
+        patient_reported_helped: false,
+        observed_triggers: [],
+      });
+      saveDecision({
+        patient_id: currentPatientId,
+        selected_action: offeredAction || null,
+        outcome: "did_not_help",
+        patient_reported_helped: false,
+        patient_response: "no",
+      }).catch(() => {});
+      const said = out?.spoken_message || out?.message;
+      if (out?.escalation_required) setEscalated(true);
+      setReply(said || null);
+      setOfferedAction(out?.selected_action || null);
+      if (said) speak(said, prefs, SPEECH_PRIORITY.SUPPORT, { vitals });
+    } catch {
+      setError("Companio couldn't reach the engine. Your therapist can still be reached from Care.");
+    } finally {
+      setHelpBusy(false);
+    }
+  }
+
   const label = {
     idle: "Tap to speak",
     listening: "Listening…",
@@ -276,9 +367,19 @@ function TalkMode({ navigation, autoListen }) {
         )}
 
         {state === "idle" ? (
-          <View style={{ marginTop: spacing.sm }}>
-            <Btn label="Type instead" icon="create" variant="outline"
-              onPress={() => navigation.navigate("RequestSupport")} />
+          <View style={{ flexDirection: "row", alignItems: "center", marginTop: spacing.sm }}>
+            <TextInput value={typed} onChangeText={setTyped}
+              placeholder="Or type it instead…" placeholderTextColor={C.textMuted}
+              returnKeyType="send" onSubmitEditing={sendTyped}
+              style={{ flex: 1, backgroundColor: C.surfaceAlt, borderRadius: radius.md,
+                       padding: 12, color: C.textPrimary }} />
+            <TouchableOpacity onPress={sendTyped} disabled={!typed.trim()}
+              accessibilityLabel="Send typed message"
+              style={{ marginLeft: 8, width: 44, height: 44, borderRadius: 22,
+                       alignItems: "center", justifyContent: "center",
+                       backgroundColor: typed.trim() ? C.primary : C.surfaceStrong }}>
+              <Ionicons name="send" size={19} color={typed.trim() ? "#fff" : C.textMuted} />
+            </TouchableOpacity>
           </View>
         ) : null}
       </Card>
@@ -348,9 +449,22 @@ function TalkMode({ navigation, autoListen }) {
           {offeredAction ? (
             <ResourceList patientId={currentPatientId} prefs={prefs} vitals={vitals}
               autoPlay={maySpeak(prefs, SPEECH_PRIORITY.SUPPORT, vitals).allowed}
+              actionKey={offeredAction}
               resources={resourcesFor(
                 patient(currentPatientId)?.treatmentPlan?.interventionResources,
                 offeredAction)} />
+          ) : null}
+          {offeredAction && !escalated ? (
+            <View style={{ flexDirection: "row", marginTop: spacing.sm }}>
+              <View style={{ flex: 1, marginRight: 6 }}>
+                <Btn label="Yes, it helped" icon="checkmark-circle"
+                  disabled={helpBusy} onPress={saidHelped} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Btn label="No, it didn't" icon="close-circle" variant="outline"
+                  disabled={helpBusy} onPress={saidNotHelped} />
+              </View>
+            </View>
           ) : null}
           <View style={{ marginTop: spacing.sm }}>
             <Btn label="Say it again" icon="volume-high" variant="outline"

@@ -43,7 +43,7 @@ export function resourcesFor(all, action) {
   return key ? all[key] : null;
 }
 
-export function ResourceList({ resources, patientId, autoPlay, prefs, vitals }) {
+export function ResourceList({ resources, patientId, autoPlay, prefs, vitals, actionKey }) {
   const list = asResourceList(resources);
   if (!list.length) return null;
   // Everything auto-delivers, in a deliberate order: a recorded human voice
@@ -59,8 +59,13 @@ export function ResourceList({ resources, patientId, autoPlay, prefs, vitals }) 
   let firstPlayable = -1, best = 9;
   list.forEach((r, i) => { const k = rank(r); if (k < best) { best = k; firstPlayable = i; } });
   if (best === 9) firstPlayable = -1;
+  // The key carries the intervention name: when the engine moves to the NEXT
+  // intervention, the player must be a fresh component, or its "already
+  // auto-played" guard silently swallows the new recording -- Companio then
+  // ANNOUNCES her voice without playing it.
   return list.map((r, i) => (
-    <ResourcePlayer key={`${r.kind || "link"}_${i}`} resource={r} patientId={patientId}
+    <ResourcePlayer key={`${actionKey || ""}_${r.kind || "link"}_${i}`} resource={r}
+      patientId={patientId}
       prefs={prefs} vitals={vitals} autoPlay={autoPlay && i === firstPlayable} />
   ));
 }

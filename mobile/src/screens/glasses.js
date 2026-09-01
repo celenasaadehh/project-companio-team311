@@ -325,6 +325,7 @@ export function PatientGlasses({ navigation, route }) {
           {result.selected_action ? (
             <ResourceList patientId={currentPatientId} prefs={prefs} vitals={vitals}
               autoPlay
+              actionKey={result.selected_action}
               resources={resourcesFor(
                 me?.treatmentPlan?.interventionResources, result.selected_action)} />
           ) : null}

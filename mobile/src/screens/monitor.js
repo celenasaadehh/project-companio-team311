@@ -315,6 +315,7 @@ export function LiveMonitor({ navigation }) {
                   {response.selected_action || response.action ? (
                     <ResourceList patientId={currentPatientId} prefs={prefs} vitals={vitals}
                       autoPlay
+                      actionKey={response.selected_action || response.action}
                       resources={resourcesFor(
                         me?.treatmentPlan?.interventionResources,
                         response.selected_action || response.action)} />
