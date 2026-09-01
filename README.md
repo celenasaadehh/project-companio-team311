@@ -8,7 +8,7 @@ it offers **only what that patient's own therapist has approved**. Everything
 it does is recorded, explained, and reviewable by the clinician. It does not
 diagnose, and it is not a crisis service.
 
-**Demo video, report and model weights:**
+**Model weights** (one file too large for GitHub — see [Running it](#running-it)):
 [Google Drive folder](https://drive.google.com/drive/folders/14B_xLF0soz0fvFXfnwFgepPmiz0Nrm_O?usp=share_link)
 
 ---
@@ -99,9 +99,10 @@ cd therapist_engine && python3 -m pytest tests -q          # 51 tests
 cd mobile && node ./.undefined_check.js && node ./.export_check.js
 ```
 
-The DistilBERT weights (255 MB, above GitHub's file limit) are in the
-[Drive folder](https://drive.google.com/drive/folders/14B_xLF0soz0fvFXfnwFgepPmiz0Nrm_O?usp=share_link):
-place `model.safetensors` at
+The DistilBERT weights (255 MB, above GitHub's file limit) are the one
+thing not in this repository — download `model.safetensors` from the
+[Drive folder](https://drive.google.com/drive/folders/14B_xLF0soz0fvFXfnwFgepPmiz0Nrm_O?usp=share_link)
+and place it at
 `therapist_engine/ml/detector_bert/bert_model/`. Without it the engine still
 runs — the health endpoint reports the detector absent and the gate fails
 closed.
