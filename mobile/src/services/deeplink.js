@@ -38,7 +38,15 @@ export function useDeepLinks(navigationRef) {
       const attempt = (tries) => {
         if (!alive) return;
         if (navigationRef?.current?.isReady?.()) {
-          navigationRef.current.navigate(route.screen, route.params);
+          let params = route.params;
+          if (params?.params?.autoListen) {
+            // Fresh value on every invocation: navigation params only count
+            // as changed when they differ, so a second "Hey Siri, Companio"
+            // was swallowed as the same params as the first and never
+            // re-triggered the listener.
+            params = { ...params, params: { ...params.params, wakeAt: Date.now() } };
+          }
+          navigationRef.current.navigate(route.screen, params);
         } else if (tries > 0) {
           setTimeout(() => attempt(tries - 1), 250);
         }

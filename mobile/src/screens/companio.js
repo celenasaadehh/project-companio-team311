@@ -45,6 +45,7 @@ export function CompanioTab({ navigation, route }) {
   const [mode, setMode] = useState("Talk");
   const { prefs } = useApp();
   const autoListen = !!route?.params?.autoListen;
+  const wakeAt = route?.params?.wakeAt || 0;
 
   return (
     <Screen>
@@ -54,7 +55,7 @@ export function CompanioTab({ navigation, route }) {
           HEADPHONES_ONLY: "Headphones only", SILENT: "Silent",
         }[prefs?.voiceMode || "AUTO"]}`} />
       <ModeSwitch mode={mode} setMode={setMode} />
-      {mode === "Talk" ? <TalkMode navigation={navigation} autoListen={autoListen} />
+      {mode === "Talk" ? <TalkMode navigation={navigation} autoListen={autoListen} wakeAt={wakeAt} />
         : mode === "Chat" ? <ChatMode />
         : <HistoryMode navigation={navigation} />}
       <Disclaimer />
@@ -64,7 +65,7 @@ export function CompanioTab({ navigation, route }) {
 
 
 
-function TalkMode({ navigation, autoListen }) {
+function TalkMode({ navigation, autoListen, wakeAt }) {
   const { currentPatientId, vitals, devices, prefs, patient, authUser, refreshMyProfile } = useApp();
 
   // The therapist may have attached resources since sign-in; a stale cached
@@ -134,11 +135,19 @@ function TalkMode({ navigation, autoListen }) {
     onWake: () => { if (state === "idle") start(); },
   });
 
+  const autoStateRef = useRef(state);
+  useEffect(() => { autoStateRef.current = state; }, [state]);
   useEffect(() => {
     if (!autoListen) return undefined;
-    const t = setTimeout(() => { if (state === "idle") start(); }, 450);
+    const t = setTimeout(() => {
+      const s = autoStateRef.current;
+      if (s === "idle") start();
+      // Invoked while Companio is talking: the person asked to speak, so
+      // the speech stops and the microphone wins.
+      else if (s === "speaking") { try { stopSpeaking(); } catch {} start(); }
+    }, 450);
     return () => clearTimeout(t);
-  }, [autoListen]);
+  }, [autoListen, wakeAt]);
 
   useEffect(() => () => {
     stopSpeaking();
