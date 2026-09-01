@@ -270,13 +270,36 @@ export function AppProvider({ children }) {
 
   const loadPatientDetail = useCallback(async (id) => {
     if (!id) return;
-    const [notesRes, rulesRes, sessionsRes] = await Promise.all([
+    const [notesRes, rulesRes, sessionsRes, profileRes] = await Promise.all([
       getNotes(id).catch(() => null),
       getTherapistRules(id).catch(() => null),
       getSessions(id).catch(() => null),
+      getClinicalProfile(id).catch(() => null),
     ]);
     updatePatient(id, (p) => {
       const next = { ...p };
+      // The caseload list is deliberately slim (id + name + condition), so the
+      // clinical profile is re-read here: it is where medications and the
+      // treatment plan live between restarts. Only fields the server actually
+      // returned overwrite local state.
+      const prof = profileRes && !profileRes.error ? profileRes : null;
+      if (prof) {
+        if (Array.isArray(prof.medications)) next.medications = prof.medications;
+        const tp = { ...(p.treatmentPlan || {}) };
+        if (Array.isArray(prof.approved_interventions)) tp.approvedInterventions = prof.approved_interventions;
+        if (Array.isArray(prof.known_triggers)) tp.knownTriggers = prof.known_triggers;
+        if (Array.isArray(prof.forbidden_interventions)) tp.forbiddenInterventions = prof.forbidden_interventions;
+        if (Array.isArray(prof.communication_preferences)) tp.communicationPreferences = prof.communication_preferences;
+        if (Array.isArray(prof.warning_signs)) tp.warningSigns = prof.warning_signs;
+        if (prof.intervention_resources) tp.interventionResources = prof.intervention_resources;
+        if (Array.isArray(prof.conditional_forbidden)) tp.conditionalForbidden = prof.conditional_forbidden;
+        if (prof.clinical_guidance != null) tp.clinicalGuidance = prof.clinical_guidance;
+        if (prof.ptsd_subtype != null) tp.ptsdSubtype = prof.ptsd_subtype;
+        next.treatmentPlan = tp;
+        if (prof.age != null) next.age = prof.age;
+        if (prof.condition) next.condition = prof.condition;
+        if (prof.avatar_s3_key) next.avatarS3Key = prof.avatar_s3_key;
+      }
       const allNotes = notesRes?.notes;
       const byKind = (k) => (allNotes || []).filter((n) => n.note_kind === k)
         .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
@@ -291,10 +314,15 @@ export function AppProvider({ children }) {
       if (cal.length) {
         setEvents((prev) => {
           const have = new Set(prev.map((e) => e.id));
-          const merged = [...prev];
+          // The server strips real names from every table except identity (by
+          // design), so a reloaded event comes back nameless: re-attach this
+          // patient's local display name rather than showing "Patient".
+          const merged = prev.map((e) =>
+            e.patientId === id && (!e.name || e.name === "Patient")
+              ? { ...e, name: p.name || e.name } : e);
           for (const n of cal) {
             if (!have.has(n.id)) merged.push({
-              id: n.id, patientId: n.patient_id, name: n.name || "Patient",
+              id: n.id, patientId: n.patient_id || id, name: p.name || "Patient",
               date: n.date, time: n.time, type: n.type, mode: n.mode,
             });
           }

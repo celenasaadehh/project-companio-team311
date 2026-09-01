@@ -51,6 +51,15 @@ export function PatientGlasses({ navigation, route }) {
   const me = patient ? patient(currentPatientId) : null;
   const knownTriggers = me?.treatmentPlan?.knownTriggers || [];
   useEffect(() => { refreshMyProfile?.(); }, []);
+
+  // Arriving from the state machine's CAPTURE_CONTEXT means physiology has
+  // already justified one frame: capture immediately rather than waiting for
+  // this screen's own polling loop to come around.
+  useEffect(() => {
+    if (!route?.params?.auto) return undefined;
+    const t = setTimeout(() => { try { scan(); } catch {} }, 800);
+    return () => clearTimeout(t);
+  }, [route?.params?.auto]);
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef(null);
   const cameraProvider = useRef(createCameraProvider(CameraProviderType.PHONE)).current;

@@ -143,6 +143,21 @@ Check every model loaded before relying on it:
 curl localhost:8000/api/health/models
 ```
 
+**Restoring the text-distress model weights**
+
+Four of the five models ship in this repository. The fifth, the DistilBERT
+text-distress detector, is a single 255 MB weight file that exceeds GitHub's
+100 MB file limit, so it lives in the submission Drive folder instead.
+Download `model.safetensors` from the Drive folder and place it at:
+
+```
+therapist_engine/ml/detector_bert/bert_model/model.safetensors
+```
+
+The config and tokenizer files it needs are already in that directory. Without
+the file the engine still runs: the health endpoint reports the detector as
+not loaded and the gate fails closed rather than pretending to score text.
+
 **Mobile app**
 
 ```bash
@@ -155,7 +170,7 @@ and in Expo Go.
 **Tests**
 
 ```bash
-cd therapist_engine && python3 -m pytest tests -q      # 46 tests
+cd therapist_engine && python3 -m pytest tests -q      # 51 tests
 cd mobile && node ./.undefined_check.js && node ./.export_check.js
 ```
 

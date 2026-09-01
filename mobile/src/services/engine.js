@@ -711,7 +711,7 @@ export function processMoment({
 
   const proposal =
     `${moment} sounds like a lot right now. ` +
-    `I'm here with you — would it help to ${chosen}?`;
+    `I'm right here with you — let's ${chosen}.`;
 
   const guard = makeSafe(proposal);
 

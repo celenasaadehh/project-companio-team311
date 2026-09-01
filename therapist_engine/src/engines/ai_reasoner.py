@@ -245,14 +245,18 @@ def _draft_response(context: dict) -> Optional[dict]:
     suggested_action = choose_action(candidates, context["intervention_history"])
     used_bandit = len(candidates) > 1
 
+    # COMFORT and ACT deliver the intervention directly ("let's ..."), never as
+    # a question: mid-episode, an open question hands a dysregulated person a
+    # decision to make, which is itself a load. EXPLORE is the one stage where
+    # asking is the intervention -- it fires at low acuity to gather context.
     templates = {
         "EXPLORE": f"{moment} sounds like a lot right now. Can you tell me a little more about what's happening? If it helps, we could also try {suggested_action}.",
-        "COMFORT": f"{moment} sounds like a lot right now. I'm here with you — would it help to {suggested_action}?",
-        "ACT": f"{moment} sounds like a lot right now. Would it help to {suggested_action} right now?",
+        "COMFORT": f"{moment} sounds like a lot right now. I'm right here with you — let's {suggested_action}.",
+        "ACT": f"{moment} sounds like a lot right now. Let's {suggested_action}, right now — I'm with you.",
     }
     message = templates.get(
         stage,
-        f"{moment} sounds like a lot right now. I'm here with you — would it help to {suggested_action}?",
+        f"{moment} sounds like a lot right now. I'm right here with you — let's {suggested_action}.",
     )
 
     return {

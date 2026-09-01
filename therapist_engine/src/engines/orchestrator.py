@@ -134,9 +134,9 @@ def process_moment(
         # list.
         exhausted = bool(getattr(risk_state, "risk_level", None)) and decision.escalation_required
         if exhausted:
-            said = ("What we've tried isn't helping, and I don't want to keep "
-                    "suggesting the same things. Would it help if I let your "
-                    "therapist know you need them right now?")
+            said = ("What we've tried isn't helping, and I won't keep "
+                    "suggesting the same things. Let's bring in your "
+                    "therapist right now — you don't have to do this alone.")
         else:
             said = SAFE_FALLBACK_MESSAGE
         return {"decision": decision, "spoken_message": said}

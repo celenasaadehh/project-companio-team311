@@ -108,6 +108,15 @@ function TalkMode({ navigation, autoListen }) {
       setReply(said || null);
       setOfferedAction(out?.selected_action || null);
       setEscalated(!!out?.escalation_required);
+      // An explicit ask has no transcript, but the exchange still belongs in
+      // the history: what Companio answered is half the clinical record.
+      saveSession({
+        patient_id: currentPatientId,
+        type: "voice_transcription",
+        explicit_request: true,
+        companio_said: said || null,
+        decision_source: out?.decision_source || null,
+      }).catch(() => {});
       if (said) speak(said, prefs, SPEECH_PRIORITY.SUPPORT, { vitals });
     } catch (e) {
       setError(e?.message || "Companio couldn't reach the engine.");
@@ -489,6 +498,9 @@ function HistoryMode({ navigation }) {
               subtitle={r.created_at ? new Date(r.created_at).toLocaleString() : ""} />
             {r.patient_said || r.transcript ? (
               <Text style={[type.sub, { marginTop: 8 }]}>{`You said: "${r.patient_said || r.transcript}"`}</Text>
+            ) : null}
+            {r.companio_said || r.message ? (
+              <Text style={[type.sub, { marginTop: 6 }]}>{`Companio: "${r.companio_said || r.message}"`}</Text>
             ) : null}
             {r.normalized_visual_trigger ? (
               <Text style={[type.sub, { marginTop: 6 }]}>{`Recognised: ${r.normalized_visual_trigger}`}</Text>

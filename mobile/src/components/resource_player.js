@@ -46,12 +46,19 @@ export function resourcesFor(all, action) {
 export function ResourceList({ resources, patientId, autoPlay, prefs, vitals }) {
   const list = asResourceList(resources);
   if (!list.length) return null;
-  // Autoplay the first item that CAN play. If a phone number sits first and a
-  // recording second, index 0 would autoplay nothing at all.
-  const firstPlayable = list.findIndex(
-    (r) => r.kind === RESOURCE_KIND.VOICE || r.kind === RESOURCE_KIND.AUDIO
-        || r.kind === RESOURCE_KIND.STEPS,
-  );
+  // Everything auto-delivers, in a deliberate order: a recorded human voice
+  // beats spoken steps, which beat opening a link, which beats raising the
+  // dial prompt. Only ONE fires automatically -- firing two at once (a call
+  // prompt over her voice) would bury the more human of the pair.
+  const rank = (r) =>
+    r.kind === RESOURCE_KIND.VOICE || r.kind === RESOURCE_KIND.AUDIO ? 0
+    : r.kind === RESOURCE_KIND.STEPS ? 1
+    : r.kind === RESOURCE_KIND.LINK || (!r.kind && r.url) ? 2
+    : r.kind === RESOURCE_KIND.PHONE ? 3
+    : 9;
+  let firstPlayable = -1, best = 9;
+  list.forEach((r, i) => { const k = rank(r); if (k < best) { best = k; firstPlayable = i; } });
+  if (best === 9) firstPlayable = -1;
   return list.map((r, i) => (
     <ResourcePlayer key={`${r.kind || "link"}_${i}`} resource={r} patientId={patientId}
       prefs={prefs} vitals={vitals} autoPlay={autoPlay && i === firstPlayable} />
@@ -85,7 +92,9 @@ export function ResourcePlayer({ resource, patientId, autoPlay, prefs, vitals })
   }, [signedUrl]);
 
   const playable = resource && (resource.kind === RESOURCE_KIND.VOICE
-    || resource.kind === RESOURCE_KIND.AUDIO || resource.kind === RESOURCE_KIND.STEPS);
+    || resource.kind === RESOURCE_KIND.AUDIO || resource.kind === RESOURCE_KIND.STEPS
+    || resource.kind === RESOURCE_KIND.LINK || (!resource.kind && resource.url)
+    || resource.kind === RESOURCE_KIND.PHONE);
 
   // Spoken and sent at the same moment, not one or the other: if the phone is
   // face down or in a pocket the speech is missed, and if it is in the hand the

@@ -190,8 +190,8 @@ export function LiveMonitor({ navigation }) {
       } else if (a.type === "CAPTURE_CONTEXT") {
         navigation.navigate("Glasses", { auto: true, episode_id: episode.episode_id });
       } else if (a.type === "OFFER_ESCALATION") {
-        notifyNow("Would it help to talk to someone?",
-          "Companio can let your therapist know you need support.", 0,
+        notifyNow("Let's bring in your therapist",
+          "Tap and Companio will let them know you need them right now.", 0,
           { categoryIdentifier: CATEGORY.CHECK_IN, patient_id: currentPatientId });
       } else if (a.type === "CONFIRM_RECOVERY") {
         notifyNow("Checking in", "How are you feeling now?", 0,

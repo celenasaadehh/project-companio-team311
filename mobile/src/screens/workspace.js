@@ -1169,8 +1169,8 @@ export function TriggerEvents({ route, navigation }) {
                 : `Context: ${e.normalized_visual_trigger || e.trigger || (e.transcript ? "voice check-in" : "unknown")}`}
               subtitle={e.created_at || e.time}
               right={<Pill text={e.camera_source || e.source || (e.audio_s3_key ? "voice check-in" : "phone camera")} fg={C.textSecondary} bg="#EEF1F6" />} />
-            {e.message ? <Text style={[type.sub, { marginTop: 8 }]}>Companio responded: “{e.message}”</Text> : null}
-            {e.transcript ? <Text style={[type.sub, { marginTop: 8 }]}>Patient said: “{e.transcript}”</Text> : null}
+            {(e.message || e.companio_said) ? <Text style={[type.sub, { marginTop: 8 }]}>Companio responded: “{e.message || e.companio_said}”</Text> : null}
+            {(e.transcript || e.patient_said) ? <Text style={[type.sub, { marginTop: 8 }]}>Patient said: “{e.transcript || e.patient_said}”</Text> : null}
             {(e.decision_source || e.decisionSource) ? <View style={{ marginTop: 8 }}><DecisionSourceBadge source={e.decision_source || e.decisionSource} /></View> : null}
             {(e.image_s3_key || e.s3_key) ? <TriggerImage s3Key={e.image_s3_key || e.s3_key} patientId={p.id} /> : null}
             {e.audio_s3_key ? <TriggerAudio s3Key={e.audio_s3_key} patientId={p.id} /> : null}
