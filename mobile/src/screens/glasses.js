@@ -19,6 +19,7 @@ import { deleteMedia } from "../services/engine";
 import { ResourceList, resourcesFor } from "../components/resource_player";
 import { reportSyncFailure } from "../services/errors";
 import { notifyNow } from "../services/notify";
+import { CATEGORY } from "../services/notify_actions";
 import { useApp } from "../state/AppContext";
 import { startEpisode } from "../services/episode";
 
@@ -151,7 +152,13 @@ export function PatientGlasses({ navigation, route }) {
         ? (liveNow.level === "elevated" || liveNow.level === "high" || liveNow.level === "critical")
         : null;
       const corroborated = m.known_trigger && bodyAgrees === true;
+      // The unseen case: nothing on the trigger list matched, but the body
+      // is reacting. The person still gets the same therapist-approved help,
+      // and the moment is kept so the therapist can decide whether what the
+      // camera saw belongs on the trigger list.
+      const unseenDistress = !m.known_trigger && bodyAgrees === true;
       result = {
+        unseen_distress: unseenDistress,
         detected: m.known_trigger ? m.candidate_trigger : topLabel,
         is_trigger: corroborated,
         seen_but_calm: m.known_trigger && bodyAgrees === false,
@@ -198,13 +205,18 @@ export function PatientGlasses({ navigation, route }) {
           console.warn("Decision hierarchy unreachable:", decisionErr);
           result.engine_error = decisionErr?.message || "Could not reach the decision engine.";
         }
+        // An unseen-distress moment keeps its image regardless of the general
+        // retention switch: it is clinical evidence the therapist needs to
+        // decide whether this belongs on the trigger list.
+        const keepImage = !!prefs?.saveImages || unseenDistress;
         try {
           await saveSession({
             patient_id: currentPatientId,
             type: "trigger_event",
             camera_source: "phone_camera",
-            image_s3_key: prefs?.saveImages ? s3_key : null,
-            image_retained: !!prefs?.saveImages,
+            image_s3_key: keepImage ? s3_key : null,
+            image_retained: keepImage,
+            unseen_context: unseenDistress,
             visual_labels: labels,
             normalized_visual_trigger: m.candidate_trigger,
             known_trigger: !!m.known_trigger,
@@ -225,7 +237,7 @@ export function PatientGlasses({ navigation, route }) {
         // Retention off means the object itself goes, not just its reference.
         // Rekognition has already read it; keeping the bytes would make the
         // privacy switch a promise the app cannot keep.
-        if (!prefs?.saveImages && s3_key) {
+        if (!keepImage && s3_key) {
           deleteMedia(s3_key, currentPatientId).catch((e) =>
             reportSyncFailure("media_delete_image", e, { critical: true }));
         }
@@ -241,9 +253,15 @@ export function PatientGlasses({ navigation, route }) {
         "Did that affect you?",
         `Companio noticed ${result.detected}. Tap to tell it whether that was a hard moment — it learns from your answer.`,
       );
+    } else if (result?.unseen_distress) {
+      // Nothing known was seen, but the body is reacting: check in with the
+      // same actionable notification the monitor uses.
+      notifyNow("Are you okay?",
+        "Companio noticed your body reacting and is here with you.", 0,
+        { categoryIdentifier: CATEGORY.CHECK_IN, patient_id: currentPatientId });
     }
 
-    if (result?.message && (result.is_trigger || result.decision_source === "ai_reasoning")) {
+    if (result?.message && (result.is_trigger || result.unseen_distress || result.decision_source === "ai_reasoning")) {
       const orient = result.is_trigger
         ? orientationLine(result.detected, result.labels)
         : null;
@@ -336,11 +354,10 @@ export function PatientGlasses({ navigation, route }) {
           <Text style={[type.meta, { marginTop: 4 }]}>Sent to your therapist as a trigger event.</Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 6 }}>
             <View style={{ marginRight: 6, marginBottom: 6 }}><Pill text="AWS Rekognition · live" fg={C.success} bg={C.successSoft} icon="cloud-done" /></View>
-            {result.decision_source ? <DecisionSourceBadge source={result.decision_source} /> : null}
           </View>
         </Card>
       ) : null}
-      {result && result.is_trigger && result.decision_source ? (
+      {result && (result.is_trigger || result.unseen_distress) && result.decision_source ? (
         <View key={result.s3_key || "trigger-followup"}>
         {result?.known_trigger || result?.corroborated ? (
           <CrisisContacts
@@ -366,13 +383,27 @@ export function PatientGlasses({ navigation, route }) {
       ) : null}
 
       {result && !result.is_trigger && !result.seen_but_calm && !result.error ? (
-        <Card accent={C.success} style={{ marginTop: spacing.md }}>
-          <Row icon="checkmark-circle" iconFg={C.success} iconBg={C.successSoft}
-            title={result.decision_source ? "Companio looked at this" : "Nothing matching your triggers"}
-            subtitle={`Seen: ${result.detected}`} />
-          {result.message ? <Text style={[type.body, { marginTop: 10 }]}>{result.message}</Text> : null}
-          {result.decision_source ? <View style={{ marginTop: 8 }}><DecisionSourceBadge source={result.decision_source} /></View> : null}
-          {result.trace ? <EngineTrace trace={result.trace} source={result.decision_source} /> : null}
+        <Card accent={result.unseen_distress ? C.warning : C.success} style={{ marginTop: spacing.md }}>
+          <Row icon={result.unseen_distress ? "help-circle" : "checkmark-circle"}
+            iconFg={result.unseen_distress ? C.warning : C.success}
+            iconBg={result.unseen_distress ? C.warningSoft : C.successSoft}
+            title={result.unseen_distress ? "Something new" : "Nothing matching your triggers"}
+            subtitle={result.unseen_distress
+              ? "This isn't one of your known triggers, but your body is reacting."
+              : `Seen: ${result.detected}`} />
+          {result.message ? <Text style={[type.body, { marginTop: 10, fontSize: 16 }]}>{result.message}</Text> : null}
+          {result.unseen_distress && result.selected_action ? (
+            <ResourceList patientId={currentPatientId} prefs={prefs} vitals={vitals}
+              autoPlay
+              actionKey={result.selected_action}
+              resources={resourcesFor(
+                me?.treatmentPlan?.interventionResources, result.selected_action)} />
+          ) : null}
+          {result.unseen_distress ? (
+            <Text style={[type.meta, { marginTop: 8 }]}>
+              Saved for your therapist to review — they decide whether this belongs on your trigger list.
+            </Text>
+          ) : null}
           <Pill text="AWS Rekognition · live" fg={C.success} bg={C.successSoft} icon="cloud-done" />
         </Card>
       ) : null}
