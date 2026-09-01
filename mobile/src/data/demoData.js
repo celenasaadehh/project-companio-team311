@@ -28,8 +28,6 @@ export const INTERVENTION_OPTIONS = [
   "paced breathing", "journaling", "safe-place visualization", "grounding techniques",
 ];
 
-export const PATIENTS = [];
-export const CONVERSATIONS = {};
 
 export const EXAMPLE_PATIENT = defaults({
   id: "EX-001", displayId: "PT-EXAMPLE", name: "Example Patient", age: 32, gender: "M",

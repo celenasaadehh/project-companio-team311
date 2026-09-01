@@ -20,7 +20,7 @@ const PLAN_FIELD_TO_AWS = {
   clinicalGuidance: "clinical_guidance",
 };
 
-export const WorkspaceContext = createContext("P-001");
+export const WorkspaceContext = createContext(null);
 export const useWid = () => useContext(WorkspaceContext);
 
 function Head({ p, onBack }) {

@@ -126,7 +126,7 @@ function WsAudit(props) {
 }
 
 function WorkspaceTabs({ route }) {
-  const patientId = route.params?.patientId || "P-001";
+  const patientId = route.params?.patientId || null;
   const { loadPatientDetail } = useApp();
   useEffect(() => { loadPatientDetail(patientId); }, [patientId]);
   return (

@@ -1,10 +1,10 @@
 // App-wide state: auth, caseload, preferences, messages.
 import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from "react";
-import { PATIENTS, CONVERSATIONS, newPatient, patientFromAws } from "../data/demoData";
+import { newPatient, patientFromAws } from "../data/demoData";
 import * as Auth from "../services/auth";
 import * as SecureStore from "expo-secure-store";
 import { recordInterventionOutcome, recordPatientResponse } from "../services/episode";
-import { getMe, getMyPatients, getClinicalProfile, updateClinicalProfile, getNotes, getTherapistRules, getSessions, getAssignments, updateAssignment, saveNote } from "../services/engine";
+import { getMe, getMyPatients, getClinicalProfile, updateClinicalProfile, getNotes, getTherapistRules, getSessions, getAssignments, updateAssignment as updateAssignmentAws, saveNote } from "../services/engine";
 import { registerForPushToken, requestNotifyPermission } from "../services/notify";
 import { reportSyncFailure } from "../services/errors";
 import { restoreEpisode } from "../services/episode";
@@ -20,9 +20,9 @@ export function AppProvider({ children }) {
   const [role, setRole] = useState(null);
   const [authUser, setAuthUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
-  const [patients, setPatients] = useState(PATIENTS);
+  const [patients, setPatients] = useState([]);
   const [audit, setAudit] = useState([]);
-  const [threads, setThreads] = useState(CONVERSATIONS);
+  const [threads, setThreads] = useState({});
   const [events, setEvents] = useState([]);
   const [currentPatientId, setCurrentPatientId] = useState(null);
   const [vitals, setVitals] = useState(null);
@@ -386,7 +386,11 @@ export function AppProvider({ children }) {
         return { ok: true, serverUpdated: false };
       }
       for (const a of active) {
-        if (a.assignment_id) await updateAssignment(a.assignment_id, { active: false });
+        // updateAssignmentAws is the SERVER write. The component also defines a
+        // local updateAssignment for homework state, which shadowed the import:
+        // discharge was updating homework state and never AWS, so the patient
+        // returned on every restart.
+        if (a.assignment_id) await updateAssignmentAws(a.assignment_id, { active: false });
       }
       setPatients((prev) => prev.filter((p) => p.id !== patientId));
       return { ok: true, serverUpdated: true };
@@ -417,10 +421,12 @@ export function AppProvider({ children }) {
       .catch((e) => reportSyncFailure("save_document", e, { critical: true }));
   }, [updatePatient, actorName]);
 
+  // Clears local state only. Nothing is reseeded: the caseload is whatever
+  // AWS says it is, and an empty caseload renders as an honest empty state.
   const resetDemoData = useCallback(() => {
-    setPatients(PATIENTS);
+    setPatients([]);
     setAudit([]);
-    setThreads(CONVERSATIONS);
+    setThreads({});
     setEvents([]);
     setVitals(null);
     setDevices({ watch: false, glasses: false });
