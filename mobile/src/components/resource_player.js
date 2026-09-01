@@ -157,8 +157,17 @@ export function ResourcePlayer({ resource, patientId, autoPlay, prefs, vitals })
       if (kind === RESOURCE_KIND.LINK) {
         const ok = await Linking.canOpenURL(resource.url);
         if (!ok) throw new Error("This device can't open that link.");
+        // Announce before the app switch: being yanked into another app
+        // mid-episode with no warning is disorienting -- the opposite of
+        // grounding. Say what is happening, let the words land, then open.
+        try { speak(`Opening ${title} now.`, prefs, SPEECH_PRIORITY.SUPPORT, { vitals }); } catch {}
+        notifyNow(`Opening: ${title}`, "Companio is opening this intervention now.", 0)
+          .catch(() => {});
+        await new Promise((r) => setTimeout(r, 1400));
         await Linking.openURL(resource.url);
       } else if (kind === RESOURCE_KIND.PHONE) {
+        try { speak(`Calling ${title} now.`, prefs, SPEECH_PRIORITY.SUPPORT, { vitals }); } catch {}
+        await new Promise((r) => setTimeout(r, 900));
         await Linking.openURL(`tel:${String(resource.phone).replace(/[^\d+]/g, "")}`);
       } else if (kind === RESOURCE_KIND.VOICE || kind === RESOURCE_KIND.AUDIO) {
         // Media lives in an encrypted bucket, so playback needs a short-lived
