@@ -70,9 +70,8 @@ export function LiveMonitor({ navigation }) {
       setResponse(out);
       const spoken = out?.spoken_message || out?.message;
       if (spoken) {
-        // Speak and notify together: whichever reaches the patient, the message
-        // lands. Previously a patient with headphones out, the phone in a bag,
-        // or voice set to silent simply never received it.
+        // Speak and notify together: whether the phone is in a hand, a bag,
+        // or on silent, one of the two channels reaches the patient.
         if (prefs?.allowAutoSpeech !== false) {
           speakAndNotify(spoken, prefs, SPEECH_PRIORITY.SUPPORT, notifyNow, {
             title: "Companio is here",
@@ -199,10 +198,9 @@ export function LiveMonitor({ navigation }) {
     // The machine decides when enough interventions have failed, so it must see
     // the same offer list the decision path records.
     episodeRef.current.interventions = offeredActions();
-    // Escalation demands FRESH physiology. A heart-rate sample minutes old
-    // re-scored as "elevated" was walking the machine toward check-ins and
-    // the camera on data from another moment entirely. Older than 3 minutes
-    // reads as baseline here; the honest reading still shows on screen.
+    // Escalation demands fresh physiology: a heart-rate sample minutes old
+    // describes another moment entirely. Older than 3 minutes reads as
+    // baseline for the machine; the honest reading still shows on screen.
     const freshEnough = (v?.hrAgeMinutes ?? 99) <= 3;
     const rForMachine = freshEnough ? r : { ...r, level: "baseline" };
     const { episode, actions } = machineStep(episodeRef.current, {

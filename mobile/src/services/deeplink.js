@@ -40,10 +40,9 @@ export function useDeepLinks(navigationRef) {
         if (navigationRef?.current?.isReady?.()) {
           let params = route.params;
           if (params?.params?.autoListen) {
-            // Fresh value on every invocation: navigation params only count
-            // as changed when they differ, so a second "Hey Siri, Companio"
-            // was swallowed as the same params as the first and never
-            // re-triggered the listener.
+            // Navigation params only count as changed when they differ, so
+            // every invocation carries a fresh timestamp -- a second
+            // "Hey Siri, Companio" must re-trigger the listener.
             params = { ...params, params: { ...params.params, wakeAt: Date.now() } };
           }
           navigationRef.current.navigate(route.screen, params);

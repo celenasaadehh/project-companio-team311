@@ -28,6 +28,92 @@ knowing the individual can worsen the episode it is trying to help.
 
 ---
 
+## Main features
+
+**For the patient**
+
+- Live physiological monitoring from an Apple Watch through HealthKit: heart
+  rate, HRV, sleep, steps, all scored against the patient's own calibrated
+  calm baseline, refreshed every 5 seconds while the app is open.
+- Voice check-ins: speak or type "I'm anxious" and the decision engine
+  answers with an intervention the therapist approved, spoken aloud.
+  "Hey Companio" starts listening on the support tab, and a Siri shortcut
+  ("Hey Siri, Companio") opens the app already listening from anywhere,
+  including the lock screen.
+- Interventions that actually deliver: a recorded voice message plays, a
+  video link opens (announced first, never yanked), guided grounding is
+  spoken step by step, a call sheet dials a chosen contact. One tap answers
+  "did that help?", and the answer trains the personalisation model.
+- Trigger-aware camera: when physiology rises and a check-in goes
+  unanswered, the camera activates itself (announced by a notification that
+  also offers talking instead), samples the surroundings every ~6 seconds,
+  and checks each frame against the therapist's trigger list with
+  Rekognition.
+- Declared context: the patient can say "I'm exercising" or "just had
+  coffee" and the escalation stands down, because their own explanation
+  outranks the sensors.
+
+**For the therapist**
+
+- A live caseload dashboard that pages only when a patient's risk actually
+  rose, with the peak score, the time, and what was offered.
+- A complete clinical record per patient, loaded from AWS: episodes
+  assembled into single incidents, every decision with the layer that made
+  it, risk history as a scored timeline, transcripts of both sides of every
+  exchange, camera captures with the image, the recognised labels and the
+  heart rate against baseline.
+- Unseen-trigger review: when the body reacts to something not on the
+  trigger list, the capture is kept and flagged "not a registered trigger,
+  review whether this belongs on the list" so the care plan can grow from
+  evidence.
+- Full authorship of the care plan: approved and forbidden interventions,
+  known triggers, safety rules with exact wording, attached resources
+  (recordings, links, phone numbers, step lists), medications, and
+  conditional bans ("not during exercise").
+
+---
+
+## How an episode unfolds
+
+The logic, end to end, as enforced by the episode state machine:
+
+1. Risk rises above the patient's baseline and holds for **15 seconds**
+   (readings older than 3 minutes never escalate anything).
+2. A check-in notification asks **"Are you okay?"** with one-tap answers.
+   Answering "I'm okay" or declaring a cause (exercise, caffeine, poor
+   sleep) stands the episode down.
+3. **No answer for 10 seconds** with no declared cause: the app announces
+   "Activating the camera", opens the camera screen itself, and starts
+   burst-scanning the surroundings.
+4. A frame matching a known trigger, corroborated by the physiology, fires
+   the therapist's rule for that trigger, in the therapist's own words. A
+   reacting body with no known trigger still gets the full support ladder,
+   and the capture is kept for therapist review.
+5. Interventions walk the approved list in order, skipping anything already
+   tried this episode. Only when every approved option is exhausted does
+   Companio escalate: "Let's bring in your therapist."
+6. Everything is written to the clinical record with retries until it
+   lands: the episode, each decision and its trace, the physiology series
+   (a sample every 15 seconds during an episode), captures with images, and
+   both sides of every exchange.
+
+---
+
+## AWS services
+
+| Service | Role |
+|---|---|
+| Cognito | Accounts and roles (patient / therapist), JWT on every request |
+| API Gateway + Lambda | The entire clinical API, one function |
+| DynamoDB | 7 tables: identity, clinical profiles, rules, decisions, sessions, assignments, notes |
+| S3 (SSE-KMS) | Voice recordings and camera frames, short-lived presigned URLs only |
+| Rekognition | Labels each camera frame for trigger matching |
+| Transcribe | Speech-to-text for voice check-ins |
+| Expo push (server-side) | Notifications; push tokens never leave the server |
+| App Runner | Optional hosting for the decision engine (see `deploy/`) |
+
+---
+
 ## How it decides
 
 Companio never invents treatment. Every action is traceable to something the
@@ -118,10 +204,12 @@ mobile/              React Native app (52 source files)
   src/services/      engines, health, episodes, speech, notifications
   src/screens/       patient and therapist interfaces
   src/_unused/       superseded code, kept for reference, imported by nothing
-therapist_engine/    FastAPI inference service, decision hierarchy, 46 tests
+therapist_engine/    FastAPI inference service, decision hierarchy, 51 tests
+  requirements.txt   everything the engine needs, one pip install
 risk_engine/         physiological models and training (integrated copy + Watch model)
 ai-risk-engine/      the original risk-model module, preserved as committed by its author
 aws/                 Lambda backend (single file)
+deploy/              how to host the engine on App Runner (documented, not wired in)
 shared/              trigger vocabulary — one source of truth for all engines
 tools/               regenerates every consumer of that vocabulary
 ```
@@ -131,11 +219,14 @@ tools/               regenerates every consumer of that vocabulary
 **Inference service**
 
 ```bash
-cd therapist_engine && python3 -m uvicorn api.main:app --host 0.0.0.0 --port 8000
+cd therapist_engine
+python3 -m pip install -r requirements.txt
+python3 -m uvicorn api.main:app --host 0.0.0.0 --port 8000
 ```
 
-Needs `torch`, `transformers`, and **`scikit-learn==1.6.1`** — pinned because
-the serialised models were saved with exactly that version.
+`requirements.txt` lists everything, including `torch`, `transformers`, and
+**scikit-learn 1.6.1** — the serialised models were saved with exactly that
+version.
 
 Check every model loaded before relying on it:
 
@@ -202,11 +293,17 @@ it.
   advances while the app is foregrounded. True background monitoring needs
   native HealthKit background delivery.
 - **No smart-glasses hardware.** The phone camera is the capture device;
-  provenance is recorded as `phone_camera`, never as glasses.
-- **No wake word.** Voice starts when the patient taps.
-- **The inference service must be reachable.** Hosted away from the device, the
-  app falls back to the Lambda path, which matches therapist rules but does not
-  run the trained models. The interface says which engine answered.
+  provenance is recorded as `phone_camera`, never as glasses. One lens sees
+  one direction at a time; the burst sampling sweeps as the patient moves,
+  and glasses riding the patient's own gaze are the hardware endgame.
+- **The wake word works inside the app.** "Hey Companio" listens on the
+  support tab; outside the app, the Siri shortcut is the sanctioned path —
+  iOS reserves always-on listening for Siri.
+- **The inference service must be reachable for the trained models.** When it
+  is not, the app falls back to the Lambda decision path, which enforces the
+  same care-plan boundaries with the same ordered intervention ladder, and
+  the record says which engine answered. `deploy/` documents hosting the
+  engine on App Runner so this stops depending on a laptop.
 
 ---
 

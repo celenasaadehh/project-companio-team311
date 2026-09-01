@@ -103,10 +103,9 @@ export function PatientGlasses({ navigation, route }) {
         : null;
 
       const elevated = live && ["elevated", "high"].includes(live.level);
-      // Only real, current activity vetoes the scan. The damping flag
-      // ("confounded") is set whenever the cautious score was preferred --
-      // which is near-constantly, by design -- and using it as a veto meant
-      // the automatic camera practically never engaged.
+      // Only real, current activity vetoes the scan. The score-damping flag
+      // is not an activity signal: it marks that the cautious score was
+      // preferred, which is routine.
       const confounded = !!vitals?.activeNow;
 
       if (elevated && !confounded) {
@@ -142,9 +141,8 @@ export function PatientGlasses({ navigation, route }) {
     setLoading(true);
     let result = null;
     try {
-      // 0.3, not 0.5: Rekognition reads labels fine from a light JPEG, and a
-      // heavy one over a weak uplink is what made scans feel endless and
-      // then time out.
+      // Rekognition reads labels fine from a light JPEG; a heavy one stalls
+      // and times out on a weak uplink.
       const pic = await cameraProvider.captureImage(cameraRef, { quality: 0.3 });
       const { s3_key } = await uploadImage(currentPatientId, pic.uri, "image/jpeg");
       const rek = await recognizeImage(s3_key, currentPatientId);

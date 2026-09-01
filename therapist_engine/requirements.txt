@@ -16,8 +16,6 @@ pydantic[email]>=2.0
 pytest>=8.0
 
 # --- the actual web server (api/main.py) -------------------------------------
-# This was missing before, even though api/main.py can't run without it - a
-# fresh `pip install -r requirements.txt` would have failed to start the app.
 fastapi>=0.110
 uvicorn>=0.29
 

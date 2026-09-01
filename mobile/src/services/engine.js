@@ -34,10 +34,9 @@ export async function apiCall(path, body, timeoutMs = 4000) {
   }
 }
 
-// Reads retry like writes do: a single timed-out GET was silently emptying
-// screens -- a caseload of zero patients, a record hub whose counts said 1
-// while the list inside said nothing. Only transport failures retry; a real
-// HTTP answer (401 handled below, 404, 403) is a verdict, not a glitch.
+// Reads retry like writes do: a timed-out GET must become a retry, never an
+// empty screen. Only transport failures retry; a real HTTP answer (401
+// handled below, 404, 403) is a verdict, not a glitch.
 export async function awsApiCall(
   path,
   body = null,
@@ -255,12 +254,11 @@ export async function deleteTherapistRule(ruleId) {
   );
 }
 
-// Clinical writes must land. A single timed-out request was silently
-// dropping trigger events and episode records, so the therapist saw an
-// empty record for an episode that genuinely happened. Transient failures
-// (timeout, dropped connection, 5xx) are retried with growing patience;
-// real rejections (4xx) surface immediately -- retrying a permission
-// error only repeats it.
+// Clinical writes must land: a dropped trigger event or episode record
+// leaves the therapist an empty chart for an episode that happened.
+// Transient failures (timeout, dropped connection, 5xx) retry with growing
+// patience; real rejections (4xx) surface immediately -- retrying a
+// permission error only repeats it.
 async function saveWithRetry(path, body) {
   const timeouts = [6000, 10000, 16000];
   const delays = [1000, 3000];

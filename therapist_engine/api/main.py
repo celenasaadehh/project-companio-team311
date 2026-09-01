@@ -621,7 +621,7 @@ def risk_watch(f: WatchFeaturesIn):
 
     score = float(_WATCH_MODEL["model"].predict_proba(X)[0][1])
     # Same four-level vocabulary as RiskLevel, so nothing downstream has to
-    # translate -- mismatched names were previously rejected outright.
+    # translate between naming schemes.
     level = ("critical" if score >= 0.85 else
              "high" if score >= 0.60 else
              "elevated" if score >= 0.35 else "baseline")

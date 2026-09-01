@@ -32,7 +32,7 @@ export function NeedMore({ patientId, riskLevel, riskScore, offeredAction,
     setError(null);
     try {
       // The thing that just failed is recorded before asking again, so the
-      // engine cannot offer it back. This is the bug that made it repeat itself.
+      // engine cannot offer it back.
       if (offeredAction) recordOfferedAction(offeredAction);
 
       const out = await decideMoment({

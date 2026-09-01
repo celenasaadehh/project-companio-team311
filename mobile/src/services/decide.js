@@ -134,9 +134,9 @@ export async function decideMoment(context) {
   const transcriptWithSleep = withSleepNote(context.transcript, context.sleep_hours_last_night, context.poor_sleep);
 
   // Everything already tried: what the caller passed, plus anything offered
-  // earlier in THIS episode. Built once so the AWS fallback path below gets the
-  // same list -- previously it sent only the caller's list, so if the local
-  // engine timed out the app forgot what had already failed and re-offered it.
+  // earlier in THIS episode. Built once, so the AWS fallback path below sees
+  // the same exclusion list as the local engine and cannot re-offer a failed
+  // intervention.
   const excluded = Array.from(new Set([
     ...(context.exclude_actions || []),
     ...offeredActions(),

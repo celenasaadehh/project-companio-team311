@@ -976,10 +976,8 @@ def handle_media_upload_url(
 def handle_media_delete(event, body):
     """Permanently delete one stored media object.
 
-    The patient's "save audio" and "save images" switches could previously only
-    stop the app REFERENCING a file. The object itself stayed in S3, because
-    there was no way to remove it -- so a patient who turned image saving off
-    still had their photographs retained. A privacy control that cannot delete
+    The patient's "save audio" and "save images" switches must remove the
+    object itself, not just the app's reference to it. A privacy control that cannot delete
     is a promise the app is unable to keep.
 
     Audio and images must reach S3 for Transcribe and Rekognition to read them,
@@ -1054,11 +1052,10 @@ def handle_media_view_url(event, body):
 # =============================================================================
 # SERVER-SIDE PUSH
 # =============================================================================
-# Previously the PATIENT'S phone fetched the therapist's push token from the
-# assignment record and called Expo's push service itself. That meant one
-# user's device decided where another user's notifications went, and the
-# therapist's token was readable by every patient assigned to them. Now the
-# client asks the backend to notify; the token never leaves the server, and
+# The client asks the backend to notify; push tokens never leave the
+# server. One user's device must not decide where another user's
+# notifications go, and a therapist's token must not be readable by the
+# patients assigned to them. The backend resolves the recipient, and
 # every attempt is recorded as a delivery ledger entry.
 
 EXPO_PUSH_URL = "https://exp.host/--/api/v2/push/send"
@@ -1474,10 +1471,10 @@ def find_best_matching_rule(
     """Pick the therapist rule that governs this moment.
 
     MUST stay identical to decide_from_rules() in
-    therapist_engine/src/engines/decision_engine.py. This previously matched on
-    trigger and priority only -- it ignored `active`, ignored the rule's own
-    `min_risk_level`, never checked the action against the patient's approved
-    and forbidden lists, and broke priority ties in whatever order the database
+    therapist_engine/src/engines/decision_engine.py: a rule counts only if it
+    is active, its own `min_risk_level` is met, and its action passes the
+    patient's approved and forbidden lists; priority ties must not depend on
+    whatever order the database
     returned. The same event could therefore fire a therapist rule here and not
     in the Python engine, so a patient's care depended on which engine happened
     to be reachable. Therapist rules are meant to be the one deterministic
@@ -1532,8 +1529,8 @@ def find_best_matching_rule(
     )
     # (e) even a therapist rule may only offer an approved, non-forbidden
     # action. Filter invalid rules FIRST and then take the highest-priority
-    # survivor: previously one stale high-priority rule whose action had been
-    # removed from the care plan silently blocked every valid rule below it.
+    # survivor, so a stale high-priority rule whose action left the care plan
+    # cannot block every valid rule below it.
     for candidate in matches:
         action = str(candidate.get("approved_action", "")).strip().lower()
         if action and action in forbidden:
@@ -2462,11 +2459,9 @@ def handle_respond(
     }:
         preferred = None
 
-    # Rotate through the remaining approved options rather than returning the
-    # same one forever. Previously this always answered with
-    # preferred_intervention, so every retry produced an identical message --
-    # the patient saw the same suggestion again immediately after saying it
-    # didn't help.
+    # Walk the remaining approved options rather than answering with the
+    # same suggestion forever: a retry after "that didn't help" must produce
+    # a different message.
     if preferred:
         action = preferred
     elif approved:

@@ -442,10 +442,8 @@ export function AppProvider({ children }) {
         return { ok: true, serverUpdated: false };
       }
       for (const a of active) {
-        // updateAssignmentAws is the SERVER write. The component also defines a
-        // local updateAssignment for homework state, which shadowed the import:
-        // discharge was updating homework state and never AWS, so the patient
-        // returned on every restart.
+        // updateAssignmentAws is the SERVER write -- distinct from the local
+        // updateAssignment above, which only edits homework state in memory.
         if (a.assignment_id) await updateAssignmentAws(a.assignment_id, { active: false });
       }
       setPatients((prev) => prev.filter((p) => p.id !== patientId));

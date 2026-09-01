@@ -115,10 +115,9 @@ export function step(ep, input = {}) {
       }
       if (heldFor(ep) > TIMING.watchingMs) {
         // "Explained" means the patient DECLARED a cause (exercise, coffee,
-        // poor sleep) -- their input stands down the escalation. The score
-        // damping flag is not a declaration: it is active near-constantly by
-        // design, and treating it as an explanation silenced check-ins for
-        // every genuinely rising patient below "high".
+        // poor sleep): their own input stands the escalation down. Only a
+        // declaration counts -- the score-damping flag is routine and is not
+        // an explanation.
         const explained = Object.keys(ep.context).length > 0;
         if (explained && level !== "high") break;
         transition(ep, EpisodeState.CHECK_IN, "change persisted");
@@ -138,8 +137,8 @@ export function step(ep, input = {}) {
       }
       if (heldFor(ep) > TIMING.checkInMs) {
         // Sustained elevation with no declared cause and an ignored check-in
-        // is reason enough to look. Requiring "high" here meant the camera
-        // practically never engaged: the damped score rarely crosses it.
+        // is reason enough to look; the damped score rarely crosses "high",
+        // so "high" is deliberately not required.
         if (permissions.autoCapture && !ep.captureRequested
             && ELEVATED.has(level) && Object.keys(ep.context).length === 0) {
           ep.captureRequested = true;
