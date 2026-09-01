@@ -59,6 +59,10 @@ export function TherapistDashboard({ navigation }) {
             Number(d.risk_score) > Number(m.risk_score) ? d : m, recent[0]);
           const score = Number(peak.risk_score) || 0;
           const level = score >= 0.75 ? "high" : score >= 0.5 ? "elevated" : "low";
+          // Baseline days stay quiet: the therapist's dashboard registers a
+          // patient only when the peak actually rose. Low readings are still
+          // stored server-side with every decision; they just don't page.
+          if (level === "low") continue;
           const when = new Date(ts(peak)).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
           if (!alive) return;
           updatePatient(p.id, (prev) => ({
