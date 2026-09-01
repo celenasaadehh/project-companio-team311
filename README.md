@@ -294,13 +294,17 @@ it.
   native HealthKit background delivery.
 - **No smart-glasses hardware yet — but the seam for it exists.** The phone
   camera is the capture device; provenance is recorded as `phone_camera`,
-  never as glasses. Capture goes through a provider interface, so a
-  camera-equipped smart-glasses developer kit can slot in as an alternate
-  frame source without touching the decision pipeline: frames from the
-  glasses enter the same upload, recognition and trigger-matching path, and
-  the record simply carries a different provenance. Glasses riding the
-  patient's own gaze are the hardware endgame; one phone lens sees one
-  direction at a time, and the burst sampling sweeps as the patient moves.
+  never as glasses. Capture goes through a provider interface, so
+  camera-equipped smart glasses can slot in as an alternate frame source
+  without touching the decision pipeline. The candidates: Meta's Ray-Ban
+  glasses through the Wearables Device Access Toolkit (opening the
+  camera and sensors to third-party apps, currently in developer preview),
+  or Mentra's camera-equipped glasses through MentraOS, whose SDK is open
+  today. Either way, frames from the glasses enter the same upload,
+  recognition and trigger-matching path, and the record simply carries a
+  different provenance. Glasses riding the patient's own gaze are the
+  hardware endgame; one phone lens sees one direction at a time, and the
+  burst sampling sweeps as the patient moves.
 - **The wake word works inside the app.** "Hey Companio" listens on the
   support tab; outside the app, the Siri shortcut is the sanctioned path —
   iOS reserves always-on listening for Siri.
