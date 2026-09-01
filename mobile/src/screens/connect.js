@@ -1,6 +1,6 @@
 // Device pairing and baseline calibration.
 import React, { useState, useEffect } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useCameraPermissions } from "expo-camera";
 import { colors as C, spacing, radius, type } from "../theme/theme";
@@ -233,6 +233,18 @@ export function ConnectWatch({ navigation }) {
               {busy ? <ActivityIndicator color={C.primary} /> :
                 <Btn label={devices.watch ? "Refresh vitals" : "Grant Health access"} icon={devices.watch ? "refresh" : "heart"} onPress={devices.watch ? refresh : connect} />}
             </View>
+            {devices.watch && !busy ? (
+              <TouchableOpacity accessibilityLabel="Disconnect watch" activeOpacity={0.8}
+                onPress={() => setDevices((d) => ({ ...d, watch: false, calibrated: null }))}
+                style={{ marginTop: 12, alignItems: "center" }}>
+                <Text style={{ color: C.danger, fontWeight: "700", fontSize: 13.5 }}>
+                  Disconnect watch
+                </Text>
+                <Text style={[type.meta, { marginTop: 3, textAlign: "center" }]}>
+                  Clears the pairing and your saved calm baseline so you can set up again.
+                </Text>
+              </TouchableOpacity>
+            ) : null}
             {err === "denied" ? <Text style={[type.meta, { marginTop: 8, color: C.danger }]}>Health access was not granted. Enable it in Settings → Privacy → Health → Companio.</Text> : null}
             {err === "timeout" ? <Text style={[type.meta, { marginTop: 8, color: C.danger }]}>Apple Health didn't respond. Open Settings → Privacy &amp; Security → Health → Companio and allow access, then try again.</Text> : null}
             {rawErr ? (
