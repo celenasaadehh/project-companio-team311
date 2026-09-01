@@ -1,0 +1,56 @@
+{
+  "tfidf": {
+    "model": "TF-IDF + LogReg",
+    "accuracy": 0.6783,
+    "precision": 0.6598,
+    "recall": 0.7778,
+    "f1": 0.7139,
+    "roc_auc": 0.7663,
+    "confusion": [
+      [
+        198,
+        148
+      ],
+      [
+        82,
+        287
+      ]
+    ]
+  },
+  "embeddings": {
+    "model": "MiniLM + LogReg",
+    "accuracy": 0.7315,
+    "precision": 0.7902,
+    "recall": 0.6531,
+    "f1": 0.7151,
+    "roc_auc": 0.8311,
+    "confusion": [
+      [
+        282,
+        64
+      ],
+      [
+        128,
+        241
+      ]
+    ]
+  },
+  "bert": {
+    "model": "DistilBERT",
+    "accuracy": 0.7846,
+    "precision": 0.8011,
+    "recall": 0.7751,
+    "f1": 0.7879,
+    "roc_auc": 0.857,
+    "confusion": [
+      [
+        275,
+        71
+      ],
+      [
+        83,
+        286
+      ]
+    ]
+  }
+}

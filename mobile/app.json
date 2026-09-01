@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Companio",
+    "slug": "companio",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.companio.app",
+      "infoPlist": {
+        "NSHealthShareUsageDescription": "Companio reads your heart rate, HRV and activity from Apple Health to notice early signs of physiological distress and offer calming support.",
+        "NSHealthUpdateUsageDescription": "Companio does not write data to Apple Health.",
+        "NSCameraUsageDescription": "Companio uses the camera to watch your surroundings for triggers and help you ground.",
+        "NSMicrophoneUsageDescription": "Companio records your voice only while you are speaking to it during a voice check-in, so it can transcribe what you said and respond. It does not listen continuously.",
+        "NSPhotoLibraryUsageDescription": "Companio lets your therapist attach a photograph or a piece of audio to your care plan, so it is there when you need it during an episode.",
+        "NSSpeechRecognitionUsageDescription": "Companio listens for the phrase \"Hey Companio\" while the app is open, so you can ask for help without tapping. Recognition happens on your device and nothing is recorded or uploaded unless you start a voice check-in yourself."
+      }
+    },
+    "android": {
+      "package": "com.companio.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "react-native-health",
+        {
+          "isClinicalDataEnabled": false,
+          "healthSharePermission": "Companio reads your heart rate and activity from Apple Health to notice signs of distress."
+        }
+      ],
+      "expo-secure-store",
+      "expo-audio",
+      "@react-native-community/datetimepicker"
+    ],
+    "scheme": "companio"
+  }
+}

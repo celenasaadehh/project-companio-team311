@@ -1,0 +1,32 @@
+# requirements.txt
+# -----------------------------------------------------------------------------
+# This file lists the outside libraries our project needs.
+# Anyone can install all of them at once by running:
+#     python3 -m pip install -r requirements.txt
+# That way every person working on the project gets the exact same tools.
+# -----------------------------------------------------------------------------
+
+# Pydantic = our "strict receptionist" that checks every form (model) and
+# rejects data that has the wrong shape. The [email] part also pulls in the
+# email-checking helper so we can validate email addresses.
+pydantic[email]>=2.0
+
+# pytest = the tool we use to run automated checks (tests) that prove our
+# forms reject bad data and our engines behave as expected.
+pytest>=8.0
+
+# --- the actual web server (api/main.py) -------------------------------------
+# This was missing before, even though api/main.py can't run without it - a
+# fresh `pip install -r requirements.txt` would have failed to start the app.
+fastapi>=0.110
+uvicorn>=0.29
+
+# --- machine learning: the 3 trained models + real-time inference ------------
+scikit-learn>=1.6      # TF-IDF/LogReg recommender + the archived detectors
+joblib>=1.3             # loads/saves the .joblib model files
+torch>=2.0               # runs the fine-tuned DistilBERT detector
+transformers>=4.40      # loads/tokenizes/runs the DistilBERT detector
+sentence-transformers>=2.2   # only needed if you bring the archived MiniLM detector back
+
+# --- the risk_engine HTTP bridge (src/engines/risk_bridge.py) ----------------
+requests>=2.31

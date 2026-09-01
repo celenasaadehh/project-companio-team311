@@ -1,0 +1,51 @@
+{
+  "dataset": "companio_stage_examples.json (first-party, not ESConv)",
+  "task": "3-class support-stage recommendation (single most-recent utterance)",
+  "split": "80/20 stratified random_state=42",
+  "test_examples": 15,
+  "accuracy": 0.8,
+  "macro_f1": 0.798,
+  "classes": {
+    "ACT": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 5
+    },
+    "COMFORT": {
+      "precision": 0.75,
+      "recall": 0.6,
+      "f1": 0.67,
+      "support": 5
+    },
+    "EXPLORE": {
+      "precision": 0.67,
+      "recall": 0.8,
+      "f1": 0.73,
+      "support": 5
+    }
+  },
+  "confusion_matrix_labels": [
+    "ACT",
+    "COMFORT",
+    "EXPLORE"
+  ],
+  "confusion_matrix": [
+    [
+      5,
+      0,
+      0
+    ],
+    [
+      0,
+      3,
+      2
+    ],
+    [
+      0,
+      1,
+      4
+    ]
+  ],
+  "status": "proof-of-concept advisory only; therapist rules + safety decide"
+}

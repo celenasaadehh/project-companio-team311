@@ -1,0 +1,172 @@
+{
+  "_comment": [
+    "CANONICAL TRIGGER VOCABULARY \u2014 the single source of truth for turning",
+    "perception labels into a patient's known triggers.",
+    "",
+    "There were previously THREE independent implementations of this: one in",
+    "mobile/src/services/triggers.js, one in aws/lambda_function.py, and exact",
+    "matching in therapist_engine. They disagreed in ways that changed clinical",
+    "behaviour -- most starkly, Lambda mapped 'person' to the 'crowd' trigger",
+    "while mobile discarded 'person' as a generic label, so the same photo",
+    "matched a trigger on one path and not the other. Which engine happened to",
+    "answer therefore decided whether a patient was told they had seen their",
+    "trigger.",
+    "",
+    "Every implementation must read THIS file. Do not add aliases in code.",
+    "",
+    "specific: seeing this word is real evidence for the concept; a match here",
+    "  can reach the threshold on its own.",
+    "weak: everyday words that COULD relate but usually do not. Scored at",
+    "  weak_match_factor so they cannot fire a trigger alone -- they only",
+    "  reinforce a specific match. A handbag must never be reported to a",
+    "  trauma patient as their trash-bag trigger.",
+    "generic: never evidence of anything; discarded before matching.",
+    "acoustic_concepts also fire from the Watch's measured sound level, because a camera cannot see a bang."
+  ],
+  "version": 2,
+  "weak_match_factor": 0.35,
+  "default_threshold": 0.5,
+  "min_label_confidence": 55,
+  "concepts": {
+    "trash bag": {
+      "specific": [
+        "trash",
+        "garbage",
+        "waste",
+        "refuse",
+        "rubbish",
+        "litter",
+        "bin bag",
+        "garbage bag",
+        "trash bag",
+        "dumpster"
+      ],
+      "weak": [
+        "bag",
+        "plastic bag",
+        "debris",
+        "bin"
+      ]
+    },
+    "truck": {
+      "specific": [
+        "truck",
+        "lorry",
+        "pickup truck",
+        "semi",
+        "18-wheeler"
+      ],
+      "weak": [
+        "vehicle",
+        "transportation",
+        "automobile",
+        "car",
+        "van",
+        "traffic"
+      ]
+    },
+    "crowd": {
+      "specific": [
+        "crowd",
+        "audience",
+        "parade",
+        "mob",
+        "protest",
+        "concert"
+      ],
+      "weak": [
+        "gathering",
+        "group"
+      ]
+    },
+    "fireworks": {
+      "specific": [
+        "fireworks",
+        "firework",
+        "pyrotechnics",
+        "sparkler"
+      ],
+      "weak": [
+        "explosion",
+        "flare",
+        "smoke",
+        "fire",
+        "flame"
+      ]
+    },
+    "gun": {
+      "specific": [
+        "gun",
+        "weapon",
+        "rifle",
+        "handgun",
+        "firearm",
+        "pistol"
+      ],
+      "weak": []
+    },
+    "blood": {
+      "specific": [
+        "blood",
+        "wound",
+        "injury"
+      ],
+      "weak": []
+    },
+    "loud noise": {
+      "specific": [
+        "siren",
+        "alarm",
+        "horn",
+        "helicopter",
+        "aircraft",
+        "airplane",
+        "jet"
+      ],
+      "weak": [
+        "speaker"
+      ]
+    },
+    "water": {
+      "specific": [
+        "water",
+        "flood",
+        "ocean",
+        "sea",
+        "wave",
+        "river"
+      ],
+      "weak": []
+    },
+    "dark": {
+      "specific": [
+        "night",
+        "darkness",
+        "tunnel"
+      ],
+      "weak": []
+    }
+  },
+  "generic": [
+    "person",
+    "people",
+    "human",
+    "face",
+    "adult",
+    "man",
+    "woman",
+    "clothing",
+    "apparel",
+    "photography",
+    "portrait",
+    "head",
+    "indoors",
+    "outdoors",
+    "text"
+  ],
+  "acoustic_concepts": [
+    "loud noise",
+    "fireworks",
+    "gun"
+  ]
+}

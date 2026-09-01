@@ -1,0 +1,2942 @@
+[
+  {
+    "knowledge_id": "K-14ea0b00",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Ketamine for PTSD (abdallah2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.070692Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Eight intravenous infusions of ketamine at a standard dose for treatment of depression, given over 40 minutes",
+    "section": "Abdallah CG, Roache JD, Gueorguieva R, et al. Dose-related effects of ketamine for antidepressant-resistant symptoms of ",
+    "structured_interpretation": "Ketamine (Pharmacotherapy) was studied for PTSD; n=158 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071138Z"
+  },
+  {
+    "knowledge_id": "K-6a13f75d",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Ketamine for PTSD (abdallah2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071354Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Eight intravenous infusions of ketamine at a lower dose, given over 40 minutes; expected to act as either treatment or active control",
+    "section": "Abdallah CG, Roache JD, Gueorguieva R, et al. Dose-related effects of ketamine for antidepressant-resistant symptoms of ",
+    "structured_interpretation": "Ketamine (Pharmacotherapy) was studied for PTSD; n=158 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071359Z"
+  },
+  {
+    "knowledge_id": "K-77d1e831",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (abdallah2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071384Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Eight intravenous infusions of placebo (normal saline), given over 40 minutes",
+    "section": "Abdallah CG, Roache JD, Gueorguieva R, et al. Dose-related effects of ketamine for antidepressant-resistant symptoms of ",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=158 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071387Z"
+  },
+  {
+    "knowledge_id": "K-1af4f305",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Animal-assisted for PTSD (abraham2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071407Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participated in training service dogs for fellow veterans. Sessions with trainer and dog included grooming and bonding, educational lectures, dog training, and debrief.",
+    "section": "Abraham PA, Kazman JB, Bonner JA, et al. Effects of training service dogs on service members with PTSD: A pilot-feasibil",
+    "structured_interpretation": "Animal-assisted (Other study class) was studied for PTSD; n=29 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071409Z"
+  },
+  {
+    "knowledge_id": "K-c90d0eae",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (abraham2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071427Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waitlist",
+    "section": "Abraham PA, Kazman JB, Bonner JA, et al. Effects of training service dogs on service members with PTSD: A pilot-feasibil",
+    "structured_interpretation": "Waitlist (Other study class) was studied for PTSD; n=29 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071429Z"
+  },
+  {
+    "knowledge_id": "K-9b2d8dd6",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) for PTSD (acarturk2016)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071447Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Patient asked to make eye movements or exposed to bilateral tones or tapping while recalling traumatic events, with focus on most recent traumatic events with an extended time perspective.",
+    "section": "Acarturk C, Konuk E, Cetinkaya M, et al. The efficacy of eye movement desensitization and reprocessing for post-traumati",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) (Psychotherapy) was studied for PTSD; n=98 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071449Z"
+  },
+  {
+    "knowledge_id": "K-db406fd4",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (acarturk2016)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071467Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Patients not allowed to receive any treatment, including through follow-up period (until assessment at 5 weeks posttreatment)",
+    "section": "Acarturk C, Konuk E, Cetinkaya M, et al. The efficacy of eye movement desensitization and reprocessing for post-traumati",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=98 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071469Z"
+  },
+  {
+    "knowledge_id": "K-1f66f0a6",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) for PTSD (acierno2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071486Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused CBT according to the manual by Foa, Hembree, & Rothbaum, 2007",
+    "section": "Acierno RE, Knapp RG, Tuerk PW, et al. A non-inferiority trial of prolonged exposure for posttraumatic stress disorder: ",
+    "structured_interpretation": "Prolonged Exposure (PE) (Psychotherapy) was studied for PTSD; n=150 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071488Z"
+  },
+  {
+    "knowledge_id": "K-537657be",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) for PTSD (acierno2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071506Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused CBT according to the manual by Foa, Hembree, & Rothbaum, 2007",
+    "section": "Acierno RE, Knapp RG, Tuerk PW, et al. A non-inferiority trial of prolonged exposure for posttraumatic stress disorder: ",
+    "structured_interpretation": "Prolonged Exposure (PE) (Psychotherapy) was studied for PTSD; n=150 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071509Z"
+  },
+  {
+    "knowledge_id": "K-88a52f2d",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) for PTSD (acierno2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071526Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused CBT according to the manual by Foa, Hembree, & Rothbaum, 2007, provided per PE protocol and delivered by home-based telemedicine.",
+    "section": "Acierno R, Jaffe AE, Gilmore AK, et al. A randomized clinical trial of in-person vs. home-based telemedicine delivery of",
+    "structured_interpretation": "Prolonged Exposure (PE) (Psychotherapy) was studied for PTSD; n=136 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071529Z"
+  },
+  {
+    "knowledge_id": "K-f4f6b7f5",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) for PTSD (acierno2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071544Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused CBT according to the manual by Foa, Hembree, & Rothbaum, 2007, provided per PE protocol and delivered in-person.",
+    "section": "Acierno R, Jaffe AE, Gilmore AK, et al. A randomized clinical trial of in-person vs. home-based telemedicine delivery of",
+    "structured_interpretation": "Prolonged Exposure (PE) (Psychotherapy) was studied for PTSD; n=136 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071546Z"
+  },
+  {
+    "knowledge_id": "K-d40c5575",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Narrative Exposure Therapy (NET) for PTSD (adenauer2011)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071562Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused CBT with patients constructing a detailed chronological account of his/her biography, with particular attention on traumatic experiences. Therapy aims to reorganize fragmented report of traumatic experiences into a coherent narrative with details about current and past emotional, physiological, cognitive, and behavioral reactions.",
+    "section": "Adenauer H, Catani C, Gola H, et al. Narrative exposure therapy for PTSD increases top-down processing of aversive stimu",
+    "structured_interpretation": "Narrative Exposure Therapy (NET) (Psychotherapy) was studied for PTSD; n=34 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071565Z"
+  },
+  {
+    "knowledge_id": "K-9e2bf799",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) for PTSD (ahmadi2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071582Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Sequences of large-magnitude, rhythmic saccadic eye movements while holding in mind the most salient aspect of a traumatic memory. (As described in: Shapiro F. Eye movement desensitization: a new treatment for post-traumatic stress disorder. J Behav Ther Exp Psychiatry. 1989 Sep;20(3):211-7. PubMed PMID: 2576656.)",
+    "section": "Ahmadi K, Hazrati M, Ahmadizadeh MJ, et al. REM desensitization as a new therapeutic method for post-traumatic stress di",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) (Other mixed) was studied for PTSD; n=48 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071590Z"
+  },
+  {
+    "knowledge_id": "K-f27dca8b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Rapid Eye Movement (REM) Desensitization for PTSD (ahmadi2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071610Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Patients wore glasses during sleep that possess sensors with the ability to detect infrared waves that during the rapid eye movements (REM) period and which activates a musical instrument which delivers a light music",
+    "section": "Ahmadi K, Hazrati M, Ahmadizadeh MJ, et al. REM desensitization as a new therapeutic method for post-traumatic stress di",
+    "structured_interpretation": "Rapid Eye Movement (REM) Desensitization (Other mixed) was studied for PTSD; n=48 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071612Z"
+  },
+  {
+    "knowledge_id": "K-71fb4099",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (ahmadi2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071627Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Received no therapy",
+    "section": "Ahmadi K, Hazrati M, Ahmadizadeh MJ, et al. REM desensitization as a new therapeutic method for post-traumatic stress di",
+    "structured_interpretation": "Waitlist (Other mixed) was studied for PTSD; n=48 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071629Z"
+  },
+  {
+    "knowledge_id": "K-2c173f74",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Transcranial magnetic stimulation (TMS) for PTSD (ahmadizadeh2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071647Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Stimulation applied to bilateral dorsolateral prefrontal cortex",
+    "section": "Ahmadizadeh MJ, Rezaei M. Unilateral right and bilateral dorsolateral prefrontal cortex transcranial magnetic stimulatio",
+    "structured_interpretation": "Transcranial magnetic stimulation (TMS) (Nonpharmacologic biological) was studied for PTSD; n=65 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071649Z"
+  },
+  {
+    "knowledge_id": "K-a331ca02",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Transcranial magnetic stimulation (TMS) for PTSD (ahmadizadeh2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071665Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Stimulation applied to right dorsolateral prefrontal cortex",
+    "section": "Ahmadizadeh MJ, Rezaei M. Unilateral right and bilateral dorsolateral prefrontal cortex transcranial magnetic stimulatio",
+    "structured_interpretation": "Transcranial magnetic stimulation (TMS) (Nonpharmacologic biological) was studied for PTSD; n=65 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071667Z"
+  },
+  {
+    "knowledge_id": "K-ec589cfb",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Sham for PTSD (ahmadizadeh2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071682Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants received stimulation that induced a contraction of the abductor pollicis brevis muscle, then magnetic coil switched to a sham coil with identical looks and sounds but prevents magnetic energy from plastic shell",
+    "section": "Ahmadizadeh MJ, Rezaei M. Unilateral right and bilateral dorsolateral prefrontal cortex transcranial magnetic stimulatio",
+    "structured_interpretation": "Sham (Nonpharmacologic biological) was studied for PTSD; n=65 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071683Z"
+  },
+  {
+    "knowledge_id": "K-611df0dc",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Transcranial direct current stimulation (tDCS) for PTSD (ahmadizadeh2019)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071697Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Ten tDCS sessions delivered to the right (cathode) and left (anode) dorsolateral prefrontal cortex, with brain areas localized using EEG, over 10 consecutive weekdays",
+    "section": "Ahmadizadeh MJ, Rezaei M, Fitzgerald PB. Transcranial direct current stimulation (tDCS) for post-traumatic stress disord",
+    "structured_interpretation": "Transcranial direct current stimulation (tDCS) (Nonpharmacologic biological) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071699Z"
+  },
+  {
+    "knowledge_id": "K-5aeb1237",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Sham for PTSD (ahmadizadeh2019)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071712Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Ten sham treatment sessions, with scalp electrodes applied to the dorsolateral prefrontal cortex, over 10 consecutive weekdays.  Current ramped up for 30s and then ramped down.",
+    "section": "Ahmadizadeh MJ, Rezaei M, Fitzgerald PB. Transcranial direct current stimulation (tDCS) for post-traumatic stress disord",
+    "structured_interpretation": "Sham (Nonpharmacologic biological) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071714Z"
+  },
+  {
+    "knowledge_id": "K-681787d9",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prazosin for PTSD (ahmadpanah2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071727Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Alpha-1 receptor blocker; titrated over 10 days, then maintained at 15 mg for duration of study",
+    "section": "Ahmadpanah M, Sabzeiee P, Hosseini SM, et al. Comparing the effect of prazosin and hydroxyzine on sleep quality in patie",
+    "structured_interpretation": "Prazosin (Pharmacotherapy) was studied for PTSD; n=100 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071729Z"
+  },
+  {
+    "knowledge_id": "K-7ff47f7b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Hydroxyzine for PTSD (ahmadpanah2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071743Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Histamine H-1 blocker; increased from 10 mg over first 10 days to 100 mg, maintained at 100 mg for duration of study",
+    "section": "Ahmadpanah M, Sabzeiee P, Hosseini SM, et al. Comparing the effect of prazosin and hydroxyzine on sleep quality in patie",
+    "structured_interpretation": "Hydroxyzine (Pharmacotherapy) was studied for PTSD; n=100 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071745Z"
+  },
+  {
+    "knowledge_id": "K-78d8b921",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (ahmadpanah2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071759Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Identical shape and color to prazosin and hydroxyzine",
+    "section": "Ahmadpanah M, Sabzeiee P, Hosseini SM, et al. Comparing the effect of prazosin and hydroxyzine on sleep quality in patie",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=100 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071760Z"
+  },
+  {
+    "knowledge_id": "K-bd9eb499",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) + Treatment as usual (TAU) for PTSD (akbarian2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071775Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Group sessions of CBT for PTSD based on Clark and Beck's method; all patients also received \"SSRIs, neuroleptics, or benzodiazepines\"",
+    "section": "Akbarian F, Bajoghli H, Haghighi M, et al. The effectiveness of cognitive behavioral therapy with respect to psychologic",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) + Treatment as usual (TAU) (Psychotherapy & pharmacotherapy) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071777Z"
+  },
+  {
+    "knowledge_id": "K-1d6dc3a1",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (akbarian2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071792Z",
+    "source_type": "research_summary",
+    "exact_source_text": "All patients received \"SSRIs, neuroleptics, or benzodiazepines;\" control patients visited treatment center for medical and medication check",
+    "section": "Akbarian F, Bajoghli H, Haghighi M, et al. The effectiveness of cognitive behavioral therapy with respect to psychologic",
+    "structured_interpretation": "Treatment as usual (TAU) (Psychotherapy & pharmacotherapy) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071794Z"
+  },
+  {
+    "knowledge_id": "K-3cdfbdab",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Topiramate augmentation for PTSD (akuchekian2004)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071815Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Anticonvulsant drug; augmentation of participant's existing pharmacotherapy (such as neuroleptics, TCAs, benzodiazepines, SSRIs, sodium valproate, or carbamazepine)",
+    "section": "Akuchekian S, Amanat S. The Comparison of Topiramate and Placebo in the Treatment of Posttraumatic Stress Disorder: A Ra",
+    "structured_interpretation": "Topiramate augmentation (Pharmacotherapy) was studied for PTSD; n=67 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071817Z"
+  },
+  {
+    "knowledge_id": "K-85940e87",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo augmentation for PTSD (akuchekian2004)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071832Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Identical in appearance to topiramate 50 mg form; augmentation of participant's existing pharmacotherapy (such as neuroleptics, tricyclic antidepressants, benzodiazepines, SSRIs, sodium valproate, or carbamazepine).",
+    "section": "Akuchekian S, Amanat S. The Comparison of Topiramate and Placebo in the Treatment of Posttraumatic Stress Disorder: A Ra",
+    "structured_interpretation": "Placebo augmentation (Pharmacotherapy) was studied for PTSD; n=67 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071834Z"
+  },
+  {
+    "knowledge_id": "K-9e0e4fdf",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) for PTSD (aldahadha2012)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071848Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Patient asked to focus on traumatic memory, then therapist queries for salient negative and positive cognitions related to the targeted memory while patients move his/her eyes to the therapist's index finger",
+    "section": "Aldahadha B, Al-Harthy H, Sulaiman S. The Efficacy of Eye Movement Desensitization Reprocessing in Resolving the Trauma ",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) (Psychotherapy) was studied for PTSD; n=51 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071850Z"
+  },
+  {
+    "knowledge_id": "K-4adf6df3",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (aldahadha2012)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071864Z",
+    "source_type": "research_summary",
+    "exact_source_text": "No EMDR training",
+    "section": "Aldahadha B, Al-Harthy H, Sulaiman S. The Efficacy of Eye Movement Desensitization Reprocessing in Resolving the Trauma ",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=51 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071866Z"
+  },
+  {
+    "knowledge_id": "K-32331d2d",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Narrative Exposure Therapy (NET) for PTSD (alghamdi2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071881Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Patients narrate their biography and encouraged to relive their trauma-related emotions until habituation was achieved",
+    "section": "Alghamdi M, Hunt NC, Thomas SA. The effectiveness of narrative exposure therapy with traumatised firefighters in Saudi A",
+    "structured_interpretation": "Narrative Exposure Therapy (NET) (Psychotherapy) was studied for PTSD; n=34 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071883Z"
+  },
+  {
+    "knowledge_id": "K-2ea8f525",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (allen2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071899Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Internet-based CBT program with minimal therapeutic contact, adapted from cognitive processing therapy and prolonged exposure therapy. Lesson content included psychoeducation, writing and reading a trauma narrative, situational exposure, and tools including controlled breathing and progressive muscle relaxation. Therapist contact included response via phone or email to patient request or to symptom deterioration (mean 38 minutes spent per patient over 10 weeks). Participants also received automated email reminders.",
+    "section": "Allen AR, Smith J, Hobbs MJ, et al. Internet-delivered cognitive behaviour therapy for post-traumatic stress disorder: a",
+    "structured_interpretation": "Internet-based facilitated self-help (Other study class) was studied for PTSD; n=49 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071901Z"
+  },
+  {
+    "knowledge_id": "K-4224414f",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (allen2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071916Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waitlist",
+    "section": "Allen AR, Smith J, Hobbs MJ, et al. Internet-delivered cognitive behaviour therapy for post-traumatic stress disorder: a",
+    "structured_interpretation": "Waitlist (Other study class) was studied for PTSD; n=49 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071917Z"
+  },
+  {
+    "knowledge_id": "K-50164e22",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) + Yoga for PTSD (allene2025)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071932Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Yoga followed by EMDR; 10 weekly 75-minute trauma-sensitive group yoga sessions emphasizing body awareness, breathing, grounding, and non-judgmental acceptance, followed by 10 weekly individual EMDR therapy sessions.\nYoga: sessions were facilitated by a certified trauma sensitive yoga instructor and psychologist co-therapist. Each session consisted of the same sequence: first gentle movements while seated on a chair, then progressively more demanding movements while standing and then on a yoga mat on the floor (about 50 minutes for sequence). Sessions concluded with relaxation (7 min), brief mindfulness meditation (3 min), and a post-session discussion (10\u201315 min). Sessions were conducted without hands-on adjustments and with the emphasis on the choice of whether or not to do the suggested postures or their adaptations.\nEMDR: individual sessions by a certified EMDR practitioner (EMDR same for both arms)",
+    "section": "Allene C, Durand F, Negre G, et al. Yoga as a pre-treatment of EMDR to treat childhood abuse-related PTSD: feasibility a",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) + Yoga (Psychotherapy & CIH) was studied for PTSD; n=27 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071934Z"
+  },
+  {
+    "knowledge_id": "K-623ed262",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) + Waitlist for PTSD (allene2025)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071949Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waiting period followed by EMDR.\nWaitlist: 12-week waiting period with no active intervention\nEMDR: individual sessions by a certified EMDR practitioner (EMDR same for both arms)",
+    "section": "Allene C, Durand F, Negre G, et al. Yoga as a pre-treatment of EMDR to treat childhood abuse-related PTSD: feasibility a",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) + Waitlist (Psychotherapy & CIH) was studied for PTSD; n=27 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071951Z"
+  },
+  {
+    "knowledge_id": "K-c635b3fe",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Attention bias modification (ABM) for PTSD (alon2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071964Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Remotely delivered training balancing attention between threatening and neutral stimuli. Two images of faces presented, one with neutral and one with angry expression, with arrowhead pointing right (\u2018>\u2019) or left (\u2018<\u2019) by one of the faces until response. Arrowhead appeared next to each image with equal probability.",
+    "section": "Alon Y, Azriel O, Pine DS, et al. A randomized controlled trial of supervised remotely-delivered attention bias modifica",
+    "structured_interpretation": "Attention bias modification (ABM) (Nonpharmacologic cognitive) was studied for PTSD; n=60 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071966Z"
+  },
+  {
+    "knowledge_id": "K-9efbc9a6",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Attention bias modification (ABM) for PTSD (alon2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071980Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Remotely delivered training directing attention away from threatening stimulus. Two images of faces presented, one with neutral and one with angry expression, with arrowhead pointing from angry to neutral face.",
+    "section": "Alon Y, Azriel O, Pine DS, et al. A randomized controlled trial of supervised remotely-delivered attention bias modifica",
+    "structured_interpretation": "Attention bias modification (ABM) (Nonpharmacologic cognitive) was studied for PTSD; n=60 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071982Z"
+  },
+  {
+    "knowledge_id": "K-97477c74",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Coping skills treatment for PTSD (alsheikhali2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.071996Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Group counseling program consisting of four domains: alienation; loss and grief; hope and hopelessness; psychological problems. Sessions targeted these domains and used psycho-education techniques and teaching coping strategies.",
+    "section": "Alsheikh Ali ASS. Efficiency of Intervention Counseling Program on the Enhanced Psychological Well-being and Reduced Pos",
+    "structured_interpretation": "Coping skills treatment (Psychotherapy) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.071998Z"
+  },
+  {
+    "knowledge_id": "K-a680cd31",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Control for PTSD (alsheikhali2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072015Z",
+    "source_type": "research_summary",
+    "exact_source_text": "No psychological support or psychiatric medications",
+    "section": "Alsheikh Ali ASS. Efficiency of Intervention Counseling Program on the Enhanced Psychological Well-being and Reduced Pos",
+    "structured_interpretation": "Control (Psychotherapy) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072020Z"
+  },
+  {
+    "knowledge_id": "K-bac2474e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cognitive Processing Therapy (CPT) for PTSD (angelakis2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072037Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Manualized therapy using 12-session protocol focused on teaching skills to identify and challenge trauma-related beliefs; up to 3 additional sessions offered based on clinical need to address residual symptoms.",
+    "section": "Angelakis S, Weber N, Nixon RDV. Comorbid posttraumatic stress disorder and major depressive disorder: The usefulness of",
+    "structured_interpretation": "Cognitive Processing Therapy (CPT) (Psychotherapy) was studied for PTSD; n=52 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072039Z"
+  },
+  {
+    "knowledge_id": "K-1100f56b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Behavioral activation (BA) + Cognitive Processing Therapy (CPT) for PTSD (angelakis2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072055Z",
+    "source_type": "research_summary",
+    "exact_source_text": "BA (5 sessions) followed by CPT (10 sessions). BA: manualized therapy for depression \"focused on the link between behavior and mood and involved psychoeducation, activity monitoring, and scheduling of mastery and pleasure tasks\"; CPT: manualized therapy focused on teaching skills to identify and challenge trauma-related beliefs, content delivery was modified to fit content of 12-session protocol into 10 sessions.",
+    "section": "Angelakis S, Weber N, Nixon RDV. Comorbid posttraumatic stress disorder and major depressive disorder: The usefulness of",
+    "structured_interpretation": "Behavioral activation (BA) + Cognitive Processing Therapy (CPT) (Psychotherapy) was studied for PTSD; n=52 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072057Z"
+  },
+  {
+    "knowledge_id": "K-a9c4277b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Behavioral activation (BA) + Cognitive Processing Therapy (CPT) for PTSD (angelakis2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072072Z",
+    "source_type": "research_summary",
+    "exact_source_text": "CPT (10 sessions) followed by BA (5 sessions). Same content as arm B, in reverse order. CPT: manualized therapy focused on teaching skills to identify and challenge trauma-related beliefs, content delivery was modified to fit content of 12-session protocol into 10 sessions; BA: manualized therapy for depression \"focused on the link between behavior and mood and involved psychoeducation, activity monitoring, and scheduling of mastery and pleasure tasks\".",
+    "section": "Angelakis S, Weber N, Nixon RDV. Comorbid posttraumatic stress disorder and major depressive disorder: The usefulness of",
+    "structured_interpretation": "Behavioral activation (BA) + Cognitive Processing Therapy (CPT) (Psychotherapy) was studied for PTSD; n=52 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072073Z"
+  },
+  {
+    "knowledge_id": "K-5ab99f79",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Rivastigmine augmentation + Treatment as usual (TAU) for PTSD (ardani2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072088Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Acetylcholinesterase inhibitor; augmentation of treatment with citalopram and valproate; randomized following 4-week run-in with citalopram and valproate; rivastigmine 3 mg (total daily dose) for 4 weeks then 6 mg (total daily dose) for 8 weeks.",
+    "section": "Ardani AR, Hosseini G, Bordbar MRF, et al. Effect of rivastigmine augmentation in treatment of male patients with combat",
+    "structured_interpretation": "Rivastigmine augmentation + Treatment as usual (TAU) (Pharmacotherapy) was studied for PTSD; n=36 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072089Z"
+  },
+  {
+    "knowledge_id": "K-4e975050",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo augmentation + Treatment as usual (TAU) for PTSD (ardani2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072105Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo identical to rivastigmine; after 4-week run-in with citalopram and valproate, randomized to placebo for 8 weeks in addition to treatment with citalopram and valproate.",
+    "section": "Ardani AR, Hosseini G, Bordbar MRF, et al. Effect of rivastigmine augmentation in treatment of male patients with combat",
+    "structured_interpretation": "Placebo augmentation + Treatment as usual (TAU) (Pharmacotherapy) was studied for PTSD; n=36 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072107Z"
+  },
+  {
+    "knowledge_id": "K-1861d381",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (ardani2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072121Z",
+    "source_type": "research_summary",
+    "exact_source_text": "After 4-week run-in with citalopram and valproate, randomized to no additional medications for 8 weeks, and continued routine medications (citalopram and valproate as established in run-in).",
+    "section": "Ardani AR, Hosseini G, Bordbar MRF, et al. Effect of rivastigmine augmentation in treatment of male patients with combat",
+    "structured_interpretation": "Treatment as usual (TAU) (Pharmacotherapy) was studied for PTSD; n=36 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072123Z"
+  },
+  {
+    "knowledge_id": "K-02f04074",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Exposure therapy + Imagery rescripting for PTSD (arntz2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072141Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Imaginal exposure portion based on program by Foa & Rothbaum (1989) with 60 minutes of imagery work each session; 3 sessions of imaginal exposure only, then 6 sessions focused on identifying and imagining reacting as they wished they had done, until a satisfying response could be used repetitively in imagery.",
+    "section": "Arntz A, Tiesema M, Kindt M. Treatment of PTSD: a comparison of imaginal exposure with and without imagery rescripting. ",
+    "structured_interpretation": "Exposure therapy + Imagery rescripting (Psychotherapy) was studied for PTSD; n=67 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072143Z"
+  },
+  {
+    "knowledge_id": "K-6fcc713e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Exposure therapy for PTSD (arntz2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072158Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Based on the program by Foa & Rothbaum (1989) with 60 minutes of imagery exposure, but no in vivo exposure. Homework to listen to audiotaped exposure session 5 days per week and complete Standard Homework Diary Forms, which were reviewed at each therapy session.",
+    "section": "Arntz A, Tiesema M, Kindt M. Treatment of PTSD: a comparison of imaginal exposure with and without imagery rescripting. ",
+    "structured_interpretation": "Exposure therapy (Psychotherapy) was studied for PTSD; n=67 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072159Z"
+  },
+  {
+    "knowledge_id": "K-cbbc32b5",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (arntz2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072174Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waitlist group created when waiting time to treatment increased \"to about 3 months\" at which time participants were informed they would start treatment after waiting period.",
+    "section": "Arntz A, Tiesema M, Kindt M. Treatment of PTSD: a comparison of imaginal exposure with and without imagery rescripting. ",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=67 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072176Z"
+  },
+  {
+    "knowledge_id": "K-64f5aac2",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Rewind psychotherapy protocol for PTSD (astillwright2023)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072193Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused protocol targeting reconsolidation of traumatic memories; \"employs a 'rewinding' technique - where the participant imagines that they are in a cinema watching a film of her/his traumatic event, the participant then enters the screen and relives their trauma memory in reverse very quickly. It is theorised that this rewinding may utilise mechanisms such as exposure, extinction, and reconsolidation to alleviate PTSD symptoms\"",
+    "section": "Astill Wright L, Barawi K, Kitchiner N, et al. Rewind for posttraumatic stress disorder: a randomised controlled trial. ",
+    "structured_interpretation": "Rewind psychotherapy protocol (Psychotherapy) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072195Z"
+  },
+  {
+    "knowledge_id": "K-7f70537d",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (astillwright2023)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072213Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waitlist",
+    "section": "Astill Wright L, Barawi K, Kitchiner N, et al. Rewind for posttraumatic stress disorder: a randomised controlled trial. ",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072215Z"
+  },
+  {
+    "knowledge_id": "K-8bc80c77",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) for PTSD (asukai2010)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072234Z",
+    "source_type": "research_summary",
+    "exact_source_text": "PE: manualized therapy consisting of psychoeducation, breathing retraining, in vivo exposure, imagery exposure, and processing; 2 introductory sessions and imagery exposure and processing during remaining sessions (6 to maximum of 13 sessions).\n\n\n\n\n\n\n\nTAU: participants continued any treatment received before the study, including supportive counseling and medication; patients were asked to not change medication or dosages for duration of treatment.",
+    "section": "Asukai N, Saito A, Tsuruta N, et al. Efficacy of exposure therapy for Japanese patients with posttraumatic stress disord",
+    "structured_interpretation": "Prolonged Exposure (PE) (Psychotherapy) was studied for PTSD; n=24 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072236Z"
+  },
+  {
+    "knowledge_id": "K-5386abce",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (asukai2010)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072254Z",
+    "source_type": "research_summary",
+    "exact_source_text": "TAU while on waitlist; continuation of any treatment received before the study, including supportive counseling and medication; patients were asked to not change medication or dosages for duration of treatment",
+    "section": "Asukai N, Saito A, Tsuruta N, et al. Efficacy of exposure therapy for Japanese patients with posttraumatic stress disord",
+    "structured_interpretation": "Treatment as usual (TAU) (Psychotherapy) was studied for PTSD; n=24 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072256Z"
+  },
+  {
+    "knowledge_id": "K-2e38ff53",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Concurrent Treatment for PTSD and Substance Use Disorder Using Prolonged Exposure (COPE) for PTSD (back2019)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072279Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Integrates Prolonged Exposure and CBT for SUD; sessions include psychoeducation, in vivo exposure and imaginal exposure; abstinence is not required to participate but is strongly encouraged.",
+    "section": "Back SE, Killeen T, Badour CL, et al. Concurrent treatment of substance use disorders and PTSD using prolonged exposure:",
+    "structured_interpretation": "Concurrent Treatment for PTSD and Substance Use Disorder Using Prolonged Exposure (COPE) (Psychotherapy) was studied for PTSD; n=81 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072281Z"
+  },
+  {
+    "knowledge_id": "K-c1c6c80b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Relapse Prevention for PTSD (back2019)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072294Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Manualized evidence-based treatment; \"teaches skills to help manage cravings and high-risk situations that commonly precipitate substance use.\"",
+    "section": "Back SE, Killeen T, Badour CL, et al. Concurrent treatment of substance use disorders and PTSD using prolonged exposure:",
+    "structured_interpretation": "Relapse Prevention (Psychotherapy) was studied for PTSD; n=81 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072296Z"
+  },
+  {
+    "knowledge_id": "K-f5bebd2d",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Doxazosin for PTSD (back2023)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072310Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Doxazosin immediate-release capsules formulated with 25 mg riboflavin to monitor adherence.",
+    "section": "Back S, Flanagan J, Mintz J, et al. A double-blind randomized controlled trial of doxazosin for co-occurring PTSD and al",
+    "structured_interpretation": "Doxazosin (Pharmacotherapy) was studied for PTSD; n=141 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072312Z"
+  },
+  {
+    "knowledge_id": "K-0d713e83",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (back2023)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072326Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Capsules color-matched, opaque, and identically sized compared with doxazosin capsules.",
+    "section": "Back S, Flanagan J, Mintz J, et al. A double-blind randomized controlled trial of doxazosin for co-occurring PTSD and al",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=141 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072328Z"
+  },
+  {
+    "knowledge_id": "K-c7d31f41",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cognitive behavioral therapy (CBT) without a trauma focus + N-acetylcysteine for PTSD (back2025)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072342Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Protocolized CBT for AUD; topics included coping with cravings, managing thoughts and urges about drinking, and alcohol refusal skills.\nN-acetylcysteine 1200 mg twice a day",
+    "section": "Back SE, Gray K, Jarnecke AM, et al. N-Acetylcysteine for the Treatment of Co-Occurring Posttraumatic Stress Disorder an",
+    "structured_interpretation": "Cognitive behavioral therapy (CBT) without a trauma focus + N-acetylcysteine (Psychotherapy & pharmacotherapy) was studied for PTSD; n=182 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072344Z"
+  },
+  {
+    "knowledge_id": "K-82d5d80b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cognitive behavioral therapy (CBT) without a trauma focus + Placebo for PTSD (back2025)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072357Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Protocolized CBT for AUD; topics included coping with cravings, managing thoughts and urges about drinking, and alcohol refusal skills.\nPlacebo visually matched active medication (N-acetylcysteine), twice a day.",
+    "section": "Back SE, Gray K, Jarnecke AM, et al. N-Acetylcysteine for the Treatment of Co-Occurring Posttraumatic Stress Disorder an",
+    "structured_interpretation": "Cognitive behavioral therapy (CBT) without a trauma focus + Placebo (Psychotherapy & pharmacotherapy) was studied for PTSD; n=182 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072359Z"
+  },
+  {
+    "knowledge_id": "K-68b549d5",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Attention bias modification (ABM) for PTSD (badurabrack2015a)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072374Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Computerized cognitive training strategies to alter biases in attention. Intervention utilized the dot-probe task to train attention bias away from threat",
+    "section": "Badura-Brack AS, Naim R, Ryan TJ, et al. Effect of attention training on attention bias variability and PTSD symptoms: r",
+    "structured_interpretation": "Attention bias modification (ABM) (Nonpharmacologic cognitive) was studied for PTSD; n=52 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072376Z"
+  },
+  {
+    "knowledge_id": "K-d0b3c063",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Attention bias modification (ABM) for PTSD (badurabrack2015a)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072390Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Repeated trials train patients to normalize fluctuations in threat-related attention bias",
+    "section": "Badura-Brack AS, Naim R, Ryan TJ, et al. Effect of attention training on attention bias variability and PTSD symptoms: r",
+    "structured_interpretation": "Attention bias modification (ABM) (Nonpharmacologic cognitive) was studied for PTSD; n=52 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072392Z"
+  },
+  {
+    "knowledge_id": "K-7b604f59",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Attention bias modification (ABM) for PTSD (badurabrack2015b)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072407Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Computerized cognitive training strategies to alter biases in attention. Intervention utilized the dot-probe task with pairs of angry and neutral faces to train attention bias away from threat",
+    "section": "Badura-Brack AS, Naim R, Ryan TJ, et al. Effect of attention training on attention bias variability and PTSD symptoms: r",
+    "structured_interpretation": "Attention bias modification (ABM) (Nonpharmacologic cognitive) was studied for PTSD; n=46 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072410Z"
+  },
+  {
+    "knowledge_id": "K-c3ca67c1",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Attention bias modification (ABM) for PTSD (badurabrack2015b)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.072427Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Repeated trials train patients to normalize fluctuations in threat-related attention bias",
+    "section": "Badura-Brack AS, Naim R, Ryan TJ, et al. Effect of attention training on attention bias variability and PTSD symptoms: r",
+    "structured_interpretation": "Attention bias modification (ABM) (Nonpharmacologic cognitive) was studied for PTSD; n=46 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.072429Z"
+  },
+  {
+    "knowledge_id": "K-e42ae4ea",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Coping skills treatment for PTSD (baekkelund2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073068Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Manualized group treatment focused on psychoeducation and skill-building, to enable patients to cope with PTSD symptoms, strengthen emotional regulation, and improve interpersonal functioning. Each group included 9 participants and 2 therapists. Sessions included exercises, such as grounding, relaxation, or mindfulness. Homework between sessions. All patients also received adjunctive conventional individual treatment; individual treatment determined by therapist, not protocolled.",
+    "section": "Baekkelund H, Karlsrud I, Hoffart A, et al. Stabilizing group treatment for childhood-abuse related PTSD: a randomized c",
+    "structured_interpretation": "Coping skills treatment (Psychotherapy) was studied for PTSD; n=89 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073074Z"
+  },
+  {
+    "knowledge_id": "K-e1f3a69f",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (baekkelund2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073103Z",
+    "source_type": "research_summary",
+    "exact_source_text": "All patients received adjunctive conventional individual treatment during the waiting period; individual treatment determined by therapist, not protocolled.. All patients in the control group were offered the experimental group treatment after the waiting period.",
+    "section": "Baekkelund H, Karlsrud I, Hoffart A, et al. Stabilizing group treatment for childhood-abuse related PTSD: a randomized c",
+    "structured_interpretation": "Treatment as usual (TAU) (Psychotherapy) was studied for PTSD; n=89 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073110Z"
+  },
+  {
+    "knowledge_id": "K-a5971f0f",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) + Quetiapine for PTSD (baig2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073131Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Quetiapine monotherapy in addition to weekly PE therapy delivered as a standard of care in ten manualized 90-minute sessions following the model by Foa et al.  2-week dose reduction of current psychotropic medications followed by titration with flexible dosing of quetiapine starting at 25 mg and titrated up to 200 mg daily based on tolerability; quetiapine stabilization period of 2 weeks prior to starting PE therapy, with dose maintained throughout PE.",
+    "section": "Baig MR, Wilson JL, Beck RD, et al. Quetiapine as an adjunct to enhance engagement in prolonged exposure therapy for PTS",
+    "structured_interpretation": "Prolonged Exposure (PE) + Quetiapine (Psychotherapy & pharmacotherapy) was studied for PTSD; n=20 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073133Z"
+  },
+  {
+    "knowledge_id": "K-73405b4e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Prolonged Exposure (PE) for PTSD (baig2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073150Z",
+    "source_type": "research_summary",
+    "exact_source_text": "TAU medication management in addition to weekly PE therapy delivered as a standard of care in ten manualized 90-minute sessions following the model by Foa et al. TAU stabilized for 2-week period prior to starting PE, and maintained throughout PE.",
+    "section": "Baig MR, Wilson JL, Beck RD, et al. Quetiapine as an adjunct to enhance engagement in prolonged exposure therapy for PTS",
+    "structured_interpretation": "Prolonged Exposure (PE) (Psychotherapy & pharmacotherapy) was studied for PTSD; n=20 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073151Z"
+  },
+  {
+    "knowledge_id": "K-d12faea2",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Brofaromine for PTSD (baker1995)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073167Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Reversible MAOI with SSRI activity; flexible dose with titration",
+    "section": "Baker DG, Diamond BI, Gillette GM, et al. A double-blind, randomized, placebo-controlled, multi-center study of brofarom",
+    "structured_interpretation": "Brofaromine (Pharmacotherapy) was studied for PTSD; n=118 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073169Z"
+  },
+  {
+    "knowledge_id": "K-87796297",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (baker1995)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073183Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo",
+    "section": "Baker DG, Diamond BI, Gillette GM, et al. A double-blind, randomized, placebo-controlled, multi-center study of brofarom",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=118 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073185Z"
+  },
+  {
+    "knowledge_id": "K-0bc57624",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Pregabalin augmentation + Treatment as usual (TAU) for PTSD (baniasadi2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073200Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Anticonvulsant; augmentation of standard medications of SSRIs (citalopram 20 to 40 mg per day or sertraline 50 to 200 mg per day) and sodium valproate (1000 to 1800 mg per day)",
+    "section": "Baniasadi M, Hosseini G, Fayyazi Bordbar MR, et al. Effect of pregabalin augmentation in treatment of patients with comb",
+    "structured_interpretation": "Pregabalin augmentation + Treatment as usual (TAU) (Pharmacotherapy) was studied for PTSD; n=37 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073202Z"
+  },
+  {
+    "knowledge_id": "K-6f1c75a1",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo augmentation + Treatment as usual (TAU) for PTSD (baniasadi2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073216Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo augmentation of standard medications of SSRIs (citalopram 20 to 40 mg per day or sertraline 50 to 200 mg per day) and sodium valproate (1000 to 1800 mg per day)",
+    "section": "Baniasadi M, Hosseini G, Fayyazi Bordbar MR, et al. Effect of pregabalin augmentation in treatment of patients with comb",
+    "structured_interpretation": "Placebo augmentation + Treatment as usual (TAU) (Pharmacotherapy) was studied for PTSD; n=37 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073218Z"
+  },
+  {
+    "knowledge_id": "K-15865654",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (basoglu2005)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073234Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Shorter version of CBT with cognitive intervention limited to explanation of treatment rationale, focusing on reduction of fear and avoidance, and shifting focus from habituation to anxiogenic stimuli to enhancement of sense of control over traumatic stressor",
+    "section": "Basoglu M, Salcioglu E, Livanou M, et al. Single-session behavioral treatment of earthquake-related posttraumatic stress",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=59 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073236Z"
+  },
+  {
+    "knowledge_id": "K-2af55471",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (basoglu2005)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073250Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants completed a 6-week waiting period then were re-assessed",
+    "section": "Basoglu M, Salcioglu E, Livanou M, et al. Single-session behavioral treatment of earthquake-related posttraumatic stress",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=59 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073252Z"
+  },
+  {
+    "knowledge_id": "K-39c12d92",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Exposure therapy for PTSD (basoglu2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073270Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Treatment rationale, treatment target setting, and self-exposure instructions provided in first session. Then patients were exposed to simulated earthquake tremors with ability to control intensity, and instructed to confront their fear until they felt in control",
+    "section": "Basoglu M, Salcioglu E, Livanou M. A randomized controlled study of single-session behavioural treatment of earthquake-r",
+    "structured_interpretation": "Exposure therapy (Psychotherapy) was studied for PTSD; n=31 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073272Z"
+  },
+  {
+    "knowledge_id": "K-8adc41b4",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (basoglu2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073289Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants assessed at week 4 and 8 after randomization, then received treatment",
+    "section": "Basoglu M, Salcioglu E, Livanou M. A randomized controlled study of single-session behavioural treatment of earthquake-r",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=31 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073291Z"
+  },
+  {
+    "knowledge_id": "K-f5139009",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Topiramate for PTSD (batki2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073304Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Anticonvulsant medication + weekly medication management manualized counseling to promote adherence and reduce alcohol use",
+    "section": "Batki SL, Pennington DL, Lasher B, et al. Topiramate treatment of alcohol use disorder in veterans with posttraumatic st",
+    "structured_interpretation": "Topiramate (Pharmacotherapy) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073306Z"
+  },
+  {
+    "knowledge_id": "K-7b3fb9c4",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (batki2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073320Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo identical to topiramate",
+    "section": "Batki SL, Pennington DL, Lasher B, et al. Topiramate treatment of alcohol use disorder in veterans with posttraumatic st",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073321Z"
+  },
+  {
+    "knowledge_id": "K-1bd9e826",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (battaglia2016)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073335Z",
+    "source_type": "research_summary",
+    "exact_source_text": "MI-based written smoking cessation curricula on home telehealth Health Buddy computer program and weekly telephone smoking cessation MI counseling by a nurse in addition to PTSD home telehealth care management program and nurse care manager. Mi-based smoking cessation curricula used MI material. A participant's response to a question dictated a different reply based on his or her stage of change. Nurse care managers used responses to promote identified health behavior change, and participants acquire a positive behavior (tobacco cessation)",
+    "section": "Battaglia C, Peterson J, Whitfield E, et al. Integrating motivational interviewing into a home telehealth program for ve",
+    "structured_interpretation": "Internet-based facilitated self-help (Other study class) was studied for PTSD; n=175 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073337Z"
+  },
+  {
+    "knowledge_id": "K-32f1d235",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (battaglia2016)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073351Z",
+    "source_type": "research_summary",
+    "exact_source_text": "PTSD home telehealth care management services with a device called the Health Buddy, designed to help those with PTSD self-monitor and self-manage. This computer-like device is 12x8x4 inches with a LCD screen. Patient read information and four large buttons for responding to questions. Patient responses transmitted overnight to a secure data center and the next day's curriculum was downloaded to device. Control nurse care managers read patients responses daily, monitored changes in health status, placed outreach phone calls to patients with urgent needs, and coordinated care with primary medical and/or mental health providers.",
+    "section": "Battaglia C, Peterson J, Whitfield E, et al. Integrating motivational interviewing into a home telehealth program for ve",
+    "structured_interpretation": "Internet-based facilitated self-help (Other study class) was studied for PTSD; n=175 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073352Z"
+  },
+  {
+    "knowledge_id": "K-188593f5",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Collaborative care for PTSD (battersby2013)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073369Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Multicomponent intervention consisting of Flinders Program, usual care, self-help materials, and optional participation in the Stanford Chronic Disease Self-Management group program.",
+    "section": "Battersby MW, Beattie J, Pols RG, et al. A randomised controlled trial of the Flinders Program\u2122 of chronic condition man",
+    "structured_interpretation": "Collaborative care (Collaborative care) was studied for PTSD; n=82 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073371Z"
+  },
+  {
+    "knowledge_id": "K-4aa56ee3",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (battersby2013)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073385Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Services available included \"crisis intervention, alcohol-related education and counselling, pharmacological interventions, and cognitive behavioural and group pro- grams.\"",
+    "section": "Battersby MW, Beattie J, Pols RG, et al. A randomised controlled trial of the Flinders Program\u2122 of chronic condition man",
+    "structured_interpretation": "Treatment as usual (TAU) (Collaborative care) was studied for PTSD; n=82 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073387Z"
+  },
+  {
+    "knowledge_id": "K-aad9a42a",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (beck2009)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073401Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Based on Blanchard and Hickling's individual CBT with modifications: treatment extended; detailed manual developed to standardize treatment; imaginal exposure assigned as homework and exposure to target trauma (MVA) conducted in writing; emphasis placed on teaching the principles of extinction to facilitate exposure during homework; treatment delivered by two therapists. Included: psychoeducation; exposure; mindfulness meditation; progressive muscle relaxation; cognitive therapy interventions and assertion training; behavioral activation; and, relapse prevention training.",
+    "section": "Beck JG, Coffey SF, Foy DW, et al. Group cognitive behavior therapy for chronic posttraumatic stress disorder: an initia",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=44 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073402Z"
+  },
+  {
+    "knowledge_id": "K-d1cb3303",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Minimal attention for PTSD (beck2009)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073418Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Telephone contact by project coordinator using structured script to assess PTSD symptomatology and suicidality; minimal support provided; no active intervention administered.",
+    "section": "Beck JG, Coffey SF, Foy DW, et al. Group cognitive behavior therapy for chronic posttraumatic stress disorder: an initia",
+    "structured_interpretation": "Minimal attention (Psychotherapy) was studied for PTSD; n=44 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073420Z"
+  },
+  {
+    "knowledge_id": "K-d7be35cd",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Music therapy + Treatment as usual (TAU) for PTSD (beck2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073440Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused adapation of the Bonny Method of Guided Imagery and Music; focuses on spontaneous imagery stimulated by listening to music in an altered state of consciousness. Sessions included verbal communication and optional 5-20 minutes of music and imagery work, and were followed by verbal processing with the therapist. Also received standard therapy following best-practice guidelines for PTSD treatment; includes elements of trauma-focused CBT, psychodynamic, and narrative approaches",
+    "section": "Beck BD, Meyer SL, Simonsen E, et al. Music therapy was noninferior to verbal standard treatment of traumatized refugees",
+    "structured_interpretation": "Music therapy + Treatment as usual (TAU) (Psychotherapy & CIH) was studied for PTSD; n=74 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073442Z"
+  },
+  {
+    "knowledge_id": "K-b57a0d3a",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (beck2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073456Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Standard therapy following best-practice guidelines for PTSD treatment; includes elements of trauma-focused CBT, psychodynamic, and narrative approaches",
+    "section": "Beck BD, Meyer SL, Simonsen E, et al. Music therapy was noninferior to verbal standard treatment of traumatized refugees",
+    "structured_interpretation": "Treatment as usual (TAU) (Psychotherapy & CIH) was studied for PTSD; n=74 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073458Z"
+  },
+  {
+    "knowledge_id": "K-cc524ee6",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Bupropion for PTSD (becker2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073471Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Antidepressant with a monocyclic aminoketone structure and weak norepinephrine and dopamine reuptake inhibitor.",
+    "section": "Becker ME, Hertzberg MA, Moore SD, et al. A placebo-controlled trial of bupropion SR in the treatment of chronic posttra",
+    "structured_interpretation": "Bupropion (Pharmacotherapy) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073472Z"
+  },
+  {
+    "knowledge_id": "K-56fdd5e4",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (becker2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073485Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo",
+    "section": "Becker ME, Hertzberg MA, Moore SD, et al. A placebo-controlled trial of bupropion SR in the treatment of chronic posttra",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073487Z"
+  },
+  {
+    "knowledge_id": "K-89ddfb18",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Coping skills treatment + Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (beidel2011)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073500Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Intensive exposure therapy including imaginal and in vivo exposure. Social and emotional rehabilitation involves general social skills training with anger management skills",
+    "section": "Beidel DC, Frueh BC, Uhde TW, et al. Multicomponent behavioral treatment for chronic combat-related posttraumatic stress",
+    "structured_interpretation": "Coping skills treatment + Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=35 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073501Z"
+  },
+  {
+    "knowledge_id": "K-592334de",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Exposure therapy for PTSD (beidel2011)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073515Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Intensive exposure therapy including imaginal and in vivo exposure, then therapist lead group psychoeducation and traditional \"rap\" group sessions where participants share experiences and garner support from other group members",
+    "section": "Beidel DC, Frueh BC, Uhde TW, et al. Multicomponent behavioral treatment for chronic combat-related posttraumatic stress",
+    "structured_interpretation": "Exposure therapy (Psychotherapy) was studied for PTSD; n=35 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073517Z"
+  },
+  {
+    "knowledge_id": "K-5ab8089b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Neurofeedback for PTSD (bell2019)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073539Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Training protocol individualized using NeuroGuide's Symptom Checklist-Neural Network Match method, with 3 networks and 5 metrics for each participant. Audiovisual feedback by participant watching a movie and the screen and volume zoom in/out based on physiological measures and set thresholds (used Zukor Media Player). Reward provision used Z-Tunes method with 2 selection criteria: 1) 70% of targeted metrics within set z-score range; 2) average of remaining 30% were moving in direction of z=0 (negative slope); z-score threshold adjusted during each session for reward rate of 24 to 36 rewards per minute.",
+    "section": "Bell AN, Moss D, Kallmeyer RJ. Healing the neurophysiological roots of trauma: a controlled study examining loreta z-sco",
+    "structured_interpretation": "Neurofeedback (Other mixed) was studied for PTSD; n=24 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073544Z"
+  },
+  {
+    "knowledge_id": "K-c97df457",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Biofeedback for PTSD (bell2019)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073563Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants guided to breathe at resonant frequency and increase heartrate variability metrics using audiovisual feedback (participant watching a movie and the screen and volume zoom in/out based on physiological measures and set thresholds, used Zukor Media Player) and breath pacer on training screen.",
+    "section": "Bell AN, Moss D, Kallmeyer RJ. Healing the neurophysiological roots of trauma: a controlled study examining loreta z-sco",
+    "structured_interpretation": "Biofeedback (Other mixed) was studied for PTSD; n=24 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073565Z"
+  },
+  {
+    "knowledge_id": "K-ed2e9614",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Meditation for PTSD (bellehsen2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073581Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Taught in same format as offered in the community; no modifications to address PTSD symptoms specifically. Comprised of an introductory lecture, personal interview, 4 core instruction sessions (individual followed by 3 group sessions over 4 consecutive days), then weekly group sessions. Daily meditation at home encouraged.",
+    "section": "Bellehsen M, Stoycheva V, Cohen BH, et al. A pilot randomized controlled trial of transcendental meditation as treatment",
+    "structured_interpretation": "Meditation (CIH) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073582Z"
+  },
+  {
+    "knowledge_id": "K-defaa469",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (bellehsen2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073596Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Not described. Control group was offered an opportunity to learn transcendental mediation after study participation.",
+    "section": "Bellehsen M, Stoycheva V, Cohen BH, et al. A pilot randomized controlled trial of transcendental meditation as treatment",
+    "structured_interpretation": "Treatment as usual (TAU) (CIH) was studied for PTSD; n=40 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073597Z"
+  },
+  {
+    "knowledge_id": "K-d285a4f7",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Imagery rehearsal training (IRT) + Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (belleville2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073612Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Imagery rehearsal therapy sessions intended to alter the association between sleep and nightmares by rehearsing an alternate dream script in the daytime; followed by series of CBT sessions that included exposure to traumatic memories and to feared objects, activities and situations",
+    "section": "Belleville G, Dube-Frenette M, Rousseau A. Efficacy of imagery rehearsal therapy and cognitive behavioral therapy in sex",
+    "structured_interpretation": "Imagery rehearsal training (IRT) + Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=42 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073613Z"
+  },
+  {
+    "knowledge_id": "K-efa8e912",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (belleville2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073628Z",
+    "source_type": "research_summary",
+    "exact_source_text": "CBT sessions included exposure to traumatic memories and to feared objects, activities and situations. Sessions followed a 5-week waiting period including weekly check-in phone calls of about 5 minutes' duration.",
+    "section": "Belleville G, Dube-Frenette M, Rousseau A. Efficacy of imagery rehearsal therapy and cognitive behavioral therapy in sex",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=42 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073630Z"
+  },
+  {
+    "knowledge_id": "K-68dd5482",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Narrative Exposure Therapy (NET) for PTSD (bichescu2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073644Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Therapist provided same psychoeducation as control group, explaining PTSD-related symptoms and dysfunctions that frequently occur. Patient, assisted by the therapist, construct a chronological report of his own biography with special focus on traumatic experience.",
+    "section": "Bichescu D, Neuner F, Schauer M, et al. Narrative exposure therapy for political imprisonment-related chronic posttrauma",
+    "structured_interpretation": "Narrative Exposure Therapy (NET) (Other mixed) was studied for PTSD; n=18 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073646Z"
+  },
+  {
+    "knowledge_id": "K-8c96d520",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Psychoeducation for PTSD (bichescu2007)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073659Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Therapist explain PTSD-related symptoms and dysfunctions that frequently occur, no further treatment offered",
+    "section": "Bichescu D, Neuner F, Schauer M, et al. Narrative exposure therapy for political imprisonment-related chronic posttrauma",
+    "structured_interpretation": "Psychoeducation (Other mixed) was studied for PTSD; n=18 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073661Z"
+  },
+  {
+    "knowledge_id": "K-c57ddc05",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Multi-modal Motion-assisted Memory Desensitization and Reconsolidation (3MDR) for PTSD (bisson2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073675Z",
+    "source_type": "research_summary",
+    "exact_source_text": "3MDR is \"based on known therapeutic principles of virtual reality exposure therapy and eye movement desensitization and reprocessing (EMDR), embedded in a novel context in which the patient walks on a treadmill whilst immersing in and interacting with a series of self-selected images that are displayed on a large screen\"; study treatment protocol involved projection of purpose-built tunnels to walk in and projection of self-selected digital pictures integrated into the software used for treatment.",
+    "section": "Bisson JI, van Deursen R, Hannigan B, Kitchiner N, Barawi K, Jones K, Pickles T, Skipper J, Young C, Abbott LR, van Geld",
+    "structured_interpretation": "Multi-modal Motion-assisted Memory Desensitization and Reconsolidation (3MDR) (Psychotherapy) was studied for PTSD; n=42 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073677Z"
+  },
+  {
+    "knowledge_id": "K-a63fc7a8",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (bisson2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073691Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waitlist for 12 weeks, then participants received experimental treatment (multimodular motion-assisted memory desensitization and reconsolidation)",
+    "section": "Bisson JI, van Deursen R, Hannigan B, Kitchiner N, Barawi K, Jones K, Pickles T, Skipper J, Young C, Abbott LR, van Geld",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=42 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073692Z"
+  },
+  {
+    "knowledge_id": "K-49986b21",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (bisson2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073705Z",
+    "source_type": "research_summary",
+    "exact_source_text": "8-step online guided self-help program (using Spring web-based program), including \"psychoeducation, grounding techniques, management of anxiety, behavioural activation, imaginal exposure, cognitive restructuring, in vivo exposure, and prevention of relapse.\" Audio narrated with keywords and images displayed; interactive, user input determines feedback. Tools include building a fear ladder and writing a trauma narrative. Therapist meets with patient at start of treatment, with 4 subsequent meetings for guidance and review, usually in person. Four telephone or email contacts between sessions.",
+    "section": "Bisson JI, Ariti C, Cullen K, et al. Guided, internet based, cognitive behavioural therapy for post-traumatic stress dis",
+    "structured_interpretation": "Internet-based facilitated self-help (Other mixed) was studied for PTSD; n=196 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073707Z"
+  },
+  {
+    "knowledge_id": "K-46d831cf",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (bisson2022)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073720Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Cognitive therapy for PTSD; up to 12 sessions, with assignments between sessions, including modifying negative appraisals, discussing trauma memories, stopping unhelpful behaviors and cognitive strategies, and \"when possible, visiting the site of the trauma with the therapist to update the trauma memory.\"",
+    "section": "Bisson JI, Ariti C, Cullen K, et al. Guided, internet based, cognitive behavioural therapy for post-traumatic stress dis",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) (Other mixed) was studied for PTSD; n=196 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073722Z"
+  },
+  {
+    "knowledge_id": "K-8cf7fda1",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) for PTSD (bizouerne2023)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073735Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Group traumatic episode protocol (G-TEP); uses bilateral stimulation and \"aims to treat a traumatic episode in order to reduce traumatic stress, promote adaptive treatment, build resilience and prevent post-traumatic complications\". Based on the Adaptive\nInformation Processing theoretical model and the 8 phases of EMDR processing.",
+    "section": "Bizouerne C, Dozio E, Dlasso E, et al. Randomized controlled trial: Comparing the effectiveness of brief group cognitive",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) (Psychotherapy) was studied for PTSD; n=110 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073737Z"
+  },
+  {
+    "knowledge_id": "K-cdce8c8a",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (bizouerne2023)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073753Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Group-based, trauma-focused cognitive behavior therapy adapted to the cultural and contextual specificities of Kurdistan",
+    "section": "Bizouerne C, Dozio E, Dlasso E, et al. Randomized controlled trial: Comparing the effectiveness of brief group cognitive",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=110 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073755Z"
+  },
+  {
+    "knowledge_id": "K-10542d71",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (blanchard2003)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073768Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Manualized treatment with emphasis on helping the patient understand PTSD as a reaction to trauma and to normalize patient's view of his/her symptoms. Treatment included progressive muscle relaxation, reading aloud description of the MVA, in vivo exposure, and behavioral activation to counteract the numbing symptoms",
+    "section": "Blanchard EB, Hickling EJ, Devineni T, et al. A controlled evaluation of cognitive behavioural therapy for posttraumatic",
+    "structured_interpretation": "Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=98 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073770Z"
+  },
+  {
+    "knowledge_id": "K-7b204618",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Supportive counseling for PTSD (blanchard2003)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073783Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Manualized treatment with emphasis on helping the patient understand PTSD as a reaction to trauma and to normalize patient's view of his/her symptoms. Therapist provided support on issues raised, including interpersonal or relationship issues, work issues, etc.",
+    "section": "Blanchard EB, Hickling EJ, Devineni T, et al. A controlled evaluation of cognitive behavioural therapy for posttraumatic",
+    "structured_interpretation": "Supportive counseling (Psychotherapy) was studied for PTSD; n=98 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073785Z"
+  },
+  {
+    "knowledge_id": "K-ea07d18b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Waitlist for PTSD (blanchard2003)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073798Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Waitlist",
+    "section": "Blanchard EB, Hickling EJ, Devineni T, et al. A controlled evaluation of cognitive behavioural therapy for posttraumatic",
+    "structured_interpretation": "Waitlist (Psychotherapy) was studied for PTSD; n=98 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073800Z"
+  },
+  {
+    "knowledge_id": "K-7065e14a",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Written narrative exposure for PTSD (boals2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073814Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants listened to audio recording that included an acceptance-based rationale and a guided mindfulness exercise. Participants then completed 2 expressive writing exercises",
+    "section": "Boals A, Murrell AR, Berntsen D, et al. Experimentally reducing event centrality using a modified expressive writing int",
+    "structured_interpretation": "Written narrative exposure (Other study class) was studied for PTSD; n=70 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073815Z"
+  },
+  {
+    "knowledge_id": "K-cb5861e2",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Written narrative exposure for PTSD (boals2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073829Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants listened to audio recording that included CBT rationale and a guided imagery exercise. Participants then completed 2 expressive writing exercises",
+    "section": "Boals A, Murrell AR, Berntsen D, et al. Experimentally reducing event centrality using a modified expressive writing int",
+    "structured_interpretation": "Written narrative exposure (Other study class) was studied for PTSD; n=70 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073831Z"
+  },
+  {
+    "knowledge_id": "K-0b85a5b0",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Control writing for PTSD (boals2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073844Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants listened to audio recording on history of baseball then completed 2 writing sessions about time management",
+    "section": "Boals A, Murrell AR, Berntsen D, et al. Experimentally reducing event centrality using a modified expressive writing int",
+    "structured_interpretation": "Control writing (Other study class) was studied for PTSD; n=70 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073846Z"
+  },
+  {
+    "knowledge_id": "K-2fd967a2",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Transcranial magnetic stimulation (TMS) for PTSD (boggio2010)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073863Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Magnetic stimulation applied to the left Dorsolateral Pre-frontal Cortex",
+    "section": "Boggio PS, Rocha M, Oliveira MO, et al. Noninvasive brain stimulation with high-frequency and low-intensity repetitive t",
+    "structured_interpretation": "Transcranial magnetic stimulation (TMS) (Nonpharmacologic biological) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073865Z"
+  },
+  {
+    "knowledge_id": "K-18234ad1",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Transcranial magnetic stimulation (TMS) for PTSD (boggio2010)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073878Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Magnetic stimulation applied to the right dorsolateral prefrontal cortex",
+    "section": "Boggio PS, Rocha M, Oliveira MO, et al. Noninvasive brain stimulation with high-frequency and low-intensity repetitive t",
+    "structured_interpretation": "Transcranial magnetic stimulation (TMS) (Nonpharmacologic biological) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073880Z"
+  },
+  {
+    "knowledge_id": "K-527e6bd8",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Sham for PTSD (boggio2010)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073894Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Administered the same TMS methodology as intervention groups only without magnetic stimulation from the coil. The sham TMS had a small electrical stimulator to mimic scalp sensation.",
+    "section": "Boggio PS, Rocha M, Oliveira MO, et al. Noninvasive brain stimulation with high-frequency and low-intensity repetitive t",
+    "structured_interpretation": "Sham (Nonpharmacologic biological) was studied for PTSD; n=30 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073895Z"
+  },
+  {
+    "knowledge_id": "K-992340e8",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Dialectical Behavior Therapy (DBT) + Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (bohus2013)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073908Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Integrated trauma-focused cognitive and exposure-based interventions described by Foa et al (2007) and Ehlers & Clark (2000). Intervention included individual exposure-based treatment plus the following weekly group treatments: skills training, self-esteem intervention, mindfulness sessions, PTSD-specific psychoeducation, and non-specific group interventions (music therapy, art therapy)",
+    "section": "Bohus MJ, Dyer AS, Priebe K, et al. Dialectical behaviour therapy for post-traumatic stress disorder after childhood sex",
+    "structured_interpretation": "Dialectical Behavior Therapy (DBT) + Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=82 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073910Z"
+  },
+  {
+    "knowledge_id": "K-c8a8754e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (bohus2013)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073924Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participants received 6 months of any treatment of their choice except DBT-PTSD",
+    "section": "Bohus MJ, Dyer AS, Priebe K, et al. Dialectical behaviour therapy for post-traumatic stress disorder after childhood sex",
+    "structured_interpretation": "Treatment as usual (TAU) (Psychotherapy) was studied for PTSD; n=82 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073925Z"
+  },
+  {
+    "knowledge_id": "K-e92e16ab",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Dialectical Behavior Therapy (DBT) + Trauma-focused cognitive behavioral therapy (TF-CBT) for PTSD (bohus2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073939Z",
+    "source_type": "research_summary",
+    "exact_source_text": "DBT for PTSD based on standard DBT with additional trauma-focused cognitive-behavioral interventions, and techniques drawn from compassion-focused therapy and acceptance and commitment therapy. Includes identifying patients' typical escape strategies in response to trauma-related stimuli, skills-assisted exposure to traumatic memories, and exercises on acceptance of the past and grief. Individual therapy, plus homework and telephone consultation as needed. Up to 45 weekly sessions over a year, followed by a booster phase of 3 monthly sessions.",
+    "section": "Bohus M, Kleindienst N, Hahn C, et al. Dialectical behavior therapy for posttraumatic stress disorder (DBT-PTSD) compare",
+    "structured_interpretation": "Dialectical Behavior Therapy (DBT) + Trauma-focused cognitive behavioral therapy (TF-CBT) (Psychotherapy) was studied for PTSD; n=193 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073944Z"
+  },
+  {
+    "knowledge_id": "K-5c2215a1",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cognitive Processing Therapy (CPT) for PTSD (bohus2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073961Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Trauma-focused cognitive therapy attempting to challenge dysfunctional trauma-associated cognitions and emotion. Follows a session by session protocol including original 12 CPT sessions and exploring themes such as trust, safety, and guilt. Later sessions identify and challenge \"stuck points\" not resolved in previous sessions. Individual therapy, plus homework and telephone consultation as needed. Up to 45 weekly sessions over a year, followed by a booster phase of 3 monthly sessions.",
+    "section": "Bohus M, Kleindienst N, Hahn C, et al. Dialectical behavior therapy for posttraumatic stress disorder (DBT-PTSD) compare",
+    "structured_interpretation": "Cognitive Processing Therapy (CPT) (Psychotherapy) was studied for PTSD; n=193 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073963Z"
+  },
+  {
+    "knowledge_id": "K-c3f7af12",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Interference control training for PTSD (bomyea2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073976Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Computerized cognitive training designed to prevent interfering thoughts from entering consciousness and removing them once they come to mind by improving cognitive performance on a working memory capacity test involving testing of sentence accuracy and memory under a condition of high proactive interference with item memoranda that were words for all trials; 3 blocks of training (45 trials) completed per session.",
+    "section": "Bomyea J, Stein MB, Lang AJ. Interference control training for PTSD: A randomized controlled trial of a novel computer-b",
+    "structured_interpretation": "Interference control training (Nonpharmacologic cognitive) was studied for PTSD; n=42 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073978Z"
+  },
+  {
+    "knowledge_id": "K-e5b4f9a4",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Interference control training for PTSD (bomyea2015)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.073992Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Computerized cognitive training designed to prevent interfering thoughts from entering consciousness and removing them once they come to mind by improving cognitive performance on a working memory capacity test involving testing of sentence accuracy and memory under a condition of low proactive interference with item memoranda that alternated between words and numbers every 3 trials; 3 blocks of training (45 trials) completed per session.",
+    "section": "Bomyea J, Stein MB, Lang AJ. Interference control training for PTSD: A randomized controlled trial of a novel computer-b",
+    "structured_interpretation": "Interference control training (Nonpharmacologic cognitive) was studied for PTSD; n=42 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.073994Z"
+  },
+  {
+    "knowledge_id": "K-b150d323",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Interference control training for PTSD (bomyea2025)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074008Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Reading span task which requires participants to remember item stimuli presented while doing a secondary problem solving or processing task. All items to be remembered were from the same category, requiring higher interference control but the same amount of overall working memory capacity. All stimuli were affectively neutral. Participants completed 45 self-paced trials each visit.",
+    "section": "Bomyea J, Caudle MM, Bartolovich AL, Simmons AN, Jak AJ, Golshan S. Randomized controlled trial of computerized working ",
+    "structured_interpretation": "Interference control training (Nonpharmacologic cognitive) was studied for PTSD; n=81 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074010Z"
+  },
+  {
+    "knowledge_id": "K-ba9f610d",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Interference control training for PTSD (bomyea2025)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074023Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Reading span task which requires participants to remember item stimuli presented while doing a secondary problem solving or processing task. All items to be remembered alternated categories every three trials, requiring less interference control but the same amount of overall working memory capacity. All stimuli were affectively neutral. Participants completed 45 self-paced trials each visit.",
+    "section": "Bomyea J, Caudle MM, Bartolovich AL, Simmons AN, Jak AJ, Golshan S. Randomized controlled trial of computerized working ",
+    "structured_interpretation": "Interference control training (Nonpharmacologic cognitive) was studied for PTSD; n=81 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074024Z"
+  },
+  {
+    "knowledge_id": "K-07f213ed",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cannabis for PTSD (bonnmiller2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074038Z",
+    "source_type": "research_summary",
+    "exact_source_text": "THC 12% and CBD <0.05%; independent testing showed THC 9% instead. Participants provided with 37.8 grams (1.8 grams/day) for the three-week ad libitum treatment period along with a metal pipe for treatment delivery (smoked). Unused drug returned to clinic weekly for measurement, with option for patients to use it in an open-label Stage 3.",
+    "section": "Bonn-Miller MO, Sisley S, Riggs P, et al. The short-term impact of 3 smoked cannabis preparations versus placebo on PTSD",
+    "structured_interpretation": "Cannabis (Pharmacotherapy) was studied for PTSD; n=80 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074040Z"
+  },
+  {
+    "knowledge_id": "K-c86f917b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cannabis for PTSD (bonnmiller2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074055Z",
+    "source_type": "research_summary",
+    "exact_source_text": "CBD 11% and THC 0.50%. Participants provided with 37.8 grams (1.8 grams/day) for the three-week ad libitum treatment period along with a metal pipe for treatment delivery (smoked). Unused drug returned to clinic weekly for measurement, with option for patients to use it in an open-label Stage 3.",
+    "section": "Bonn-Miller MO, Sisley S, Riggs P, et al. The short-term impact of 3 smoked cannabis preparations versus placebo on PTSD",
+    "structured_interpretation": "Cannabis (Pharmacotherapy) was studied for PTSD; n=80 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074057Z"
+  },
+  {
+    "knowledge_id": "K-d60748bb",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cannabis for PTSD (bonnmiller2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074071Z",
+    "source_type": "research_summary",
+    "exact_source_text": "THC 7.9% and CBD 8.1%. Participants provided with 37.8 grams (1.8 grams/day) for the three-week ad libitum treatment period along with a metal pipe for treatment delivery (smoked). Unused drug returned to clinic weekly for measurement, with option for patients to use it in an open-label Stage 3.",
+    "section": "Bonn-Miller MO, Sisley S, Riggs P, et al. The short-term impact of 3 smoked cannabis preparations versus placebo on PTSD",
+    "structured_interpretation": "Cannabis (Pharmacotherapy) was studied for PTSD; n=80 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074072Z"
+  },
+  {
+    "knowledge_id": "K-0e673a87",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cannabis comparator for PTSD (bonnmiller2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074086Z",
+    "source_type": "research_summary",
+    "exact_source_text": "THC <0.03% and CBD <0.01%. Participants provided with 37.8 grams (1.8 grams/day) for the three-week ad libitum treatment period along with a metal pipe for treatment delivery (smoked). Unused drug returned to clinic weekly for measurement, with option for patients to use it in an open-label Stage 3.",
+    "section": "Bonn-Miller MO, Sisley S, Riggs P, et al. The short-term impact of 3 smoked cannabis preparations versus placebo on PTSD",
+    "structured_interpretation": "Cannabis comparator (Pharmacotherapy) was studied for PTSD; n=80 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074088Z"
+  },
+  {
+    "knowledge_id": "K-a2f15f8e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Mantram Repetition for PTSD (bormann2008)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074101Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Education on PTSD symptoms and skills on how to choose and silently repeat a mantram - a word or phrase with spiritual associations chosen by the participant from a provided list. Repetition on Mantram is intended to train attention. Includes concepts of \"slowing down\" and \"one-pointed attention\". Used as a \"pause button\" for the mind to decrease reactivity to stress.",
+    "section": "Bormann JE, Thorp S, Wetherell JL, et al. A spiritually based group intervention for combat veterans with posttraumatic ",
+    "structured_interpretation": "Mantram Repetition (CIH) was studied for PTSD; n=29 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074103Z"
+  },
+  {
+    "knowledge_id": "K-16ac636b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (bormann2008)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074120Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Usual medical care with weekly or monthly case manager and/or primary care provider visits and medication management.",
+    "section": "Bormann JE, Thorp S, Wetherell JL, et al. A spiritually based group intervention for combat veterans with posttraumatic ",
+    "structured_interpretation": "Treatment as usual (TAU) (CIH) was studied for PTSD; n=29 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074122Z"
+  },
+  {
+    "knowledge_id": "K-443ea4e7",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Mantram Repetition for PTSD (bormann2013)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074136Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Mantram Repetition Program is a portable, meditation-based intervention that teaches concentrative meditation, slowing down, and one-pointed attention for training attention and regulating emotion; group sessions contained lectures, discussion, sharing, questions and answers, and homework.\n\n\n\n\n\n\n\nTAU consisted of case management as needed to evaluate mental health status and to monitor treatments",
+    "section": "Bormann JE, Thorp SR, Wetherell JL, et al. Meditation-based mantram intervention for veterans with posttraumatic stress ",
+    "structured_interpretation": "Mantram Repetition (CIH) was studied for PTSD; n=146 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074137Z"
+  },
+  {
+    "knowledge_id": "K-37a1198a",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (bormann2013)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074150Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Case management as needed to evaluate mental health status and to monitor treatments",
+    "section": "Bormann JE, Thorp SR, Wetherell JL, et al. Meditation-based mantram intervention for veterans with posttraumatic stress ",
+    "structured_interpretation": "Treatment as usual (TAU) (CIH) was studied for PTSD; n=146 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074152Z"
+  },
+  {
+    "knowledge_id": "K-5ce6bd3e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Mantram Repetition for PTSD (bormann2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074165Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Education on choosing a mantram (word or phrase with a spiritual meaning), slowing down thoughts, one-pointed attention for emotional self-regulation and relaxation. Instructions and in-session and out-of-session experiential homework. Applying skills for emotional self-regulation and symptom management (putting space between reactivity and behaviors). Discussion, storytelling, weekly assignments. Discuss obstacles to practicing and develop methods to sustain practicing.",
+    "section": "Bormann JE, Thorp SR, Smith E, et al. Individual treatment of posttraumatic stress disorder using mantram repetition: a ",
+    "structured_interpretation": "Mantram Repetition (Psychotherapy & CIH) was studied for PTSD; n=173 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074167Z"
+  },
+  {
+    "knowledge_id": "K-46276fe4",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Present-Centered Therapy (PCT) for PTSD (bormann2018)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074181Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Supportive, present-focused, nondirective psychotherapy; manualized treatment. Discuss current problems and use problem-solving techniques. Record daily stressors in diary to use for discussion during sessions. Set goals for current and future treatment.",
+    "section": "Bormann JE, Thorp SR, Smith E, et al. Individual treatment of posttraumatic stress disorder using mantram repetition: a ",
+    "structured_interpretation": "Present-Centered Therapy (PCT) (Psychotherapy & CIH) was studied for PTSD; n=173 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074182Z"
+  },
+  {
+    "knowledge_id": "K-999b902f",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Imagery rescripting for PTSD (boterhovendehaan2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074195Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Phased protocol: phase 1, patient recalls a trauma memory and is guided to imagine a different ending, such as someone intervening to stop the abuse; phase 2, patient as adult imagined as intervening; phase 3, patient re-experiences event as a child with adult intervening.",
+    "section": "Boterhoven de Haan KL, Lee CW, Fassbinder E, et al. Imagery rescripting and eye movement desensitisation and reprocessin",
+    "structured_interpretation": "Imagery rescripting (Psychotherapy) was studied for PTSD; n=155 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074197Z"
+  },
+  {
+    "knowledge_id": "K-c1c4fafc",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Eye Movement Desensitization and Reprocessing (EMDR) for PTSD (boterhovendehaan2020)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074212Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Phased protocol including identifying key memory components of trauma to be processed, active trauma processing, and assessment of current triggers and anticipatory anxiety",
+    "section": "Boterhoven de Haan KL, Lee CW, Fassbinder E, et al. Imagery rescripting and eye movement desensitisation and reprocessin",
+    "structured_interpretation": "Eye Movement Desensitization and Reprocessing (EMDR) (Psychotherapy) was studied for PTSD; n=155 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074213Z"
+  },
+  {
+    "knowledge_id": "K-b534e763",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (bottche2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074227Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Standard-length internet-based cognitive behavioral intervention guided by a therapist. Three components with 10 structured writing assignments: written imaginal exposure, describing traumatic event in detail (4 assignments); cognitive restructuring, reflecting on guilt, automatic cognitions, and unrealistic assumptions (4 assignments); and cognitive processing, including reflecting on the meaning of the trauma and social sharing (writing a supportive letter to oneself at the time of trauma) (2 assignments). Therapists (with experience in psychosocial counselling or bachelor's degree in psychology) gave instructions and written feedback on assignments, and were available by telephone for technical problems and emergencies.",
+    "section": "Bottche M, Wagner B, Vohringer M, et al. Is only one cognitive technique also effective? Results from a randomized contr",
+    "structured_interpretation": "Internet-based facilitated self-help (Other study class) was studied for PTSD; n=224 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074229Z"
+  },
+  {
+    "knowledge_id": "K-5ab3eddc",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (bottche2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074242Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Shorter internet-based cognitive behavioral intervention guided by a therapist. Two components with 6 structured writing assignments, excluding cognitive restructuring: written imaginal exposure, describing traumatic event in detail (4 assignments); and cognitive processing, including reflecting on the meaning of the trauma and social sharing (writing a supportive letter to oneself at the time of trauma) (2 assignments). Therapists (with experience in psychosocial counselling or bachelor's degree in psychology) gave instructions and written feedback on assignments, and were available by telephone for technical problems and emergencies.",
+    "section": "Bottche M, Wagner B, Vohringer M, et al. Is only one cognitive technique also effective? Results from a randomized contr",
+    "structured_interpretation": "Internet-based facilitated self-help (Other study class) was studied for PTSD; n=224 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074244Z"
+  },
+  {
+    "knowledge_id": "K-1d6a1988",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Observed and Experiential Integration - Switching component for PTSD (bradshaw2014)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074262Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Participant instructed to close his/her eyes and envision the traumatic incident. When patient experiences physical or emotional signs of distress, instruction is given to uncover the nondominant eye and cover the dominant eye. Dominant/nondominant eye is alternatingly covered or both uncovered.",
+    "section": "Bradshaw RA, McDonald MJ, Grace R, et al. A randomized clinical trial of Observed and Experiential Integration (OEI): a ",
+    "structured_interpretation": "Observed and Experiential Integration - Switching component (Psychotherapy) was studied for PTSD; n=10 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074263Z"
+  },
+  {
+    "knowledge_id": "K-e0a80c37",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Sertraline for PTSD (brady2000)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074279Z",
+    "source_type": "research_summary",
+    "exact_source_text": "SSRI; flexible dosing titrated in 50-mg increments based on clinical response and tolerability at no less than weekly intervals. Followed a 2-week single-blind placebo run-in period.",
+    "section": "Brady K, Pearlstein T, Asnis GM, et al. Efficacy and safety of sertraline treatment of posttraumatic stress disorder: a ",
+    "structured_interpretation": "Sertraline (Pharmacotherapy) was studied for PTSD; n=187 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074280Z"
+  },
+  {
+    "knowledge_id": "K-5823206e",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (brady2000)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074294Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Matched placebo. Followed a 2-week single-blind placebo run-in period.",
+    "section": "Brady K, Pearlstein T, Asnis GM, et al. Efficacy and safety of sertraline treatment of posttraumatic stress disorder: a ",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=187 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074296Z"
+  },
+  {
+    "knowledge_id": "K-f4163b1a",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cognitive behavioral therapy (CBT) without a trauma focus + Sertraline for PTSD (brady2005)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074310Z",
+    "source_type": "research_summary",
+    "exact_source_text": "SSR; 50 mg tablets. Also received weekly CBT targeting alcohol dependence.",
+    "section": "Brady KT, Sonne SC, Anton RF, et al. Sertraline in the treatment of co-occurring alcohol dependence and posttraumatic st",
+    "structured_interpretation": "Cognitive behavioral therapy (CBT) without a trauma focus + Sertraline (Psychotherapy & pharmacotherapy) was studied for PTSD; n=94 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074312Z"
+  },
+  {
+    "knowledge_id": "K-03108914",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Cognitive behavioral therapy (CBT) without a trauma focus + Placebo for PTSD (brady2005)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074330Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo tablets matched sertraline tablets. Also received weekly CBT targeting alcohol dependence.",
+    "section": "Brady KT, Sonne SC, Anton RF, et al. Sertraline in the treatment of co-occurring alcohol dependence and posttraumatic st",
+    "structured_interpretation": "Cognitive behavioral therapy (CBT) without a trauma focus + Placebo (Psychotherapy & pharmacotherapy) was studied for PTSD; n=94 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Some Concerns",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074332Z"
+  },
+  {
+    "knowledge_id": "K-ce3f5951",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Narrative Exposure Therapy (NET) for PTSD (brady2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074347Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Detailed narration of traumatic experiences that processes and contextualises traumatic memories and helps individuals to establish a coherent autobiographical narrative of their experiences. Three sessions of psychoeducation delivered prior to NET. Allowed up to 4 additional non-NET sessions to address urgent or risk issues arising during treatment. Goal of up to 20 sessions of NET.",
+    "section": "Brady F, Chisholm A, Walsh E, et al. Narrative exposure therapy for survivors of human trafficking: feasibility randomis",
+    "structured_interpretation": "Narrative Exposure Therapy (NET) (Psychotherapy) was studied for PTSD; n=25 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074352Z"
+  },
+  {
+    "knowledge_id": "K-f257c535",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Psychoeducation for PTSD (brady2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074366Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Psychoeducation and waitlist. Three sessions of psychoeducation delivered by therapist or trained assistant psychologists prior to 5-month waitlist period.",
+    "section": "Brady F, Chisholm A, Walsh E, et al. Narrative exposure therapy for survivors of human trafficking: feasibility randomis",
+    "structured_interpretation": "Psychoeducation (Psychotherapy) was studied for PTSD; n=25 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074368Z"
+  },
+  {
+    "knowledge_id": "K-b6e9ff38",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Alprazolam for PTSD (braun1990)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074381Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Benzodiazepine; titration over 2 weeks then steady dose for 3 weeks, followed by 2-week taper for patients taking alprazolam in first period (not included in treatment period)",
+    "section": "Braun P, Greenberg D, Dasberg H, et al. Core symptoms of posttraumatic stress disorder unimproved by alprazolam treatmen",
+    "structured_interpretation": "Alprazolam (Pharmacotherapy) was studied for PTSD; n=16 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074383Z"
+  },
+  {
+    "knowledge_id": "K-05ff9bbf",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Placebo for PTSD (braun1990)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074397Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Placebo",
+    "section": "Braun P, Greenberg D, Dasberg H, et al. Core symptoms of posttraumatic stress disorder unimproved by alprazolam treatmen",
+    "structured_interpretation": "Placebo (Pharmacotherapy) was studied for PTSD; n=16 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074399Z"
+  },
+  {
+    "knowledge_id": "K-6e587b1b",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Mindfulness-Based Stress Reduction (MBSR) for PTSD (bremner2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074413Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Mindfulness-based Stress Reduction based on Kabat-Zinn approach tailored to PTSD and veterans. Elements include body scan meditation, sitting meditation, hatha yoga via group sessions and home practice",
+    "section": "Bremner JD, Mishra S, Campanella C, et al. A pilot study of the effects of mindfulness-based stress reduction on post-tr",
+    "structured_interpretation": "Mindfulness-Based Stress Reduction (MBSR) (Psychotherapy & CIH) was studied for PTSD; n=26 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074414Z"
+  },
+  {
+    "knowledge_id": "K-b05387ee",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Present-Centered Therapy (PCT) for PTSD (bremner2017)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074429Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Psychoeducation and group support",
+    "section": "Bremner JD, Mishra S, Campanella C, et al. A pilot study of the effects of mindfulness-based stress reduction on post-tr",
+    "structured_interpretation": "Present-Centered Therapy (PCT) (Psychotherapy & CIH) was studied for PTSD; n=26 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "High",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074430Z"
+  },
+  {
+    "knowledge_id": "K-b70d70ab",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Transcutaneous cervical vagal nerve stimulation + Exposure (experimental paradigm) for PTSD (bremner2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074443Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Transcutaneous vagus nerve stimulation on both sides using handheld VNS device applied to skin over cervical part of nerve, identified by palpation of carotid artery. Initial 3 days of treatment given by researcher and paired with exposure; exposure comprised of patient-made voice recordings retelling traumatic experiences. Day 1 included neutral and trauma scripts and VNS; Days 2 & 3 included mental stress (public speaking and mental arithmetic) and VNS. Patients self-administered treatment at home twice daily for 3 months with the addition of traumatic script twice a week.",
+    "section": "Bremner JD, Wittbrodt MT, Gurel NZ, et al. Transcutaneous cervical vagal nerve stimulation in patients with posttraumati",
+    "structured_interpretation": "Transcutaneous cervical vagal nerve stimulation + Exposure (experimental paradigm) (Nonpharmacologic biological) was studied for PTSD; n=20 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074445Z"
+  },
+  {
+    "knowledge_id": "K-adc903e5",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Sham + Exposure (experimental paradigm) for PTSD (bremner2021)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074458Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Sham transcutaneous vagus nerve stimulation on both sides using handheld VNS device applied to skin over cervical part of nerve, identified by palpation of carotid artery. Initial 3 days of treatment given by researcher and paired with exposure; exposure comprised of patient-made voice recordings retelling traumatic experiences. Day 1 included neutral and trauma scripts and sham VNS; Days 2 & 3 included mental stress (public speaking and mental arithmetic) and sham VNS. Patients self-administered sham treatment at home twice daily for 3 months with the addition of traumatic script twice a week.",
+    "section": "Bremner JD, Wittbrodt MT, Gurel NZ, et al. Transcutaneous cervical vagal nerve stimulation in patients with posttraumati",
+    "structured_interpretation": "Sham + Exposure (experimental paradigm) (Nonpharmacologic biological) was studied for PTSD; n=20 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074460Z"
+  },
+  {
+    "knowledge_id": "K-8dd23ff8",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Internet-based facilitated self-help for PTSD (brocker2024)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074473Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Sessions with counsellor and using the PTSD Coach app. \"The registered counsellor was trained in a standard support method (assisting with language and technology difficulties and not providing therapeutic support).\" Sessions included review of the past week and homework, accessing and using selected portions of the application, and homework assignment. Participants were encouraged to use the app outside of sessions and to review material covered in the session. PTSD Coach app: free mobile application includes psychoeducation, symptom monitoring and management with 21 symptom management tools (e.g. mindfulness and stress management exercises), and encouragement to seek treatment if indicated.",
+    "section": "Brocker E, Olff M, Suliman S, et al. A counsellor-supported 'PTSD Coach' intervention versus enhanced Treatment-as-Usual",
+    "structured_interpretation": "Internet-based facilitated self-help (Other study class) was studied for PTSD; n=62 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074475Z"
+  },
+  {
+    "knowledge_id": "K-bf6c37b5",
+    "organization": "U.S. Department of Veterans Affairs - National Center for PTSD",
+    "title": "Treatment as usual (TAU) for PTSD (brocker2024)",
+    "url": "https://www.ptsd.va.gov/ptsdrepository/index.asp",
+    "publication_date": null,
+    "retrieval_date": "2026-08-24T21:59:48.074489Z",
+    "source_type": "research_summary",
+    "exact_source_text": "Detailed referral letter provided for psychological support in primary care setting. Counsellor contacted clinics and arranged appointments, followed up with participants on treatment accessed, and tracked symptoms including suicidality.",
+    "section": "Brocker E, Olff M, Suliman S, et al. A counsellor-supported 'PTSD Coach' intervention versus enhanced Treatment-as-Usual",
+    "structured_interpretation": "Treatment as usual (TAU) (Other study class) was studied for PTSD; n=62 randomized.",
+    "restrictions": [
+      "clinical trial evidence",
+      "not individualized treatment advice"
+    ],
+    "evidence_level": "Low",
+    "review_status": "approved",
+    "reviewer": "VA National Center for PTSD (source-trusted)",
+    "created_at": "2026-08-24T21:59:48.074491Z"
+  }
+]
