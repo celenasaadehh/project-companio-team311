@@ -228,6 +228,7 @@ export function PatientGlasses({ navigation, route }) {
             risk_level: liveNow?.level ?? null,
             risk_score: liveNow?.score ?? null,
             hr: vitals?.hr ?? null,
+            baseline_hr: devices?.baselineHr ?? null,
             episode_id: route?.params?.episode_id || getEpisodeId() || null,
             trigger_match_score: m.trigger_match_score,
             decision_source: result.decision_source || null,

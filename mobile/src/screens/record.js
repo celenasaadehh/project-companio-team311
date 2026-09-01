@@ -275,6 +275,20 @@ export function RecordSeen({ route, navigation }) {
                 </View>
               ) : null}
 
+              {r.hr != null || r.risk_score != null ? (
+                <Text style={[type.sub, { marginTop: 8 }]}>
+                  {[
+                    r.hr != null ? `Heart rate ${Math.round(r.hr)} bpm` : null,
+                    r.baseline_hr != null ? `baseline ${Math.round(r.baseline_hr)} bpm` : null,
+                    r.hr != null && r.baseline_hr != null
+                      ? `+${Math.max(0, Math.round(r.hr - r.baseline_hr))} over`
+                      : null,
+                    r.risk_score != null
+                      ? `risk ${Number(r.risk_score).toFixed(2)}${r.risk_level ? ` (${r.risk_level})` : ""}`
+                      : null,
+                  ].filter(Boolean).join(" · ")}
+                </Text>
+              ) : null}
               {r.message ? (
                 <Text style={[type.sub, { marginTop: 10 }]}>{`Companio said: "${r.message}"`}</Text>
               ) : null}

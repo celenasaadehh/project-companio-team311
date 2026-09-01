@@ -118,12 +118,16 @@ export async function getMyPatients() {
   return await awsApiCall("/my-patients", null, "GET");
 }
 
+// Both steps of the camera pipeline are idempotent, so they retry like the
+// clinical writes do: a single 6-second timeout was killing whole scans with
+// "Scan couldn't complete: Aborted" -- and a scan that dies here saves
+// nothing for the therapist.
 export async function requestMediaUploadUrl(patientId, contentType) {
-  return await awsApiCall("/media-upload-url", { patient_id: patientId, content_type: contentType }, "POST");
+  return await saveWithRetry("/media-upload-url", { patient_id: patientId, content_type: contentType });
 }
 
 export async function recognizeImage(s3Key, patientId) {
-  return await awsApiCall("/recognize", { s3_key: s3Key, patient_id: patientId }, "POST");
+  return await saveWithRetry("/recognize", { s3_key: s3Key, patient_id: patientId });
 }
 
 export async function startTranscription(s3Key, patientId, languageCode = "en-US") {
