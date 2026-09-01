@@ -205,10 +205,12 @@ export function PatientGlasses({ navigation, route }) {
           console.warn("Decision hierarchy unreachable:", decisionErr);
           result.engine_error = decisionErr?.message || "Could not reach the decision engine.";
         }
-        // An unseen-distress moment keeps its image regardless of the general
-        // retention switch: it is clinical evidence the therapist needs to
-        // decide whether this belongs on the trigger list.
-        const keepImage = !!prefs?.saveImages || unseenDistress;
+        // Any capture that is part of an episode keeps its image regardless
+        // of the general retention switch: a corroborated trigger, an
+        // unseen-distress moment, and an automatic live-monitoring capture
+        // are all clinical evidence the therapist reviews in "What they saw".
+        const keepImage = !!prefs?.saveImages || unseenDistress || corroborated
+          || !!route?.params?.auto;
         try {
           await saveSession({
             patient_id: currentPatientId,

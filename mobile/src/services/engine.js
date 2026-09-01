@@ -34,6 +34,10 @@ export async function apiCall(path, body, timeoutMs = 4000) {
   }
 }
 
+// Reads retry like writes do: a single timed-out GET was silently emptying
+// screens -- a caseload of zero patients, a record hub whose counts said 1
+// while the list inside said nothing. Only transport failures retry; a real
+// HTTP answer (401 handled below, 404, 403) is a verdict, not a glitch.
 export async function awsApiCall(
   path,
   body = null,
@@ -41,13 +45,36 @@ export async function awsApiCall(
   timeoutMs = 6000,
   _retried = false
 ) {
+  const requestMethod = method || (body !== null ? "POST" : "GET");
+  const attempts = requestMethod === "GET"
+    ? [timeoutMs, Math.max(timeoutMs, 9000), 14000]
+    : [timeoutMs];
+  let lastErr = null;
+  for (let i = 0; i < attempts.length; i++) {
+    try {
+      return await awsApiCallOnce(path, body, requestMethod, attempts[i], _retried);
+    } catch (e) {
+      lastErr = e;
+      if (e?.status) throw e;
+      if (i < attempts.length - 1) {
+        await new Promise((r) => setTimeout(r, 800 * (i + 1)));
+      }
+    }
+  }
+  throw lastErr;
+}
+
+async function awsApiCallOnce(
+  path,
+  body,
+  requestMethod,
+  timeoutMs,
+  _retried
+) {
   const controller = new AbortController();
   const t = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const requestMethod =
-      method || (body !== null ? "POST" : "GET");
-
     const token = await getValidAccessToken();
     const headers = { "Content-Type": "application/json" };
     if (token) headers.Authorization = `Bearer ${token}`;
@@ -67,7 +94,7 @@ export async function awsApiCall(
       const ok = await refreshSession();
       if (ok) {
         clearTimeout(t);
-        return awsApiCall(path, body, method, timeoutMs, true);
+        return awsApiCallOnce(path, body, requestMethod, timeoutMs, true);
       }
     }
 

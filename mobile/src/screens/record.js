@@ -56,7 +56,10 @@ export function PatientRecord({ route, navigation }) {
   const n = (fn) => (sessions || []).filter(fn).length;
   const counts = {
     spoken: n((r) => r.type === "voice_transcription"),
-    seen: n((r) => r.type === "trigger_event" && (r.image_s3_key || r.s3_key)),
+    // Must match RecordSeen's list filter exactly: that screen shows every
+    // camera event, with or without a retained image, so the card count
+    // counts the same -- a count of 0 over a list of 1 reads as a lie.
+    seen: n((r) => r.type === "trigger_event"),
     alerts: n((r) => r.type === "emergency_alert" || r.type === "call_request"),
     meds: n((r) => r.type === "medication_log"),
     days: n((r) => r.type === "daily_snapshot"),
