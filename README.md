@@ -238,8 +238,12 @@ curl localhost:8000/api/health/models
 
 Four of the five models ship in this repository. The fifth, the DistilBERT
 text-distress detector, is a single 255 MB weight file that exceeds GitHub's
-100 MB file limit, so it lives in the submission Drive folder instead.
-Download `model.safetensors` from the Drive folder and place it at:
+100 MB file limit, so it lives in the project's Google Drive folder instead,
+alongside the demo video and the report:
+
+https://drive.google.com/drive/folders/14B_xLF0soz0fvFXfnwFgepPmiz0Nrm_O?usp=share_link
+
+Download `model.safetensors` from there and place it at:
 
 ```
 therapist_engine/ml/detector_bert/bert_model/model.safetensors
