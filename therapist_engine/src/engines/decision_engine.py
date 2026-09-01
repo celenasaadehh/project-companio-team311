@@ -169,24 +169,26 @@ def decide_from_rules(
         # Deterministic tie-break: higher priority wins; equal priority uses rule_id.
         best = sorted(matching_rules, key=lambda r: (-r.priority, r.rule_id))[0]
 
-        # SAFETY DOUBLE-CHECK: even a therapist rule may only offer an action that is
-        # on the patient's approved list. "not in" = "is missing from". If the rule's
-        # action isn't approved, we refuse it and fall back safely instead.
-        # Already tried in this episode and it did not help. The therapist's own
-        # instruction has been exhausted, so escalate to a person rather than
-        # substituting something the clinician did not choose for this trigger.
-        if best.approved_action in (already_tried or []):
-            return Decision(
-                patient_id=patient_id,
-                decision_source=DecisionSource.SAFE_FALLBACK,
-                therapist_rule_id=best.rule_id,
-                risk_score=risk_state.risk_score,
-                selected_action="offer to contact the therapist",
-                confidence=0.5,
-                escalation_required=True,
-                reason_code=(f"rule {best.rule_id} action already tried and did not help "
-                             f"-- escalating rather than substituting"),
-            )
+        # Already tried this episode and it did not help. The rule is spent,
+        # but the care plan is not: prefer the next matching rule whose action
+        # has not been tried, and otherwise fall through so the reasoner can
+        # walk the REMAINING approved interventions. Escalating here while
+        # untried approved options existed sent people to "contact your
+        # therapist" after a single failed suggestion.
+        tried = set(already_tried or [])
+        if best.approved_action in tried:
+            untried = [r for r in sorted(matching_rules,
+                                         key=lambda r: (-r.priority, r.rule_id))
+                       if r.approved_action not in tried]
+            if untried:
+                best = untried[0]
+            else:
+                return _safe_fallback(
+                    patient_id, risk_state,
+                    reason_code=(f"rule {best.rule_id} action already tried this "
+                                 f"episode -- continuing through the remaining "
+                                 f"approved interventions"),
+                )
 
         if best.approved_action in profile.forbidden_interventions:
             return _safe_fallback(
