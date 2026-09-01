@@ -244,6 +244,11 @@ export function RecordSeen({ route, navigation }) {
       <AppHeader eyebrow="CLINICAL RECORD" title="What they saw"
         subtitle={p?.name ? `${p.name} · what the camera recognised` : "What the camera recognised"}
         onBack={() => navigation.goBack()} />
+      <Text style={[type.meta, { marginBottom: 10 }]}>
+        While the patient's signals are elevated, the camera samples the
+        surroundings automatically about every 6 seconds — each entry below is
+        one frame, so an episode reads as a sweep of what was around them.
+      </Text>
 
       {loading ? <ActivityIndicator color={C.primary} /> : null}
       {!loading && rows.length === 0 ? (

@@ -28,7 +28,10 @@ import { startEpisode } from "../services/episode";
 // means burst mode: a light frame every 7 seconds, each through Rekognition.
 // Calm stays slow; there is nothing to hunt for in a calm moment.
 const SCAN_MS_CALM = 45000;
-const SCAN_MS_ELEVATED = 7000;
+// The gap BETWEEN scans; a scan itself takes 2-4 seconds (capture, upload,
+// Rekognition), and overlapping scans are guarded against -- so 4s here
+// means a fresh frame roughly every 6 seconds of an episode.
+const SCAN_MS_ELEVATED = 4000;
 
 function orientationLine(trigger, labels) {
   const top = (labels || [])
