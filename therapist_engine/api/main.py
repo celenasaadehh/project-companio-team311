@@ -385,9 +385,19 @@ def decide(m: MomentIn):
     # Anything the patient has already told us did NOT help is treated exactly
     # like a forbidden intervention for THIS moment, so the reasoner is forced
     # to propose something different instead of repeating a failed suggestion.
+    # It must ALSO leave the approved list, not just join the forbidden one:
+    # a failed action still present in approved could be picked by the bandit,
+    # vetoed by the forbidden guardrail, and the whole proposal abandoned --
+    # escalating while untried approved options remained. Every approved
+    # option gets its turn before the engine gives up on the list.
     if m.exclude_actions:
+        tried = {str(a).strip().lower() for a in m.exclude_actions}
         prof = prof.model_copy(update={
-            "forbidden_interventions": list(prof.forbidden_interventions) + list(m.exclude_actions)
+            "approved_interventions": [
+                a for a in prof.approved_interventions
+                if str(a).strip().lower() not in tried
+            ],
+            "forbidden_interventions": list(prof.forbidden_interventions) + list(m.exclude_actions),
         })
 
     risk = RiskState(patient_id=m.patient_id, risk_score=m.risk_score,
