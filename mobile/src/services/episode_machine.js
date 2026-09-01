@@ -114,7 +114,12 @@ export function step(ep, input = {}) {
         break;
       }
       if (heldFor(ep) > TIMING.watchingMs) {
-        const explained = risk?.confounded || Object.keys(ep.context).length > 0;
+        // "Explained" means the patient DECLARED a cause (exercise, coffee,
+        // poor sleep) -- their input stands down the escalation. The score
+        // damping flag is not a declaration: it is active near-constantly by
+        // design, and treating it as an explanation silenced check-ins for
+        // every genuinely rising patient below "high".
+        const explained = Object.keys(ep.context).length > 0;
         if (explained && level !== "high") break;
         transition(ep, EpisodeState.CHECK_IN, "change persisted");
         actions.push({
@@ -132,9 +137,13 @@ export function step(ep, input = {}) {
         break;
       }
       if (heldFor(ep) > TIMING.checkInMs) {
-        if (permissions.autoCapture && !ep.captureRequested && level === "high") {
+        // Sustained elevation with no declared cause and an ignored check-in
+        // is reason enough to look. Requiring "high" here meant the camera
+        // practically never engaged: the damped score rarely crosses it.
+        if (permissions.autoCapture && !ep.captureRequested
+            && ELEVATED.has(level) && Object.keys(ep.context).length === 0) {
           ep.captureRequested = true;
-          transition(ep, EpisodeState.CONTEXT_CAPTURE, "no answer, risk still high");
+          transition(ep, EpisodeState.CONTEXT_CAPTURE, "no answer, risk sustained, no declared cause");
           actions.push({ type: "CAPTURE_CONTEXT", single: true });
         } else {
           transition(ep, EpisodeState.SUPPORT, "no answer, risk sustained");
