@@ -44,8 +44,11 @@ const refresher = (refreshing, setRefreshing, load) => (
 );
 
 export function PatientRecord({ route, navigation }) {
-  const { patient, currentPatientId, dischargePatient } = useApp();
+  const { patient, currentPatientId, dischargePatient, loadPatientDetail } = useApp();
   const patientId = route?.params?.patientId || currentPatientId;
+  // This hub is reachable without passing through the workspace, so it must
+  // hydrate the record itself: the caseload list arrives without the plan.
+  useEffect(() => { loadPatientDetail?.(patientId); }, [patientId]);
   const p = patient ? patient(patientId) : null;
   const { sessions, decisions, loading } = useRecord(patientId);
   const [busy, setBusy] = useState(false);

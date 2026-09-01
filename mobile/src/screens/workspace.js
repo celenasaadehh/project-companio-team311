@@ -351,9 +351,12 @@ export function WsMore({ navigation }) {
 }
 
 export function TreatmentPlan({ route, navigation }) {
-  const { patient, updateTreatmentPlanList } = useApp();
+  const { patient, updateTreatmentPlanList, loadPatientDetail } = useApp();
   const p = patient(route.params.patientId);
   const tp = p.treatmentPlan || {};
+  // Hydrate from the server on open: this screen is reachable from routes
+  // that never fetched the clinical profile, and must show what AWS holds.
+  useEffect(() => { loadPatientDetail?.(route.params.patientId); }, [route.params.patientId]);
   const [guidance, setGuidance] = useState(tp.clinicalGuidance || "");
   const [savingGuidance, setSavingGuidance] = useState(false);
 

@@ -147,11 +147,15 @@ export async function getClinicalProfile(patientId) {
     throw new Error("patientId is required");
   }
 
-  return await awsApiCall(
+  const res = await awsApiCall(
     `/clinical-profile/${encodeURIComponent(patientId)}`,
     null,
     "GET"
   );
+  // The API wraps the record as {item: {...}}. Callers need the profile
+  // itself -- without this, every screen that reloads the plan reads the
+  // wrapper, finds no fields, and shows an empty plan the engine can see.
+  return res?.item || res;
 }
 
 export async function updateClinicalProfile(
