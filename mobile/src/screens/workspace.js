@@ -650,6 +650,7 @@ export function RiskSignals({ route, navigation }) {
   const p = patient(patientId);
 
   const [snaps, setSnaps] = useState(null);
+  const [decs, setDecs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -663,8 +664,34 @@ export function RiskSignals({ route, navigation }) {
       })
       .catch(() => { if (!cancelled) setSnaps([]); })
       .finally(() => { if (!cancelled) setLoading(false); });
+    // Every decision carries the risk score the engine computed at that
+    // moment: together with the monitoring samples they are the patient's
+    // real risk history, not a single point.
+    getDecisions(patientId)
+      .then((r) => {
+        if (cancelled) return;
+        setDecs((r?.decisions || []).filter((d) => d.risk_score != null));
+      })
+      .catch(() => {});
     return () => { cancelled = true; };
   }, [patientId]);
+
+  const histTs = (x) => new Date(x.timestamp || x.created_at || 0).getTime();
+  const history = [
+    ...decs.map((d) => ({
+      at: histTs(d), score: Number(d.risk_score),
+      source: d.decision_source || "decision",
+      detail: d.selected_action || null, kind: "decision",
+    })),
+    ...(snaps || []).filter((s) => s.risk_score != null).map((s) => ({
+      at: histTs(s), score: Number(s.risk_score),
+      source: "monitoring sample",
+      detail: s.hr != null
+        ? `HR ${Math.round(s.hr)}${s.baseline_hr != null ? ` vs baseline ${Math.round(s.baseline_hr)}` : ""}`
+        : null,
+      kind: "sample",
+    })),
+  ].sort((a, b) => b.at - a.at).slice(0, 40);
 
   const latest = (snaps || []).length ? snaps[snaps.length - 1] : null;
   const series = (key) => (snaps || []).filter((x) => x[key] != null).map((x) => Number(x[key]));
@@ -715,6 +742,35 @@ export function RiskSignals({ route, navigation }) {
           <EmptyState icon="watch" title="No physiological data recorded yet"
             sub="Readings appear here once the patient has connected a watch and monitoring has run." />
         </Card>
+      ) : null}
+
+      {history.length ? (
+        <>
+          <SectionTitle sub="Every score the engine computed, newest first — decisions and monitoring samples.">
+            Risk history
+          </SectionTitle>
+          {history.length > 1 ? (
+            <Card>
+              <Text style={type.meta}>SCORE OVER TIME</Text>
+              <View style={{ marginTop: 8 }}>
+                <Sparkline data={history.slice().reverse().map((h) => h.score)} color={C.warning} />
+              </View>
+            </Card>
+          ) : null}
+          {history.map((h, i) => {
+            const lvl = h.score >= 0.75 ? "high" : h.score >= 0.5 ? "elevated" : "low";
+            const fg = lvl === "high" ? C.danger : lvl === "elevated" ? C.warning : C.success;
+            const bg = lvl === "high" ? C.dangerSoft : lvl === "elevated" ? C.warningSoft : C.successSoft;
+            return (
+              <Card key={`${h.at}_${i}`}>
+                <Row icon={h.kind === "decision" ? "flash" : "pulse"} iconFg={fg} iconBg={bg}
+                  title={`Score ${h.score.toFixed(2)}`}
+                  subtitle={`${new Date(h.at).toLocaleString()} · ${h.source}${h.detail ? ` · ${h.detail}` : ""}`}
+                  right={<Pill text={lvl} fg={fg} bg={bg} />} />
+              </Card>
+            );
+          })}
+        </>
       ) : null}
 
       {latest ? (
