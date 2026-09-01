@@ -2137,8 +2137,7 @@ def handle_get_transcription(
 
 SAFE_FALLBACK_MESSAGE = (
     "I'm here with you. "
-    "Would you like to try one of the "
-    "grounding strategies your therapist approved?"
+    "Let's take this one breath at a time, together."
 )
 
 
@@ -2430,24 +2429,30 @@ def handle_respond(
     if preferred:
         action = preferred
     elif approved:
-        action = approved[len(excluded) % len(approved)]
+        # Walk the therapist's approved list IN ORDER: the first option not
+        # yet tried this episode. Every approved intervention gets its turn
+        # before the "nothing left" handover below.
+        action = approved[0]
     else:
         action = None
 
     if action:
         # Only call it "therapist-approved" when it genuinely came from the
         # therapist's approved list -- not for a generic fallback.
+        # Directive, not interrogative: mid-episode, an open question hands a
+        # dysregulated person a decision to make, which is itself a load.
         message = (
-            "Would it help to try "
-            f"{action}?"
+            "I'm right here with you — let's try "
+            f"{action}."
         )
     else:
         # Nothing approved is left to offer. Say so honestly and flag it,
         # rather than recycling something that already didn't work.
         action = "offer neutral grounding; flag for therapist review"
         message = (
-            "I don't want to keep suggesting the same thing. "
-            "Would you like to reach your therapist or a support line?"
+            "I won't keep suggesting the same thing. "
+            "Let's reach your therapist right now — "
+            "you don't have to do this alone."
         )
 
     decision = save_decision(

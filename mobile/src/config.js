@@ -13,6 +13,16 @@ export const COGNITO_IDP_ENDPOINT =
   `https://cognito-idp.${AWS_REGION}.amazonaws.com/`;
 
 function engineHostFromMetro() {
+  // The URL this very bundle was fetched from is the one address PROVEN
+  // reachable from this device -- the constants below can be absent in a
+  // dev-client build, and the 127.0.0.1 fallback then points a physical
+  // phone at itself, silently sending every decision to the AWS fallback.
+  try {
+    const { NativeModules } = require("react-native");
+    const scriptURL = NativeModules?.SourceCode?.scriptURL;
+    const host = String(scriptURL || "").split("://").pop().split("/")[0].split(":")[0];
+    if (host && host !== "localhost" && host !== "127.0.0.1") return host;
+  } catch {}
   try {
     const Constants = require("expo-constants").default;
     const hostUri =
