@@ -112,6 +112,7 @@ export function LiveMonitor({ navigation }) {
   const snapshotDone = useRef(0);
   const episodeRef = useRef(null);
   const acousticNotedRef = useRef(null);
+  const lastSnapshotRef = useRef(0);
   const [episodeState, setEpisodeState] = useState(null);
 
   async function tick() {
@@ -150,6 +151,30 @@ export function LiveMonitor({ navigation }) {
       recentWorkout: v.recentWorkout, caffeineMgToday: v.caffeineMgToday, poorSleep: v.poorSleep, activeNow: v.activeNow, hrFreshness: v.hrFreshness, hrvFreshness: v.hrvFreshness, hrAgeMinutes: v.hrAgeMinutes, declaredContext: prefs?.declaredContext,
     }, devices.baselineProfile);
     setReading(r);
+
+    // Physiological HISTORY, not a single point: one sample every 15 minutes
+    // while monitoring runs, and every tick during an episode -- the same
+    // record type the therapist's Risk signals charts already plot.
+    const nowMs = Date.now();
+    const inEpisode = episodeRef.current && episodeRef.current.state
+      && episodeRef.current.state !== "BASELINE";
+    if (currentPatientId && (inEpisode || nowMs - lastSnapshotRef.current > 15 * 60 * 1000)) {
+      lastSnapshotRef.current = nowMs;
+      saveSession({
+        patient_id: currentPatientId,
+        type: "daily_snapshot",
+        hr: v.hr ?? null,
+        hrv: v.hrv ?? null,
+        resting_hr: v.restingHr ?? null,
+        sleep_hours_last_night: v.sleepHoursLastNight ?? null,
+        steps: v.hourlySteps?.length
+          ? v.hourlySteps.reduce((a, b) => a + Number(b || 0), 0)
+          : null,
+        risk_score: r?.score ?? null,
+        risk_level: r?.level ?? null,
+        baseline_hr: devices?.baselineHr ?? null,
+      }).catch(() => {});
+    }
 
     if (!episodeRef.current) {
       episodeRef.current = newEpisode(currentPatientId);

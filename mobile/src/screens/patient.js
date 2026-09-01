@@ -28,6 +28,7 @@ function DemoLiveRisk({ navigation }) {
   const { devices, prefs } = useApp();
   const [r, setR] = useState(null);
   const escortedRef = useRef(0);
+  const elevatedTicksRef = useRef(0);
   useEffect(() => {
     if (!isHealthAvailable || !devices?.watch) return undefined;
     let alive = true;
@@ -45,9 +46,14 @@ function DemoLiveRisk({ navigation }) {
           src: out?.risk_source, why: out?.fallback_reason || null }));
         if (alive) setR({ ...out, hr: v?.hr });
         // The episode machine lives on the Live Monitoring screen. When risk
-        // reaches HIGH while the person is on Home, the app takes them there
-        // itself -- detection must not depend on being on the right screen.
-        if (alive && out?.level === "high"
+        // rises while the person is on Home, the app takes them there itself
+        // -- detection must not depend on being on the right screen. High
+        // goes immediately; elevated must hold for two ticks (~30s) so a
+        // single borderline reading doesn't yank the screen around.
+        const risen = out?.level === "elevated" || out?.level === "high";
+        elevatedTicksRef.current = risen ? elevatedTicksRef.current + 1 : 0;
+        const sustained = out?.level === "high" || elevatedTicksRef.current >= 2;
+        if (alive && risen && sustained
             && Date.now() - escortedRef.current > 5 * 60 * 1000) {
           escortedRef.current = Date.now();
           try { navigation?.navigate("LiveMonitor"); } catch {}
