@@ -289,6 +289,11 @@ export function RecordSeen({ route, navigation }) {
                   ].filter(Boolean).join(" · ")}
                 </Text>
               ) : null}
+              {r.unseen_context ? (
+                <Text style={[type.meta, { marginTop: 6, color: C.warning }]}>
+                  Not a registered trigger — the body reacted anyway. Review whether this belongs on the trigger list.
+                </Text>
+              ) : null}
               {r.message ? (
                 <Text style={[type.sub, { marginTop: 10 }]}>{`Companio said: "${r.message}"`}</Text>
               ) : null}
