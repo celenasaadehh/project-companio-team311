@@ -50,3 +50,6 @@ mobile/ios/DerivedData/
 
 # Local demo/scratch artifacts
 *.pdf.png
+
+# Editor/agent tool config
+.claude/

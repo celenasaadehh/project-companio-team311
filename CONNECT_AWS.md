@@ -58,7 +58,6 @@ USE_AWS=true
 AWS_REGION=us-east-1
 DDB_PROFILE_TABLE=CompanioClinicalProfiles
 DDB_RULES_TABLE=CompanioTherapistRules
-BEDROCK_MODEL_ID=anthropic.claude-3-5-haiku-20241022-v1:0
 ```
 Never put `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY` in a checked-in `.env`.
 Run this locally with your own AWS CLI profile credentials (`aws configure`),
