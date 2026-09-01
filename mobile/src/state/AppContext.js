@@ -10,6 +10,7 @@ import { registerForPushToken, requestNotifyPermission } from "../services/notif
 import { reportSyncFailure } from "../services/errors";
 import { restoreEpisode } from "../services/episode";
 import { registerNotificationActions, onNotificationAction } from "../services/notify_actions";
+import { isHealthAvailable, readVitals } from "../services/health";
 import { saveSession, saveDecision } from "../services/engine";
 
 const AppContext = createContext(null);
@@ -93,6 +94,25 @@ export function AppProvider({ children }) {
   }, [monitoringPausedUntil]);
 
   useEffect(() => { restoreEpisode(); }, []);
+
+  // The app's heartbeat: ONE loop asks Health for the current signals every
+  // 5 seconds whenever a patient is signed in with a watch connected, and
+  // every screen reads the same fresh vitals from context. Without this,
+  // each screen ran its own ad-hoc loop and any screen without one acted on
+  // whatever stale reading happened to be left behind.
+  useEffect(() => {
+    if (role !== "patient" || !devices?.watch || !isHealthAvailable) return undefined;
+    let alive = true;
+    const tick = async () => {
+      try {
+        const v = await readVitals();
+        if (alive && v) setVitals((prev) => ({ ...(prev || {}), ...v }));
+      } catch {}
+    };
+    tick();
+    const t = setInterval(tick, 5000);
+    return () => { alive = false; clearInterval(t); };
+  }, [role, devices?.watch]);
 
   useEffect(() => {
     registerNotificationActions();
