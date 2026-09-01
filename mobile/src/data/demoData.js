@@ -49,11 +49,13 @@ export const EXAMPLE_PATIENT = defaults({
 
 const AVATARS = ["#2864E8", "#1FA9A0", "#7C6CF0", "#E0932A", "#DB5A54"];
 let _seq = 100;
-export function newPatient({ name, age, gender = "—", level = "low", interventions = [], triggers = [], forbidden = [], medications = [], presentingConcern = "", consent = false, signedPatient = false, signedTherapist = false, actor = "Therapist" }) {
+export function newPatient({ id = null, name, age, gender = "—", level = "low", interventions = [], triggers = [], forbidden = [], medications = [], presentingConcern = "", consent = false, signedPatient = false, signedTherapist = false, actor = "Therapist" }) {
   _seq += 1;
   const score = level === "high" ? 0.75 : level === "elevated" ? 0.55 : 0.3;
   return defaults({
-    id: `P-${_seq}`, displayId: `PT-0${_seq}`, name: (name || "").trim(), age: Number(age) || null, gender,
+    // An explicit id means this is an EXISTING account being connected, not a
+    // new record: the local patient must carry the server's patient_id.
+    id: id || `P-${_seq}`, displayId: id || `PT-0${_seq}`, name: (name || "").trim(), age: Number(age) || null, gender,
     status: "Active", progress: 0, avatar: AVATARS[_seq % AVATARS.length],
     risk: { score, level, supportLevel: level === "high" ? "Level 3 · High" : level === "elevated" ? "Level 2 · Elevated" : "Level 1 · Low", lastUpdated: "just now" },
     treatmentPlan: {

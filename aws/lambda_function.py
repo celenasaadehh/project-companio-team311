@@ -4,6 +4,7 @@ from botocore.client import Config as BotoConfig
 import uuid
 import base64
 import urllib.request
+import urllib.parse
 from decimal import Decimal
 from datetime import datetime, timezone
 
@@ -1242,6 +1243,40 @@ def handle_my_patients(event):
         })
 
     return response(200, {"patients": out})
+
+
+def handle_identity_by_username(event, path):
+    """Resolve a login username to its patient_id, for the therapist's
+    Add Patient screen: connecting an EXISTING account must reuse its record,
+    never clone a blank duplicate beside it (the therapist then ends up
+    managing a ghost record the patient's own app never resolves to).
+
+    When more than one identity row claims the username, prefer the row a
+    real signed-in account has linked itself to (cognito_sub present), then
+    the oldest -- the original record wins over any stray duplicate.
+    """
+    if not is_therapist(event):
+        return response(403, {"error": "therapist role required"})
+
+    username = urllib.parse.unquote(path.split("/")[-1]).strip()
+    if not username:
+        return response(400, {"error": "username required"})
+
+    result = TABLES["identity"].scan(
+        FilterExpression="username = :u",
+        ExpressionAttributeValues={":u": username},
+    )
+    items = result.get("Items", [])
+    if not items:
+        return response(404, {"error": "no patient with that username"})
+
+    items.sort(key=lambda i: (0 if i.get("cognito_sub") else 1,
+                              str(i.get("created_at") or "9999")))
+    top = items[0]
+    return response(200, {
+        "patient_id": top.get("patient_id"),
+        "display_name": top.get("display_name") or top.get("username"),
+    })
 
 
 # =============================================================================
@@ -2545,6 +2580,9 @@ def lambda_handler(event, context):
 
         if path == "/my-patients" and method == "GET":
             return handle_my_patients(event)
+
+        if path.startswith("/identity-by-username/") and method == "GET":
+            return handle_identity_by_username(event, path)
 
 
         # =====================================================================

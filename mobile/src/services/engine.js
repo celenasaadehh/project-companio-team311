@@ -131,6 +131,17 @@ export async function saveClinicalProfile(profile) {
   );
 }
 
+// Resolve a login username to its existing patient_id, so Add Patient can
+// connect an existing account instead of cloning a blank duplicate beside it.
+export async function findPatientByUsername(username) {
+  if (!username) throw new Error("username is required");
+  return await awsApiCall(
+    `/identity-by-username/${encodeURIComponent(String(username).trim())}`,
+    null,
+    "GET"
+  );
+}
+
 export async function getClinicalProfile(patientId) {
   if (!patientId) {
     throw new Error("patientId is required");

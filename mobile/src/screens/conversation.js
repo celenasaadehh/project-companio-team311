@@ -7,7 +7,7 @@ import { colors as C, spacing, radius, type } from "../theme/theme";
 import { AppHeader, Screen, Card, SectionTitle, Btn, Chip, Row, EmptyState } from "../components/ui";
 import { useApp } from "../state/AppContext";
 import { SignaturePad } from "../components/signature";
-import { saveIdentity, saveClinicalProfile, saveAssignment } from "../services/engine";
+import { saveIdentity, saveClinicalProfile, saveAssignment, findPatientByUsername, updateClinicalProfile } from "../services/engine";
 import { requestCall, raiseEmergencyAlert, requestAppointment } from "../services/alerts";
 import { getSessions } from "../services/engine";
 
@@ -173,8 +173,44 @@ export function AddPatient({ navigation }) {
 
   const ready = name.trim() && loginUsername.trim() && consent && signedT && interventions.length > 0;
 
-  function save() {
+  async function save() {
     if (!ready) return;
+
+    // If this username already belongs to an account, CONNECT to that record.
+    // Creating a fresh one beside it makes a ghost: the therapist manages the
+    // blank clone while the patient's own app stays linked to the original.
+    let existing = null;
+    try { existing = await findPatientByUsername(loginUsername.trim()); } catch {}
+
+    if (existing?.patient_id) {
+      const pid = existing.patient_id;
+      const p = addPatient({ id: pid, name, age, gender, level, presentingConcern: concern.trim(), interventions, triggers, forbidden, medications: meds, consent, signedPatient: signedP, signedTherapist: signedT });
+
+      // Merge, never replace: only the fields the therapist actually typed in
+      // this form overwrite the existing plan. Empty sections keep whatever
+      // the record already holds.
+      const patch = {};
+      if (concern.trim()) patch.condition = concern.trim();
+      if (subtype) patch.ptsd_subtype = subtype;
+      if (triggers.length) patch.known_triggers = triggers;
+      if (interventions.length) patch.approved_interventions = interventions;
+      if (forbidden.length) patch.forbidden_interventions = forbidden;
+      if (meds.length) patch.medications = meds;
+      if (Object.keys(patch).length) {
+        updateClinicalProfile(pid, patch).catch((e) => {
+          console.warn("Clinical profile not updated on AWS:", e);
+          Alert.alert(
+            "Care plan not saved",
+            `${name.trim()} was connected, but the plan changes did not save.\n\n${String(e?.message || e)}\n\nOpen their Treatment plan and add them again.`,
+          );
+        });
+      }
+      saveAssignment({ patient_id: pid }).catch((e) => console.warn("Assignment not saved to AWS:", e));
+
+      navigation.replace("Workspace", { patientId: pid });
+      return;
+    }
+
     const p = addPatient({ name, age, gender, level, presentingConcern: concern.trim(), interventions, triggers, forbidden, medications: meds, consent, signedPatient: signedP, signedTherapist: signedT });
 
     saveIdentity({
