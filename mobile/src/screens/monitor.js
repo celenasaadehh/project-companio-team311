@@ -22,7 +22,11 @@ import { notifyNow } from "../services/notify";
 import * as Speech from "expo-speech";
 import { decideMoment } from "../services/decide";
 
-const POLL_MS = 15000;
+// 5 seconds, not 15: the watch-to-Health sync already costs real time, and
+// a slow app-side poll stacked on top made the score arrive too late to
+// matter. Reading Health is cheap; the AWS history writes are throttled
+// separately below.
+const POLL_MS = 5000;
 
 export function LiveMonitor({ navigation }) {
   const { devices, currentPatientId, addTriggerEvent, setVitals, vitals, prefs, isMonitoringPaused, patient, refreshMyProfile } = useApp();
@@ -158,7 +162,8 @@ export function LiveMonitor({ navigation }) {
     const nowMs = Date.now();
     const inEpisode = episodeRef.current && episodeRef.current.state
       && episodeRef.current.state !== "BASELINE";
-    if (currentPatientId && (inEpisode || nowMs - lastSnapshotRef.current > 15 * 60 * 1000)) {
+    const snapshotEveryMs = inEpisode ? 15 * 1000 : 15 * 60 * 1000;
+    if (currentPatientId && nowMs - lastSnapshotRef.current > snapshotEveryMs) {
       lastSnapshotRef.current = nowMs;
       saveSession({
         patient_id: currentPatientId,

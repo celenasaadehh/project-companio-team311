@@ -61,7 +61,7 @@ function DemoLiveRisk({ navigation }) {
       } catch (e) { console.log("[liverisk] error", String(e?.message || e)); }
     }
     tick();
-    const t = setInterval(tick, 15000);
+    const t = setInterval(tick, 7500);
     return () => { alive = false; clearInterval(t); };
   }, [devices?.watch]);
   if (!r) return null;
