@@ -14,8 +14,58 @@ import { techniqueById, matchTechnique, classifyAction, ACTION_KIND } from "../d
 import { requestAppointment } from "../services/alerts";
 import * as Speech from "expo-speech";
 import { getSessions, getMediaViewUrl, getDecisions } from "../services/engine";
+import { isHealthAvailable, readVitals } from "../services/health";
+import { assessRisk, RISK_SOURCE } from "../services/risk";
 
 function useMe() { const { currentPatientId, patient } = useApp(); return patient(currentPatientId); }
+
+// DEMO-ONLY instrumentation: the live risk state, on the patient home, next
+// to the health card. A production build would never show a PTSD patient
+// their own risk score (it can feed the spiral it measures) -- the card says
+// so on its face. It runs the same 15-second read-and-score loop as the
+// Live Monitor, so the number on screen is the number the engine acts on.
+function DemoLiveRisk() {
+  const { devices, prefs } = useApp();
+  const [r, setR] = useState(null);
+  useEffect(() => {
+    if (!isHealthAvailable || !devices?.watch) return undefined;
+    let alive = true;
+    async function tick() {
+      try {
+        const v = await readVitals();
+        const out = await assessRisk(v, devices.baselineHr, {
+          recentWorkout: v.recentWorkout, caffeineMgToday: v.caffeineMgToday,
+          poorSleep: v.poorSleep, activeNow: v.activeNow, hrFreshness: v.hrFreshness,
+          hrvFreshness: v.hrvFreshness, hrAgeMinutes: v.hrAgeMinutes,
+          declaredContext: prefs?.declaredContext,
+        }, devices.baselineProfile);
+        if (alive) setR({ ...out, hr: v?.hr });
+      } catch {}
+    }
+    tick();
+    const t = setInterval(tick, 15000);
+    return () => { alive = false; clearInterval(t); };
+  }, [devices?.watch]);
+  if (!r) return null;
+  const level = (r.level || "baseline").toLowerCase();
+  const color = level === "high" || level === "critical" ? C.danger
+    : level === "elevated" ? C.warning : C.success;
+  return (
+    <Card accent={color}>
+      <Row icon="pulse" iconFg={color} iconBg={C.surfaceStrong}
+        title={`Live risk: ${level.toUpperCase()}`}
+        subtitle={`score ${(r.score ?? 0).toFixed(2)}`
+          + (r.hr != null ? ` · HR ${Math.round(r.hr)} bpm` : "")
+          + ` · ${r.risk_source === RISK_SOURCE.TRAINED ? "trained model" : "baseline comparison"}`}
+        right={<Pill text={level} fg={color} bg={C.surfaceStrong} />} />
+      <Text style={[type.meta, { marginTop: 8 }]}>
+        Demo view only: a patient would not see their own risk score in the
+        released app. Shown here so the recording can show the engine scoring
+        in real time.
+      </Text>
+    </Card>
+  );
+}
 function useTherapistName() { const { authUser } = useApp(); return authUser?.therapistName || "your therapist"; }
 
 export function PatientHome({ navigation }) {
@@ -100,6 +150,8 @@ export function PatientHome({ navigation }) {
           </Text>
         ) : null}
       </GradientCard>
+
+      <DemoLiveRisk />
 
       <Card>
         <Text style={[type.title, { textAlign: "center", fontSize: 18 }]}>How are you feeling?</Text>
