@@ -251,12 +251,12 @@ def _draft_response(context: dict) -> Optional[dict]:
     # asking is the intervention -- it fires at low acuity to gather context.
     templates = {
         "EXPLORE": f"{moment} sounds like a lot right now. Can you tell me a little more about what's happening? If it helps, we could also try {suggested_action}.",
-        "COMFORT": f"{moment} sounds like a lot right now. I'm right here with you — let's {suggested_action}.",
-        "ACT": f"{moment} sounds like a lot right now. Let's {suggested_action}, right now — I'm with you.",
+        "COMFORT": f"{moment} sounds like a lot right now. I'm right here with you. Let's {suggested_action}.",
+        "ACT": f"{moment} sounds like a lot right now. Let's {suggested_action}, right now. I'm with you.",
     }
     message = templates.get(
         stage,
-        f"{moment} sounds like a lot right now. I'm right here with you — let's {suggested_action}.",
+        f"{moment} sounds like a lot right now. I'm right here with you. Let's {suggested_action}.",
     )
 
     return {

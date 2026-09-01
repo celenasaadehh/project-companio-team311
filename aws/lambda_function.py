@@ -81,7 +81,7 @@ PRIMARY_KEYS = {
 }
 
 # The plural key each resource's "list items for a patient" response uses,
-# on top of the generic "items" key — this is what the mobile client (see
+# on top of the generic "items" key -- this is what the mobile client (see
 # mobile/src/services/engine.js: getDecisions/getSessions/getNotes/
 # getAssignments) actually reads. Before this was added, every one of those
 # calls silently returned an empty list, even with real data in the table,
@@ -318,7 +318,7 @@ def normalize_resource(path):
 # writer like build_item() otherwise stores whatever the caller sends, so a
 # future screen (a therapist intake form, a note editor, anything) could
 # accidentally re-introduce a real name into a clinical table exactly the
-# way the original AddPatient screen did (fixed in conversation.js — it was
+# way the original AddPatient screen did (fixed in conversation.js -- it was
 # sending `name` straight into /clinical-profile). This is the backend half
 # of that fix: the guarantee is enforced here, not left to client discipline.
 IDENTITY_ONLY_FIELDS = {"name", "username", "display_name", "full_name", "real_name", "first_name", "last_name"}
@@ -1021,7 +1021,7 @@ def handle_media_delete(event, body):
 def handle_media_view_url(event, body):
     """
     Secure, short-lived GET for a therapist (or the owning patient) to review
-    stored media — never a public/permanent S3 URL. Added because the mobile
+    stored media -- never a public/permanent S3 URL. Added because the mobile
     client (services/engine.js -> getMediaViewUrl, POST /media-url) already
     calls this; it didn't exist in the deployed Lambda before, so every
     "View captured image" / "Play captured audio" button in the app was
@@ -1037,7 +1037,7 @@ def handle_media_view_url(event, body):
     if not can_access_patient(event, patient_id):
         return response(403, {"error": "You do not have permission to access this patient"})
 
-    # Never trust a client-supplied key blindly — it must actually belong to
+    # Never trust a client-supplied key blindly -- it must actually belong to
     # this patient's own media prefix, same rule as upload.
     if not validate_patient_s3_key(patient_id, s3_key):
         return response(403, {"error": "Invalid media path for this patient"})
@@ -1284,7 +1284,7 @@ def handle_identity_by_username(event, path):
 # =============================================================================
 
 # =============================================================================
-# TRIGGER VOCABULARY — GENERATED. DO NOT EDIT BY HAND.
+# TRIGGER VOCABULARY -- GENERATED. DO NOT EDIT BY HAND.
 #
 # Source of truth: shared/trigger_vocabulary.json
 # Regenerate with: python3 tools/sync_trigger_vocabulary.py
@@ -2451,9 +2451,15 @@ def handle_respond(
     ]
 
     # preferred_intervention is only a starting preference, and only counts if
-    # it hasn't already failed this episode.
+    # it hasn't already failed this episode AND is still on the current
+    # approved list -- a stale preference left over from earlier care-plan
+    # wording must not outrank what the therapist approves today.
     preferred = profile.get("preferred_intervention")
     if preferred and str(preferred).strip().lower() in excluded:
+        preferred = None
+    if preferred and str(preferred).strip().lower() not in {
+        str(a).strip().lower() for a in approved
+    }:
         preferred = None
 
     # Rotate through the remaining approved options rather than returning the
@@ -2477,7 +2483,7 @@ def handle_respond(
         # Directive, not interrogative: mid-episode, an open question hands a
         # dysregulated person a decision to make, which is itself a load.
         message = (
-            "I'm right here with you — let's try "
+            "I'm right here with you. Let's try "
             f"{action}."
         )
     else:
@@ -2486,8 +2492,8 @@ def handle_respond(
         action = "offer neutral grounding; flag for therapist review"
         message = (
             "I won't keep suggesting the same thing. "
-            "Let's reach your therapist right now — "
-            "you don't have to do this alone."
+            "Let's reach your therapist right now. "
+            "You don't have to do this alone."
         )
 
     decision = save_decision(

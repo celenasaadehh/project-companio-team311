@@ -34,12 +34,34 @@ export function asResourceList(v) {
   return [v];
 }
 
-// Case-insensitive lookup of the attachments for an offered intervention.
+// Word-set for tolerant matching: lowercase, punctuation to spaces.
+function nameTokens(s) {
+  return new Set(
+    String(s).toLowerCase().replace(/[^a-z0-9]+/g, " ").split(" ").filter(Boolean)
+  );
+}
+
+// Lookup of the attachments for an offered intervention. Tolerant on purpose:
+// the decision layer may phrase the action differently from the key the
+// therapist typed ("5-4-3-2-1 grounding" vs "grounding 5-4-3-2-1", "sister
+// voice" vs "listen to sister voice message"). A missed match here means the
+// app ANNOUNCES a resource and delivers nothing, so word order and extra
+// words must not break it.
 export function resourcesFor(all, action) {
   if (!all || !action) return null;
   if (all[action]) return all[action];
   const want = String(action).toLowerCase().trim();
-  const key = Object.keys(all).find((k) => k.toLowerCase().trim() === want);
+  let key = Object.keys(all).find((k) => k.toLowerCase().trim() === want);
+  if (key) return all[key];
+  const wantSet = nameTokens(action);
+  if (!wantSet.size) return null;
+  key = Object.keys(all).find((k) => {
+    const ks = nameTokens(k);
+    if (!ks.size) return false;
+    const [small, big] = ks.size <= wantSet.size ? [ks, wantSet] : [wantSet, ks];
+    for (const t of small) if (!big.has(t)) return false;
+    return true;
+  });
   return key ? all[key] : null;
 }
 

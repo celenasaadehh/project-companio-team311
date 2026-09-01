@@ -136,7 +136,7 @@ def process_moment(
         if exhausted:
             said = ("What we've tried isn't helping, and I won't keep "
                     "suggesting the same things. Let's bring in your "
-                    "therapist right now — you don't have to do this alone.")
+                    "therapist right now. You don't have to do this alone.")
         else:
             said = SAFE_FALLBACK_MESSAGE
         return {"decision": decision, "spoken_message": said}
