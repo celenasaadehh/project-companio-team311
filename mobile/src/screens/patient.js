@@ -1,5 +1,5 @@
 // Patient home, support, progress, messages and profile.
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { View, Text, TouchableOpacity, Switch, ActivityIndicator, Image, Alert, Linking } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { colors as C, spacing, radius, type, gradients } from "../theme/theme";
@@ -24,9 +24,10 @@ function useMe() { const { currentPatientId, patient } = useApp(); return patien
 // their own risk score (it can feed the spiral it measures) -- the card says
 // so on its face. It runs the same 15-second read-and-score loop as the
 // Live Monitor, so the number on screen is the number the engine acts on.
-function DemoLiveRisk() {
+function DemoLiveRisk({ navigation }) {
   const { devices, prefs } = useApp();
   const [r, setR] = useState(null);
+  const escortedRef = useRef(0);
   useEffect(() => {
     if (!isHealthAvailable || !devices?.watch) return undefined;
     let alive = true;
@@ -43,6 +44,14 @@ function DemoLiveRisk() {
           fresh: v?.hrFreshness, level: out?.level, score: out?.score,
           src: out?.risk_source, why: out?.fallback_reason || null }));
         if (alive) setR({ ...out, hr: v?.hr });
+        // The episode machine lives on the Live Monitoring screen. When risk
+        // reaches HIGH while the person is on Home, the app takes them there
+        // itself -- detection must not depend on being on the right screen.
+        if (alive && out?.level === "high"
+            && Date.now() - escortedRef.current > 5 * 60 * 1000) {
+          escortedRef.current = Date.now();
+          try { navigation?.navigate("LiveMonitor"); } catch {}
+        }
       } catch (e) { console.log("[liverisk] error", String(e?.message || e)); }
     }
     tick();
@@ -154,7 +163,7 @@ export function PatientHome({ navigation }) {
         ) : null}
       </GradientCard>
 
-      <DemoLiveRisk />
+      <DemoLiveRisk navigation={navigation} />
 
       <Card>
         <Text style={[type.title, { textAlign: "center", fontSize: 18 }]}>How are you feeling?</Text>
