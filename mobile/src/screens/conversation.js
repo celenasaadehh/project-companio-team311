@@ -186,6 +186,15 @@ export function AddPatient({ navigation }) {
       const pid = existing.patient_id;
       const p = addPatient({ id: pid, name, age, gender, level, presentingConcern: concern.trim(), interventions, triggers, forbidden, medications: meds, consent, signedPatient: signedP, signedTherapist: signedT });
 
+      // The assignment is the ACCESS GRANT: it must exist on the server
+      // BEFORE the plan write, or the permission check rejects the plan
+      // update (403) because this therapist is not yet assigned.
+      try {
+        await saveAssignment({ patient_id: pid });
+      } catch (e) {
+        console.warn("Assignment not saved to AWS:", e);
+      }
+
       // Merge, never replace: only the fields the therapist actually typed in
       // this form overwrite the existing plan. Empty sections keep whatever
       // the record already holds.
@@ -201,11 +210,10 @@ export function AddPatient({ navigation }) {
           console.warn("Clinical profile not updated on AWS:", e);
           Alert.alert(
             "Care plan not saved",
-            `${name.trim()} was connected, but the plan changes did not save.\n\n${String(e?.message || e)}\n\nOpen their Treatment plan and add them again.`,
+            `${name.trim()} was connected, but the plan changes did not save.\n\n${String(e?.message || e)}\n\nOpen their Treatment plan tab and enter them there.`,
           );
         });
       }
-      saveAssignment({ patient_id: pid }).catch((e) => console.warn("Assignment not saved to AWS:", e));
 
       navigation.replace("Workspace", { patientId: pid });
       return;
