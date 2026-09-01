@@ -13,8 +13,8 @@ export const EpisodeState = {
 };
 
 export const TIMING = {
-  watchingMs: 30 * 1000,
-  checkInMs: 30 * 1000,
+  watchingMs: 15 * 1000,
+  checkInMs: 10 * 1000,
   supportMs: 150 * 1000,
   recoveryMs: 120 * 1000,
   maxInterventions: 3,
