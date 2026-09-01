@@ -248,6 +248,9 @@ export function RecordSeen({ route, navigation }) {
         While the patient's signals are elevated, the camera samples the
         surroundings automatically about every 6 seconds — each entry below is
         one frame, so an episode reads as a sweep of what was around them.
+        Six seconds is the honest floor: each frame takes a few seconds to
+        capture, reach encrypted storage and be read by the recognition
+        service, and a new frame starts as soon as the previous one finishes.
       </Text>
 
       {loading ? <ActivityIndicator color={C.primary} /> : null}
