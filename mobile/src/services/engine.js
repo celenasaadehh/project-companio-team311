@@ -224,6 +224,28 @@ export async function deleteTherapistRule(ruleId) {
   );
 }
 
+// Clinical writes must land. A single timed-out request was silently
+// dropping trigger events and episode records, so the therapist saw an
+// empty record for an episode that genuinely happened. Transient failures
+// (timeout, dropped connection, 5xx) are retried with growing patience;
+// real rejections (4xx) surface immediately -- retrying a permission
+// error only repeats it.
+async function saveWithRetry(path, body) {
+  const timeouts = [6000, 10000, 16000];
+  const delays = [1000, 3000];
+  let lastErr = null;
+  for (let i = 0; i < timeouts.length; i++) {
+    try {
+      return await awsApiCall(path, body, "POST", timeouts[i]);
+    } catch (e) {
+      lastErr = e;
+      if (/AWS API HTTP 4\d\d/.test(String(e?.message || e))) throw e;
+      if (i < delays.length) await new Promise((r) => setTimeout(r, delays[i]));
+    }
+  }
+  throw lastErr;
+}
+
 export async function saveDecision(decision) {
   decision = withEpisode(decision);
 
@@ -231,11 +253,7 @@ export async function saveDecision(decision) {
     throw new Error("patient_id is required");
   }
 
-  return await awsApiCall(
-    "/decision",
-    decision,
-    "POST"
-  );
+  return await saveWithRetry("/decision", decision);
 }
 
 export async function getDecisions(patientId) {
@@ -257,11 +275,7 @@ export async function saveSession(session) {
     throw new Error("patient_id is required");
   }
 
-  return await awsApiCall(
-    "/session",
-    session,
-    "POST"
-  );
+  return await saveWithRetry("/session", session);
 }
 
 export async function getSessions(patientId) {
@@ -281,11 +295,7 @@ export async function saveNote(note) {
     throw new Error("patient_id is required");
   }
 
-  return await awsApiCall(
-    "/note",
-    note,
-    "POST"
-  );
+  return await saveWithRetry("/note", note);
 }
 
 export async function getNotes(patientId) {
