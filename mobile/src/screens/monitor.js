@@ -188,6 +188,12 @@ export function LiveMonitor({ navigation }) {
       if (a.type === "OPEN_SUPPORT" || a.type === "TRY_ANOTHER_INTERVENTION") {
         await fireAlert(r, a.source === "patient_request" ? "Patient asked for support." : null);
       } else if (a.type === "CAPTURE_CONTEXT") {
+        // The camera never activates silently: the banner says it is
+        // happening and offers the human alternative -- tapping it opens
+        // the Talk screen already listening, same path as "Hey Siri".
+        notifyNow("Activating the camera",
+          "Companio is checking your surroundings. Would you rather talk? Tap here.",
+          0, { kind: "camera_talk", patient_id: currentPatientId }).catch(() => {});
         navigation.navigate("Glasses", { auto: true, episode_id: episode.episode_id });
       } else if (a.type === "OFFER_ESCALATION") {
         notifyNow("Let's bring in your therapist",

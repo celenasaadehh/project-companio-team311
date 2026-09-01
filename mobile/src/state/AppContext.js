@@ -1,5 +1,6 @@
 // App-wide state: auth, caseload, preferences, messages.
 import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from "react";
+import { Linking } from "react-native";
 import { newPatient, patientFromAws } from "../data/demoData";
 import * as Auth from "../services/auth";
 import * as SecureStore from "expo-secure-store";
@@ -96,6 +97,13 @@ export function AppProvider({ children }) {
   useEffect(() => {
     registerNotificationActions();
     return onNotificationAction(async ({ action, text, data }) => {
+      // The camera-activation banner's "would you rather talk?": any tap
+      // opens the Talk screen already listening, via the same deep link the
+      // Siri shortcut uses.
+      if (data?.kind === "camera_talk") {
+        try { Linking.openURL("companio://help"); } catch {}
+        return;
+      }
       const pid = data?.patient_id || currentPatientId;
       if (!pid) return;
 
