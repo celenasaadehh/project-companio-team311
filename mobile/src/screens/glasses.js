@@ -96,7 +96,11 @@ export function PatientGlasses({ navigation, route }) {
         : null;
 
       const elevated = live && ["elevated", "high"].includes(live.level);
-      const confounded = live?.confounded || live?.activeNow;
+      // Only real, current activity vetoes the scan. The damping flag
+      // ("confounded") is set whenever the cautious score was preferred --
+      // which is near-constantly, by design -- and using it as a veto meant
+      // the automatic camera practically never engaged.
+      const confounded = !!vitals?.activeNow;
 
       if (elevated && !confounded) {
         setAutoReason(live.level === "high"
