@@ -53,3 +53,7 @@ mobile/ios/DerivedData/
 
 # Editor/agent tool config
 .claude/
+
+# Agent/editor tooling notes (kept locally, not part of the app)
+mobile/CLAUDE.md
+mobile/AGENTS.md
