@@ -135,7 +135,10 @@ export function PatientGlasses({ navigation, route }) {
     setLoading(true);
     let result = null;
     try {
-      const pic = await cameraProvider.captureImage(cameraRef, { quality: 0.5 });
+      // 0.3, not 0.5: Rekognition reads labels fine from a light JPEG, and a
+      // heavy one over a weak uplink is what made scans feel endless and
+      // then time out.
+      const pic = await cameraProvider.captureImage(cameraRef, { quality: 0.3 });
       const { s3_key } = await uploadImage(currentPatientId, pic.uri, "image/jpeg");
       const rek = await recognizeImage(s3_key, currentPatientId);
       const labels = rek?.labels || [];

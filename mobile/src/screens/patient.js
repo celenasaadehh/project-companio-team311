@@ -44,13 +44,17 @@ function DemoLiveRisk({ navigation }) {
         console.log("[liverisk]", JSON.stringify({ hr: v?.hr, ageMin: v?.hrAgeMinutes,
           fresh: v?.hrFreshness, level: out?.level, score: out?.score,
           src: out?.risk_source, why: out?.fallback_reason || null }));
-        if (alive) setR({ ...out, hr: v?.hr });
+        if (alive) setR({ ...out, hr: v?.hr, hrAgeMinutes: v?.hrAgeMinutes });
         // The episode machine lives on the Live Monitoring screen. When risk
         // rises while the person is on Home, the app takes them there itself
         // -- detection must not depend on being on the right screen. High
         // goes immediately; elevated must hold for two ticks (~30s) so a
         // single borderline reading doesn't yank the screen around.
-        const risen = out?.level === "elevated" || out?.level === "high";
+        // Only FRESH readings may escalate: a sample minutes old re-scored
+        // as elevated must never yank the person anywhere.
+        const freshEnough = (v?.hrAgeMinutes ?? 99) <= 3;
+        const risen = freshEnough
+          && (out?.level === "elevated" || out?.level === "high");
         elevatedTicksRef.current = risen ? elevatedTicksRef.current + 1 : 0;
         const sustained = out?.level === "high" || elevatedTicksRef.current >= 2;
         if (alive && risen && sustained
@@ -65,7 +69,19 @@ function DemoLiveRisk({ navigation }) {
     return () => { alive = false; clearInterval(t); };
   }, [devices?.watch]);
   if (!r) return null;
+  const stale = (r.hrAgeMinutes ?? r.ageMin ?? 99) > 3 && r.hr != null;
   const level = (r.level || "baseline").toLowerCase();
+  // A stale reading never wears alarm colors: an old sample scored as
+  // "elevated" frightens without informing. It becomes an instruction.
+  if (stale) {
+    return (
+      <Card>
+        <Row icon="pulse" iconFg={C.textSecondary} iconBg={C.surfaceStrong}
+          title="Waiting for a fresh reading"
+          subtitle="Open the Heart Rate app on your watch so Companio can see you live." />
+      </Card>
+    );
+  }
   const color = level === "high" || level === "critical" ? C.danger
     : level === "elevated" ? C.warning : C.success;
   return (

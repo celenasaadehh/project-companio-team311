@@ -199,8 +199,14 @@ export function LiveMonitor({ navigation }) {
     // The machine decides when enough interventions have failed, so it must see
     // the same offer list the decision path records.
     episodeRef.current.interventions = offeredActions();
+    // Escalation demands FRESH physiology. A heart-rate sample minutes old
+    // re-scored as "elevated" was walking the machine toward check-ins and
+    // the camera on data from another moment entirely. Older than 3 minutes
+    // reads as baseline here; the honest reading still shows on screen.
+    const freshEnough = (v?.hrAgeMinutes ?? 99) <= 3;
+    const rForMachine = freshEnough ? r : { ...r, level: "baseline" };
     const { episode, actions } = machineStep(episodeRef.current, {
-      risk: r,
+      risk: rForMachine,
       patientResponse: bannerAnswer || consumePatientResponse(),
       interventionHelped: consumeInterventionOutcome(),
       permissions: {
