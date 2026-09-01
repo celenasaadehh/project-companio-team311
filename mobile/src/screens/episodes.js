@@ -28,19 +28,47 @@ function assembleEpisodes(sessions, decisions) {
     return byId.get(id);
   };
 
+  const loose = [];
+
   for (const s of sessions || []) {
-    const id = s.episode_id || `legacy:${s.session_id || s.created_at}`;
-    const ep = bucket(id, s.episode_started_at || s.created_at);
-    if (s.type === "episode") ep.summary = s;
-    else ep.rows.push(s);
-    if (!ep.started_at || (s.created_at && s.created_at < ep.started_at)) {
-      ep.started_at = s.episode_started_at || s.created_at;
+    if (["message", "daily_snapshot", "medication_log"].includes(s.type)) continue;
+    if (s.type === "episode" || s.episode_id) {
+      const id = s.episode_id || `legacy:${s.session_id || s.created_at}`;
+      const ep = bucket(id, s.episode_started_at || s.created_at);
+      if (s.type === "episode") ep.summary = s;
+      else ep.rows.push(s);
+      if (!ep.started_at || (s.created_at && s.created_at < ep.started_at)) {
+        ep.started_at = s.episode_started_at || s.created_at;
+      }
+    } else {
+      loose.push({ kind: "row", at: s.created_at || null, rec: s });
     }
   }
 
   for (const d of decisions || []) {
-    const id = d.episode_id || `legacy:${d.decision_id}`;
-    bucket(id, d.episode_started_at || d.timestamp).decisions.push(d);
+    if (d.episode_id) {
+      bucket(d.episode_id, d.episode_started_at || d.timestamp).decisions.push(d);
+    } else {
+      loose.push({ kind: "decision", at: d.timestamp || d.created_at || null, rec: d });
+    }
+  }
+
+  // Ungrouped records that happened within minutes of each other are ONE
+  // incident, not a scatter of one-line cards each apologising for being
+  // ungrouped: cluster by a 15-minute gap.
+  loose.sort((a, b) => new Date(a.at || 0) - new Date(b.at || 0));
+  let current = null;
+  for (const item of loose) {
+    const t = new Date(item.at || 0).getTime();
+    if (!current || t - current._lastMs > 15 * 60 * 1000) {
+      current = { episode_id: `window:${item.at || Math.random()}`,
+                  started_at: item.at, rows: [], decisions: [], summary: null,
+                  _lastMs: t };
+      byId.set(current.episode_id, current);
+    }
+    current._lastMs = Math.max(current._lastMs, t);
+    if (item.kind === "row") current.rows.push(item.rec);
+    else current.decisions.push(item.rec);
   }
 
   return [...byId.values()]
@@ -185,7 +213,9 @@ export function EpisodeTimeline({ route, navigation }) {
               {time(ep.started_at)}
             </SectionTitle>
             <Card accent={urgent ? C.danger : C.primary}
-              onPress={() => navigation.navigate("EventDetail", { patientId, episodeId: ep.episode_id })}>
+              onPress={ep.episode_id.startsWith("window:") || ep.episode_id.startsWith("legacy:")
+                ? undefined
+                : () => navigation.navigate("EventDetail", { patientId, episodeId: ep.episode_id })}>
               {story.map((line, i) => (
                 <View key={i} style={{ flexDirection: "row", paddingVertical: 7 }}>
                   <View style={{ width: 26, alignItems: "center", paddingTop: 2 }}>
@@ -222,11 +252,6 @@ export function EpisodeTimeline({ route, navigation }) {
                   </View>
                 </View>
               ))}
-              {ep.episode_id.startsWith("legacy:") ? (
-                <Text style={[type.meta, { marginTop: 8 }]}>
-                  Recorded before episodes were grouped, so this may be part of a larger incident.
-                </Text>
-              ) : null}
             </Card>
           </View>
         );
