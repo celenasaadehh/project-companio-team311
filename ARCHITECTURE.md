@@ -29,7 +29,7 @@ Identity and clinical data are separate concepts. Clinical data uses the interna
 - **Data**: 7 DynamoDB tables (`CompanioIdentity`, `CompanioClinicalProfiles`, `CompanioTherapistRules`, `CompanioDecisions`, `CompanioSessions`, `CompanioAssignments`, `CompanioNotes`), all customer-managed-KMS encrypted.
 - **Media**: private, KMS-encrypted S3 bucket, accessed only via short-lived presigned URLs (`POST /media-upload-url`, `POST /media-url`) — never a public link.
 - **Vision/speech**: Amazon Rekognition (`POST /recognize`) and Amazon Transcribe (`POST /transcription` + polling), both driven from the Lambda.
-- Exact deploy/test steps: `FINAL_SETUP.md` at the repo root.
+- How to run and test everything: `README.md` at the repo root.
 
 ## Real-hardware boundary (still open)
 Real Apple Watch/HealthKit data IS wired (`mobile/src/services/health.js`, native entitlements in `mobile/ios/`). Smart-glasses hardware is NOT — see `mobile/src/services/cameraProvider.js` for the clean interface a real vendor SDK plugs into; the phone camera is the fully-working default.

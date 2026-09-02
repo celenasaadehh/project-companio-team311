@@ -2,8 +2,8 @@
 
 > **Status update:** the mobile app's persistent-data backend (Cognito, API
 > Gateway, DynamoDB, S3, Rekognition, Transcribe) is now LIVE — see
-> `aws/lambda_function.py` (the complete Lambda source) and `FINAL_SETUP.md`
-> at the repo root for exact deploy/test steps. The guidance below still
+> `aws/lambda_function.py` (the complete Lambda source) and `README.md`
+> at the repo root for how to run and test it. The guidance below still
 > applies to `therapist_engine/api/main.py`'s own SEPARATE, optional
 > `USE_AWS` path (a local FastAPI service on your Mac) — do not confuse the
 > two. That local path's `.env` template further down referenced the old

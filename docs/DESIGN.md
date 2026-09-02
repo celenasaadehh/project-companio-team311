@@ -157,5 +157,6 @@ Reported because overstating them would be the more serious error.
 - **The inference service must be reachable for the trained models.** When
   it is not, the app falls back to the Lambda decision path, which
   enforces the same care-plan boundaries with the same ordered
-  intervention ladder, and the record says which engine answered.
-  `deploy/` documents hosting the engine on App Runner.
+  intervention ladder, and the record says which engine answered. Hosting
+  the inference service away from a development machine is the next
+  deployment step.

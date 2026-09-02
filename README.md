@@ -77,8 +77,7 @@ Python inference service (FastAPI)
 ```
 
 AWS: Cognito, API Gateway + Lambda, DynamoDB, S3 (KMS), Rekognition,
-Transcribe, server-side Expo push. Optional App Runner hosting for the
-engine: [deploy/](deploy/README.md)
+Transcribe, server-side Expo push.
 
 ---
 
@@ -115,7 +114,6 @@ therapist_engine/    FastAPI inference service, decision hierarchy, 105 tests
 risk_engine/         physiological models and training
 ai-risk-engine/      the original risk-model module, as committed by its author
 aws/                 Lambda backend
-deploy/              hosting the engine on App Runner (documented, not wired in)
 docs/                design notes, limitations, privacy
 shared/ · tools/     trigger vocabulary and its generators
 ```
