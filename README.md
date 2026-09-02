@@ -122,18 +122,6 @@ shared/ · tools/     trigger vocabulary and its generators
 
 ---
 
-## Team
-
-Team 311 — American University of Beirut
-
-- [@tatianayamminee](https://github.com/tatianayamminee)
-- [@celenasaadehh](https://github.com/celenasaadehh)
-- [@Andrew-sleiman](https://github.com/Andrew-sleiman)
-- [@carladoumit02](https://github.com/carladoumit02)
-- [@yasminakadi55](https://github.com/yasminakadi55)
-
----
-
 Companio supports care between sessions. It does not diagnose, does not
 replace a clinician, and is not monitored in real time. In a crisis, call
 911 or 988.
