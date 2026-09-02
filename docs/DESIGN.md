@@ -126,8 +126,14 @@ Reported because overstating them would be the more serious error.
   caregiver escalation independently. Each switch is read by the code that
   performs the behaviour.
 - Turning retention off stops the file being kept on the clinical record
-  and shown to the therapist. It does not yet erase the object from
-  storage, and the interface does not claim otherwise.
+  and shown to the therapist, with one deliberate exception: a capture
+  taken during an episode (a corroborated trigger, an unseen-trigger
+  moment, or an automatic monitoring capture) is retained as clinical
+  evidence the therapist reviews, because a label alone does not let a
+  clinician judge whether something belongs on the trigger list. Casual
+  scans while the patient is calm are discarded as the switch instructs.
+  Deleting a retained object from storage is not yet implemented, and the
+  interface does not claim otherwise.
 - Monitoring can be paused for a chosen period.
 
 ## Known limitations
