@@ -8,18 +8,9 @@ it offers **only what that patient's own therapist has approved**. Everything
 it does is recorded, explained, and reviewable by the clinician. It does not
 diagnose, and it is not a crisis service.
 
-> ### ⚠️ Before running the engine: download the model weights
->
-> Four of the five trained models ship in this repository. The fifth — the
-> fine-tuned **DistilBERT text-distress detector** — is a single **255 MB**
-> file, above GitHub's 100 MB limit, so it is hosted on Google Drive:
->
-> **➜ [Download `model.safetensors` from the Google Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)**
->
-> Place it at `therapist_engine/ml/detector_bert/bert_model/model.safetensors`
-> (its config and tokenizer are already in that folder). Without it the engine
-> still runs on the other four models — the health endpoint reports the
-> detector as absent and the text gate fails closed rather than guessing.
+**Model weights:** the DistilBERT detector's weights are hosted on
+[Google Drive](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)
+rather than in the repository — see [Running it](#running-it).
 
 **Status:** a working prototype. The iOS app is a development build signed
 with our Apple Developer account and run on a physical iPhone; the AWS
@@ -115,11 +106,16 @@ cd therapist_engine && python3 -m pytest tests -q   # 105 engine + backend tests
 cd mobile && npm run check                          # 75 app tests + 2 static analysers
 ```
 
-The DistilBERT weights are the one file not in this repository: download
-`model.safetensors` from the
-[Google Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)
-and place it at `therapist_engine/ml/detector_bert/bert_model/` before
-starting the engine, or accept four of five models.
+**Model weights.** Four of the five trained models ship in this repository.
+The fifth, the fine-tuned DistilBERT text-distress detector, is a single
+255 MB file — above GitHub's 100 MB limit — so it is hosted on Google Drive:
+
+**[Download `model.safetensors` from the Google Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)**
+
+Place it at `therapist_engine/ml/detector_bert/bert_model/model.safetensors`;
+its config and tokenizer are already in that folder. Without it the engine
+still runs on the other four models — the health endpoint reports the
+detector as absent and the text gate fails closed rather than guessing.
 
 The app needs Xcode and a physical iPhone: HealthKit is unavailable in the
 Simulator, and the build is signed with our Apple Developer account.
