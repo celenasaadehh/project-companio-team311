@@ -151,21 +151,32 @@ export function techniqueById(id) {
   return GROUNDING_TECHNIQUES.find((t) => t.id === id) || null;
 }
 
+// Keywords are matched at a word start, never as a bare substring: "voice"
+// contains "ice", so substring matching turned "listen to her voice message"
+// into the cold-object technique.
+const startsWord = (text, keyword) =>
+  new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`).test(text);
+
 export function matchTechnique(action) {
   if (!action) return null;
   const a = String(action).toLowerCase();
   const direct = GROUNDING_TECHNIQUES.find((t) => a.includes(t.id));
   if (direct) return direct;
-  if (a.includes("5-4-3-2-1") || a.includes("54321") || a.includes("senses")) return techniqueById("sensory_54321");
-  if (a.includes("cold") || a.includes("ice")) return techniqueById("temperature");
-  if (a.includes("orient") || a.includes("present")) return techniqueById("orient_room");
-  if (a.includes("feet") || a.includes("floor")) return techniqueById("feet_floor");
-  if (a.includes("breath") || a.includes("exhale") || a.includes("breathing")) return techniqueById("slow_exhale");
-  if (a.includes("count")) return techniqueById("counting_backwards");
-  if (a.includes("safe place") || a.includes("imagery")) return techniqueById("safe_place");
-  if (a.includes("categor")) return techniqueById("categories");
-  if (a.includes("colour") || a.includes("color")) return techniqueById("five_things_colour");
-  if (a.includes("hold") || a.includes("object")) return techniqueById("hold_object");
+  const rules = [
+    [["5-4-3-2-1", "54321", "senses"], "sensory_54321"],
+    [["cold", "ice"], "temperature"],
+    [["orient", "present"], "orient_room"],
+    [["feet", "floor"], "feet_floor"],
+    [["breath", "exhale"], "slow_exhale"],
+    [["count"], "counting_backwards"],
+    [["safe place", "imagery"], "safe_place"],
+    [["categor"], "categories"],
+    [["colour", "color"], "five_things_colour"],
+    [["hold", "object"], "hold_object"],
+  ];
+  for (const [keywords, id] of rules) {
+    if (keywords.some((k) => startsWord(a, k))) return techniqueById(id);
+  }
   return null;
 }
 

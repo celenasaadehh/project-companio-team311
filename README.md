@@ -95,8 +95,8 @@ curl localhost:8000/api/health/models          # every model should be loaded
 cd mobile && npx expo run:ios --device
 
 # tests
-cd therapist_engine && python3 -m pytest tests -q          # 51 tests
-cd mobile && node ./.undefined_check.js && node ./.export_check.js
+cd therapist_engine && python3 -m pytest tests -q   # 105 engine + backend tests
+cd mobile && npm run check                          # 75 app tests + 2 static analysers
 ```
 
 The DistilBERT weights (255 MB, above GitHub's file limit) are the one
@@ -110,8 +110,8 @@ closed.
 ## Repository
 
 ```
-mobile/              React Native app
-therapist_engine/    FastAPI inference service, decision hierarchy, 51 tests
+mobile/              React Native app, 75 tests
+therapist_engine/    FastAPI inference service, decision hierarchy, 105 tests
 risk_engine/         physiological models and training
 ai-risk-engine/      the original risk-model module, as committed by its author
 aws/                 Lambda backend

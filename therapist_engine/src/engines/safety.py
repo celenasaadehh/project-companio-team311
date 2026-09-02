@@ -36,6 +36,14 @@ _SAFETY_GUARANTEE_PHRASES = [
     "nothing can hurt you",
     "no danger",
     "there is no threat",
+    "nothing bad is going to happen",
+    "nothing bad will happen",
+    "nothing is going to happen to you",
+    "you will be fine",
+    "you'll be fine",
+    "everything is going to be okay",
+    "everything will be okay",
+    "i promise",
 ]
 
 _DIAGNOSIS_PHRASES = [
@@ -131,6 +139,10 @@ def is_safe(message: str) -> bool:
 # IT AWAY and speak the neutral fallback instead. The cautious path always wins.
 # =============================================================================
 def make_safe(message: str) -> tuple[str, list[str]]:
+    # Nothing to say is not a safe thing to say: an empty proposal becomes the
+    # neutral line rather than silence during an episode.
+    if not (message or "").strip():
+        return SAFE_FALLBACK_MESSAGE, ["empty message"]
     problems = find_violations(message)
     # "if problems:" is true when the basket is NOT empty (something was found).
     if problems:
