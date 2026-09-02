@@ -8,8 +8,25 @@ it offers **only what that patient's own therapist has approved**. Everything
 it does is recorded, explained, and reviewable by the clinician. It does not
 diagnose, and it is not a crisis service.
 
-**Model weights** (one file too large for GitHub — see [Running it](#running-it)):
-[Google Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)
+> ### ⚠️ Before running the engine: download the model weights
+>
+> Four of the five trained models ship in this repository. The fifth — the
+> fine-tuned **DistilBERT text-distress detector** — is a single **255 MB**
+> file, above GitHub's 100 MB limit, so it is hosted on Google Drive:
+>
+> **➜ [Download `model.safetensors` from the Google Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)**
+>
+> Place it at `therapist_engine/ml/detector_bert/bert_model/model.safetensors`
+> (its config and tokenizer are already in that folder). Without it the engine
+> still runs on the other four models — the health endpoint reports the
+> detector as absent and the text gate fails closed rather than guessing.
+
+**Status:** a working prototype. The iOS app is a development build signed
+with our Apple Developer account and run on a physical iPhone; the AWS
+backend (Cognito, API Gateway, Lambda, DynamoDB, S3, Rekognition, Transcribe)
+is deployed and live; the Python inference service runs on a development
+machine on the same network as the phone. When it is unreachable the app
+falls back to the AWS decision path and records which engine answered.
 
 ---
 
@@ -98,13 +115,14 @@ cd therapist_engine && python3 -m pytest tests -q   # 105 engine + backend tests
 cd mobile && npm run check                          # 75 app tests + 2 static analysers
 ```
 
-The DistilBERT weights (255 MB, above GitHub's file limit) are the one
-thing not in this repository — download `model.safetensors` from the
-[Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)
-and place it at
-`therapist_engine/ml/detector_bert/bert_model/`. Without it the engine still
-runs — the health endpoint reports the detector absent and the gate fails
-closed.
+The DistilBERT weights are the one file not in this repository: download
+`model.safetensors` from the
+[Google Drive folder](https://drive.google.com/drive/folders/1I4coUgV6tsdymLN9cKL0X1aSp0IF4B9N?usp=sharing)
+and place it at `therapist_engine/ml/detector_bert/bert_model/` before
+starting the engine, or accept four of five models.
+
+The app needs Xcode and a physical iPhone: HealthKit is unavailable in the
+Simulator, and the build is signed with our Apple Developer account.
 
 ## Repository
 
